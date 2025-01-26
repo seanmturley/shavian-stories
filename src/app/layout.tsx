@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import "node_modules/modern-normalize/modern-normalize.css";
 import "./globals.css";
 
 export const metadata: Metadata = {
