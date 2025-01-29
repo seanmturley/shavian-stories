@@ -1,27 +1,10 @@
+import StoryHeader from "@components/story-header";
+import { author, stories } from "./metadata";
+
 export default function Dagon() {
   return (
     <article>
-      <header>
-        <h1>
-          <a data-tooltip-id="latin" data-tooltip-content="Dagon">
-            ·𐑛𐑨𐑜𐑩𐑯
-          </a>
-        </h1>
-        <p>
-          <a data-tooltip-id="latin" data-tooltip-content="by">
-            𐑚𐑲
-          </a>{" "}
-          <a
-            rel="author"
-            href="/author/lovecraft"
-            data-tooltip-id="latin"
-            data-tooltip-content="H. P. Lovecraft"
-          >
-            ·𐑣. ·𐑐. ·𐑤𐑳𐑝𐑒𐑮𐑭𐑓𐑑
-          </a>
-        </p>
-        <p>1919</p>
-      </header>
+      <StoryHeader author={author} story={stories.dagon} />
       <p>
         <a data-tooltip-id="latin" data-tooltip-content="I">
           𐑲
