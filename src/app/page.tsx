@@ -1,10 +1,7 @@
-import { Tooltip } from "@components/react-tooltip";
-
 export default function Home() {
   return (
     <main>
       <article>
-        <Tooltip id="latin" />
         <header>
           <h1>
             <a data-tooltip-id="latin" data-tooltip-content="Dagon">

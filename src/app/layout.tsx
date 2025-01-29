@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "node_modules/modern-normalize/modern-normalize.css";
 import "./globals.css";
+import Tooltip from "@components/react-tooltip";
 
 export const metadata: Metadata = {
   title: "Shavian Stories | ·𐑖𐑱𐑝𐑾𐑯 𐑕𐑑𐑹𐑦𐑟",
@@ -15,7 +16,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        {children}
+        <Tooltip id="latin" />
+      </body>
     </html>
   );
 }

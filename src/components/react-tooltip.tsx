@@ -1,3 +1,5 @@
 "use client";
 
-export { Tooltip } from "react-tooltip";
+import { Tooltip } from "react-tooltip";
+
+export default Tooltip;
