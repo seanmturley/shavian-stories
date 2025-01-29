@@ -1,7 +1,7 @@
 export const author: Author = {
   latin: "H. P. Lovecraft",
   shavian: "𐑣. ·𐑐. ·𐑤𐑳𐑝𐑒𐑮𐑭𐑓𐑑",
-  url: "/read/h-p-lovecraft"
+  url: "h-p-lovecraft"
 };
 
 export const stories: Stories = {
