@@ -12,20 +12,26 @@ export default function TheDunwichHorror() {
           <p>
             <span className={styles.textCursor}>
               «
-              <a data-tooltip-id="latin" data-tooltip-content="Gorgons,">
-                𐑜𐑹𐑜𐑩𐑯𐑟,
-              </a>{" "}
+              <a data-tooltip-id="latin" data-tooltip-content="Gorgons">
+                𐑜𐑹𐑜𐑩𐑯𐑟
+              </a>
+              ,{" "}
               <a data-tooltip-id="latin" data-tooltip-content="and">
                 𐑯
               </a>{" "}
-              <a data-tooltip-id="latin" data-tooltip-content="Hydras,">
-                𐑣𐑲𐑛𐑮𐑩𐑟,
-              </a>{" "}
+              <a data-tooltip-id="latin" data-tooltip-content="Hydras">
+                𐑣𐑲𐑛𐑮𐑩𐑟
+              </a>
+              ,{" "}
               <a data-tooltip-id="latin" data-tooltip-content="and">
                 𐑯
               </a>{" "}
-              <a data-tooltip-id="latin" data-tooltip-content="Chimaeras—dire">
-                𐑒𐑲𐑥𐑽𐑩𐑟—𐑛𐑲𐑼
+              <a data-tooltip-id="latin" data-tooltip-content="Chimaeras">
+                𐑒𐑲𐑥𐑽𐑩𐑟
+              </a>
+              —
+              <a data-tooltip-id="latin" data-tooltip-content="dire">
+                𐑛𐑲𐑼
               </a>{" "}
               <a data-tooltip-id="latin" data-tooltip-content="stories">
                 𐑕𐑑𐑹𐑦𐑟
@@ -42,8 +48,12 @@ export default function TheDunwichHorror() {
               <a data-tooltip-id="latin" data-tooltip-content="the">
                 𐑞
               </a>{" "}
-              <a data-tooltip-id="latin" data-tooltip-content="Harpies—may">
-                𐑣𐑸𐑐𐑦𐑟—𐑥𐑱
+              <a data-tooltip-id="latin" data-tooltip-content="Harpies">
+                𐑣𐑸𐑐𐑦𐑟
+              </a>
+              —
+              <a data-tooltip-id="latin" data-tooltip-content="may">
+                𐑥𐑱
               </a>{" "}
               <a data-tooltip-id="latin" data-tooltip-content="reproduce">
                 𐑮𐑰𐑐𐑮𐑩𐑛𐑿𐑕
@@ -63,9 +73,10 @@ export default function TheDunwichHorror() {
               <a data-tooltip-id="latin" data-tooltip-content="of">
                 𐑝
               </a>{" "}
-              <a data-tooltip-id="latin" data-tooltip-content="superstition—">
-                𐑕𐑵𐑐𐑼𐑕𐑑𐑦𐑖𐑩𐑯—
+              <a data-tooltip-id="latin" data-tooltip-content="superstition">
+                𐑕𐑵𐑐𐑼𐑕𐑑𐑦𐑖𐑩𐑯
               </a>
+              —
               <em>
                 <a data-tooltip-id="latin" data-tooltip-content="but">
                   𐑳𐑑
@@ -90,12 +101,14 @@ export default function TheDunwichHorror() {
               <a data-tooltip-id="latin" data-tooltip-content="are">
                 𐑸
               </a>{" "}
-              <a data-tooltip-id="latin" data-tooltip-content="transcripts,">
-                𐑑𐑮𐑨𐑯𐑕𐑒𐑮𐑦𐑐𐑑𐑕,
-              </a>{" "}
-              <a data-tooltip-id="latin" data-tooltip-content="types—">
-                𐑑𐑲𐑐𐑕—
+              <a data-tooltip-id="latin" data-tooltip-content="transcripts">
+                𐑑𐑮𐑨𐑯𐑕𐑒𐑮𐑦𐑐𐑑𐑕
               </a>
+              ,{" "}
+              <a data-tooltip-id="latin" data-tooltip-content="types">
+                𐑑𐑲𐑐𐑕
+              </a>
+              —
               <a data-tooltip-id="latin" data-tooltip-content="the">
                 𐑞
               </a>{" "}
@@ -108,9 +121,10 @@ export default function TheDunwichHorror() {
               <a data-tooltip-id="latin" data-tooltip-content="in">
                 𐑦𐑯
               </a>{" "}
-              <a data-tooltip-id="latin" data-tooltip-content="us,">
-                𐑳𐑕,
-              </a>{" "}
+              <a data-tooltip-id="latin" data-tooltip-content="us">
+                𐑳𐑕
+              </a>
+              ,{" "}
               <a data-tooltip-id="latin" data-tooltip-content="and">
                 𐑯
               </a>{" "}
@@ -214,9 +228,10 @@ export default function TheDunwichHorror() {
               <a data-tooltip-id="latin" data-tooltip-content="such">
                 𐑕𐑳𐑗
               </a>{" "}
-              <a data-tooltip-id="latin" data-tooltip-content="objects,">
-                𐑪𐑚𐑡𐑧𐑒𐑑𐑕,
-              </a>{" "}
+              <a data-tooltip-id="latin" data-tooltip-content="objects">
+                𐑪𐑚𐑡𐑧𐑒𐑑𐑕
+              </a>
+              ,{" "}
               <a data-tooltip-id="latin" data-tooltip-content="considered">
                 𐑒𐑩𐑯𐑕𐑦𐑛𐑼𐑛
               </a>{" "}
@@ -256,9 +271,10 @@ export default function TheDunwichHorror() {
               <a data-tooltip-id="latin" data-tooltip-content="injury?">
                 𐑦𐑯𐑡𐑼𐑦?
               </a>{" "}
-              <a data-tooltip-id="latin" data-tooltip-content="O,">
-                𐑴,
-              </a>{" "}
+              <a data-tooltip-id="latin" data-tooltip-content="O">
+                𐑴
+              </a>
+              ,{" "}
               <a data-tooltip-id="latin" data-tooltip-content="least">
                 𐑤𐑰𐑕𐑑
               </a>{" "}
@@ -313,9 +329,10 @@ export default function TheDunwichHorror() {
               <a data-tooltip-id="latin" data-tooltip-content="the">
                 𐑞
               </a>{" "}
-              <a data-tooltip-id="latin" data-tooltip-content="body,">
-                𐑚𐑪𐑛𐑦,
-              </a>{" "}
+              <a data-tooltip-id="latin" data-tooltip-content="body">
+                𐑚𐑪𐑛𐑦
+              </a>
+              ,{" "}
               <a data-tooltip-id="latin" data-tooltip-content="they">
                 𐑞𐑱
               </a>{" "}
@@ -399,9 +416,10 @@ export default function TheDunwichHorror() {
               <a data-tooltip-id="latin" data-tooltip-content="on">
                 𐑪𐑯
               </a>{" "}
-              <a data-tooltip-id="latin" data-tooltip-content="earth,">
-                𐑻𐑔,
-              </a>{" "}
+              <a data-tooltip-id="latin" data-tooltip-content="earth">
+                𐑻𐑔
+              </a>
+              ,{" "}
               <a data-tooltip-id="latin" data-tooltip-content="that">
                 𐑞𐑨𐑑
               </a>{" "}
@@ -429,8 +447,12 @@ export default function TheDunwichHorror() {
               <a data-tooltip-id="latin" data-tooltip-content="sinless">
                 𐑕𐑦𐑯𐑤𐑩𐑕
               </a>{" "}
-              <a data-tooltip-id="latin" data-tooltip-content="infancy—are">
-                𐑦𐑯𐑓𐑩𐑯𐑕𐑦—𐑸
+              <a data-tooltip-id="latin" data-tooltip-content="infancy">
+                𐑦𐑯𐑓𐑩𐑯𐑕𐑦
+              </a>
+              —
+              <a data-tooltip-id="latin" data-tooltip-content="are">
+                𐑸
               </a>{" "}
               <a data-tooltip-id="latin" data-tooltip-content="difficulties">
                 𐑛𐑦𐑓𐑦𐑒𐑳𐑤𐑑𐑦𐑟
@@ -471,9 +493,10 @@ export default function TheDunwichHorror() {
               <a data-tooltip-id="latin" data-tooltip-content="ante-mundane">
                 𐑨𐑯𐑑𐑦-𐑥𐑳𐑯𐑛𐑱𐑯
               </a>{" "}
-              <a data-tooltip-id="latin" data-tooltip-content="condition,">
-                𐑒𐑩𐑯𐑛𐑦𐑖𐑩𐑯,
-              </a>{" "}
+              <a data-tooltip-id="latin" data-tooltip-content="condition">
+                𐑒𐑩𐑯𐑛𐑦𐑖𐑩𐑯
+              </a>
+              ,{" "}
               <a data-tooltip-id="latin" data-tooltip-content="and">
                 𐑯
               </a>{" "}
@@ -644,9 +667,10 @@ export default function TheDunwichHorror() {
             <a data-tooltip-id="latin" data-tooltip-content="gets">
               𐑜𐑧𐑑𐑕
             </a>{" "}
-            <a data-tooltip-id="latin" data-tooltip-content="higher,">
-              𐑣𐑲𐑼,
-            </a>{" "}
+            <a data-tooltip-id="latin" data-tooltip-content="higher">
+              𐑣𐑲𐑼
+            </a>
+            ,{" "}
             <a data-tooltip-id="latin" data-tooltip-content="and">
               𐑯
             </a>{" "}
@@ -689,9 +713,10 @@ export default function TheDunwichHorror() {
             <a data-tooltip-id="latin" data-tooltip-content="the">
               𐑞
             </a>{" "}
-            <a data-tooltip-id="latin" data-tooltip-content="dusty,">
-              𐑛𐑳𐑕𐑑𐑦,
-            </a>{" "}
+            <a data-tooltip-id="latin" data-tooltip-content="dusty">
+              𐑛𐑳𐑕𐑑𐑦
+            </a>
+            ,{" "}
             <a data-tooltip-id="latin" data-tooltip-content="curving">
               𐑒𐑻𐑝𐑦𐑙
             </a>{" "}
@@ -726,9 +751,10 @@ export default function TheDunwichHorror() {
             <a data-tooltip-id="latin" data-tooltip-content="too">
               𐑑𐑵
             </a>{" "}
-            <a data-tooltip-id="latin" data-tooltip-content="large,">
-              𐑤𐑸𐑡,
-            </a>{" "}
+            <a data-tooltip-id="latin" data-tooltip-content="large">
+              𐑤𐑸𐑡
+            </a>
+            ,{" "}
             <a data-tooltip-id="latin" data-tooltip-content="and">
               𐑯
             </a>{" "}
@@ -738,12 +764,14 @@ export default function TheDunwichHorror() {
             <a data-tooltip-id="latin" data-tooltip-content="wild">
               𐑢𐑲𐑤𐑛
             </a>{" "}
-            <a data-tooltip-id="latin" data-tooltip-content="weeds,">
-              𐑢𐑰𐑛𐑟,
-            </a>{" "}
-            <a data-tooltip-id="latin" data-tooltip-content="brambles,">
-              𐑚𐑮𐑨𐑥𐑚𐑩𐑤𐑟,
-            </a>{" "}
+            <a data-tooltip-id="latin" data-tooltip-content="weeds">
+              𐑢𐑰𐑛𐑟
+            </a>
+            ,{" "}
+            <a data-tooltip-id="latin" data-tooltip-content="brambles">
+              𐑚𐑮𐑨𐑥𐑚𐑩𐑤𐑟
+            </a>
+            ,{" "}
             <a data-tooltip-id="latin" data-tooltip-content="and">
               𐑯
             </a>{" "}
@@ -811,9 +839,10 @@ export default function TheDunwichHorror() {
             <a data-tooltip-id="latin" data-tooltip-content="and">
               𐑯
             </a>{" "}
-            <a data-tooltip-id="latin" data-tooltip-content="barren;">
-              𐑚𐑨𐑮𐑩𐑯;
-            </a>{" "}
+            <a data-tooltip-id="latin" data-tooltip-content="barren">
+              𐑚𐑨𐑮𐑩𐑯
+            </a>
+            ;{" "}
             <a data-tooltip-id="latin" data-tooltip-content="while">
               𐑢𐑲𐑤
             </a>{" "}
@@ -847,12 +876,14 @@ export default function TheDunwichHorror() {
             <a data-tooltip-id="latin" data-tooltip-content="of">
               𐑝
             </a>{" "}
-            <a data-tooltip-id="latin" data-tooltip-content="age,">
-              𐑱𐑡,
-            </a>{" "}
-            <a data-tooltip-id="latin" data-tooltip-content="squalor,">
-              𐑕𐑒𐑢𐑪𐑤𐑼,
-            </a>{" "}
+            <a data-tooltip-id="latin" data-tooltip-content="age">
+              𐑱𐑡
+            </a>
+            ,{" "}
+            <a data-tooltip-id="latin" data-tooltip-content="squalor">
+              𐑕𐑒𐑢𐑪𐑤𐑼
+            </a>
+            ,{" "}
             <a data-tooltip-id="latin" data-tooltip-content="and">
               𐑯
             </a>{" "}
@@ -866,9 +897,10 @@ export default function TheDunwichHorror() {
             <a data-tooltip-id="latin" data-tooltip-content="knowing">
               𐑯𐑴𐑦𐑙
             </a>{" "}
-            <a data-tooltip-id="latin" data-tooltip-content="why,">
-              𐑢𐑲,
-            </a>{" "}
+            <a data-tooltip-id="latin" data-tooltip-content="why">
+              𐑢𐑲
+            </a>
+            ,{" "}
             <a data-tooltip-id="latin" data-tooltip-content="one">
               𐑢𐑳𐑯
             </a>{" "}
@@ -890,9 +922,10 @@ export default function TheDunwichHorror() {
             <a data-tooltip-id="latin" data-tooltip-content="the">
               𐑞
             </a>{" "}
-            <a data-tooltip-id="latin" data-tooltip-content="gnarled,">
-              𐑯𐑸𐑤𐑛,
-            </a>{" "}
+            <a data-tooltip-id="latin" data-tooltip-content="gnarled">
+              𐑯𐑸𐑤𐑛
+            </a>
+            ,{" "}
             <a data-tooltip-id="latin" data-tooltip-content="solitary">
               𐑕𐑪𐑤𐑦𐑑𐑼𐑦
             </a>{" "}
@@ -929,9 +962,10 @@ export default function TheDunwichHorror() {
             <a data-tooltip-id="latin" data-tooltip-content="the">
               𐑞
             </a>{" "}
-            <a data-tooltip-id="latin" data-tooltip-content="sloping,">
-              𐑕𐑤𐑴𐑐𐑦𐑙,
-            </a>{" "}
+            <a data-tooltip-id="latin" data-tooltip-content="sloping">
+              𐑕𐑤𐑴𐑐𐑦𐑙
+            </a>
+            ,{" "}
             <a data-tooltip-id="latin" data-tooltip-content="rock-strown">
               𐑮𐑪𐑒-𐑕𐑑𐑮𐑵𐑯
             </a>{" "}
@@ -981,9 +1015,10 @@ export default function TheDunwichHorror() {
             <a data-tooltip-id="latin" data-tooltip-content="forbidden">
               𐑓𐑼𐑚𐑦𐑛𐑩𐑯
             </a>{" "}
-            <a data-tooltip-id="latin" data-tooltip-content="things,">
-              𐑔𐑦𐑙𐑟,
-            </a>{" "}
+            <a data-tooltip-id="latin" data-tooltip-content="things">
+              𐑔𐑦𐑙𐑟
+            </a>
+            ,{" "}
             <a data-tooltip-id="latin" data-tooltip-content="with">
               𐑢𐑦𐑞
             </a>{" "}
@@ -1060,9 +1095,10 @@ export default function TheDunwichHorror() {
             <a data-tooltip-id="latin" data-tooltip-content="deep">
               𐑛𐑰𐑐
             </a>{" "}
-            <a data-tooltip-id="latin" data-tooltip-content="woods,">
-              𐑢𐑫𐑛𐑟,
-            </a>{" "}
+            <a data-tooltip-id="latin" data-tooltip-content="woods">
+              𐑢𐑫𐑛𐑟
+            </a>
+            ,{" "}
             <a data-tooltip-id="latin" data-tooltip-content="the">
               𐑞
             </a>{" "}
@@ -1127,9 +1163,10 @@ export default function TheDunwichHorror() {
             <a data-tooltip-id="latin" data-tooltip-content="and">
               𐑯
             </a>{" "}
-            <a data-tooltip-id="latin" data-tooltip-content="naturalness,">
-              𐑯𐑨𐑗𐑼𐑩𐑤𐑯𐑩𐑕,
-            </a>{" "}
+            <a data-tooltip-id="latin" data-tooltip-content="naturalness">
+              𐑯𐑨𐑗𐑼𐑩𐑤𐑯𐑩𐑕
+            </a>
+            ,{" "}
             <a data-tooltip-id="latin" data-tooltip-content="and">
               𐑯
             </a>{" "}

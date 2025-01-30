@@ -32,9 +32,10 @@ export default function Dagon() {
           <a data-tooltip-id="latin" data-tooltip-content="mental">
             𐑥𐑧𐑯𐑑𐑩𐑤
           </a>{" "}
-          <a data-tooltip-id="latin" data-tooltip-content="strain,">
-            𐑕𐑑𐑮𐑱𐑯,
-          </a>{" "}
+          <a data-tooltip-id="latin" data-tooltip-content="strain">
+            𐑕𐑑𐑮𐑱𐑯
+          </a>
+          ,{" "}
           <a data-tooltip-id="latin" data-tooltip-content="since">
             𐑕𐑦𐑯𐑕
           </a>{" "}
@@ -56,12 +57,14 @@ export default function Dagon() {
           <a data-tooltip-id="latin" data-tooltip-content="no">
             𐑯𐑴
           </a>{" "}
-          <a data-tooltip-id="latin" data-tooltip-content="more.">
-            𐑥𐑹.
-          </a>{" "}
-          <a data-tooltip-id="latin" data-tooltip-content="Penniless,">
-            𐑐𐑧𐑯𐑦𐑤𐑩𐑕,
-          </a>{" "}
+          <a data-tooltip-id="latin" data-tooltip-content="more">
+            𐑥𐑹
+          </a>
+          .{" "}
+          <a data-tooltip-id="latin" data-tooltip-content="Penniless">
+            𐑐𐑧𐑯𐑦𐑤𐑩𐑕
+          </a>
+          ,{" "}
           <a data-tooltip-id="latin" data-tooltip-content="and">
             𐑯
           </a>{" "}
@@ -104,9 +107,10 @@ export default function Dagon() {
           <a data-tooltip-id="latin" data-tooltip-content="life">
             𐑤𐑲𐑓
           </a>{" "}
-          <a data-tooltip-id="latin" data-tooltip-content="endurable,">
-            𐑦𐑯𐑛𐑘𐑫𐑼𐑩𐑚𐑩𐑤,
-          </a>{" "}
+          <a data-tooltip-id="latin" data-tooltip-content="endurable">
+            𐑦𐑯𐑛𐑘𐑫𐑼𐑩𐑚𐑩𐑤
+          </a>
+          ,{" "}
           <a data-tooltip-id="latin" data-tooltip-content="I">
             𐑲
           </a>{" "}
@@ -125,9 +129,10 @@ export default function Dagon() {
           <a data-tooltip-id="latin" data-tooltip-content="no">
             𐑯𐑴
           </a>{" "}
-          <a data-tooltip-id="latin" data-tooltip-content="longer;">
-            𐑤𐑪𐑙𐑜𐑼;
-          </a>{" "}
+          <a data-tooltip-id="latin" data-tooltip-content="longer">
+            𐑤𐑪𐑙𐑜𐑼
+          </a>
+          ;{" "}
           <a data-tooltip-id="latin" data-tooltip-content="and">
             𐑯
           </a>{" "}
@@ -164,9 +169,10 @@ export default function Dagon() {
           <a data-tooltip-id="latin" data-tooltip-content="street">
             𐑕𐑑𐑮𐑰𐑑
           </a>{" "}
-          <a data-tooltip-id="latin" data-tooltip-content="below.">
-            𐑚𐑦𐑤𐑴.
-          </a>{" "}
+          <a data-tooltip-id="latin" data-tooltip-content="below">
+            𐑚𐑦𐑤𐑴
+          </a>
+          .{" "}
           <a data-tooltip-id="latin" data-tooltip-content="Do">
             𐑛𐑵
           </a>{" "}
@@ -212,9 +218,10 @@ export default function Dagon() {
           <a data-tooltip-id="latin" data-tooltip-content="a">
             𐑩
           </a>{" "}
-          <a data-tooltip-id="latin" data-tooltip-content="degenerate.">
-            𐑛𐑦𐑡𐑧𐑯𐑼𐑩𐑑.
-          </a>{" "}
+          <a data-tooltip-id="latin" data-tooltip-content="degenerate">
+            𐑛𐑦𐑡𐑧𐑯𐑼𐑩𐑑
+          </a>
+          .{" "}
           <a data-tooltip-id="latin" data-tooltip-content="When">
             𐑢𐑧𐑯
           </a>{" "}
@@ -245,9 +252,10 @@ export default function Dagon() {
           <a data-tooltip-id="latin" data-tooltip-content="may">
             𐑥𐑱
           </a>{" "}
-          <a data-tooltip-id="latin" data-tooltip-content="guess,">
-            𐑜𐑧𐑕,
-          </a>{" "}
+          <a data-tooltip-id="latin" data-tooltip-content="guess">
+            𐑜𐑧𐑕
+          </a>
+          ,{" "}
           <a data-tooltip-id="latin" data-tooltip-content="though">
             𐑞𐑴
           </a>{" "}
@@ -257,9 +265,10 @@ export default function Dagon() {
           <a data-tooltip-id="latin" data-tooltip-content="fully">
             𐑓𐑫𐑤𐑦
           </a>{" "}
-          <a data-tooltip-id="latin" data-tooltip-content="realise,">
-            𐑮𐑾𐑤𐑲𐑟,
-          </a>{" "}
+          <a data-tooltip-id="latin" data-tooltip-content="realise">
+            𐑮𐑾𐑤𐑲𐑟
+          </a>
+          ,{" "}
           <a data-tooltip-id="latin" data-tooltip-content="why">
             𐑢𐑲
           </a>{" "}
@@ -287,9 +296,10 @@ export default function Dagon() {
           <a data-tooltip-id="latin" data-tooltip-content="or">
             𐑹
           </a>{" "}
-          <a data-tooltip-id="latin" data-tooltip-content="death.">
-            𐑛𐑧𐑔.
+          <a data-tooltip-id="latin" data-tooltip-content="death">
+            𐑛𐑧𐑔
           </a>
+          .
         </span>
       </p>
       <p>
@@ -384,9 +394,10 @@ export default function Dagon() {
           <a data-tooltip-id="latin" data-tooltip-content="German">
             ·𐑡𐑻𐑥𐑩𐑯
           </a>{" "}
-          <a data-tooltip-id="latin" data-tooltip-content="sea-raider.">
-            𐑕𐑰-𐑮𐑱𐑛𐑼.
-          </a>{" "}
+          <a data-tooltip-id="latin" data-tooltip-content="sea-raider">
+            𐑕𐑰-𐑮𐑱𐑛𐑼
+          </a>
+          .{" "}
           <a data-tooltip-id="latin" data-tooltip-content="The">
             𐑞
           </a>{" "}
@@ -411,9 +422,10 @@ export default function Dagon() {
           <a data-tooltip-id="latin" data-tooltip-content="very">
             𐑝𐑧𐑮𐑦
           </a>{" "}
-          <a data-tooltip-id="latin" data-tooltip-content="beginning,">
-            𐑚𐑦𐑜𐑦𐑯𐑦𐑙,
-          </a>{" "}
+          <a data-tooltip-id="latin" data-tooltip-content="beginning">
+            𐑚𐑦𐑜𐑦𐑯𐑦𐑙
+          </a>
+          ,{" "}
           <a data-tooltip-id="latin" data-tooltip-content="and">
             𐑯
           </a>{" "}
@@ -456,9 +468,10 @@ export default function Dagon() {
           <a data-tooltip-id="latin" data-tooltip-content="later">
             𐑤𐑱𐑑𐑼
           </a>{" "}
-          <a data-tooltip-id="latin" data-tooltip-content="degradation;">
-            𐑛𐑧𐑜𐑮𐑩𐑛𐑱𐑖𐑩𐑯;
-          </a>{" "}
+          <a data-tooltip-id="latin" data-tooltip-content="degradation">
+            𐑛𐑧𐑜𐑮𐑩𐑛𐑱𐑖𐑩𐑯
+          </a>
+          ;{" "}
           <a data-tooltip-id="latin" data-tooltip-content="so">
             𐑕𐑴
           </a>{" "}
@@ -483,9 +496,10 @@ export default function Dagon() {
           <a data-tooltip-id="latin" data-tooltip-content="legitimate">
             𐑤𐑦𐑡𐑦𐑑𐑦𐑥𐑩𐑑
           </a>{" "}
-          <a data-tooltip-id="latin" data-tooltip-content="prize,">
-            𐑐𐑮𐑲𐑟,
-          </a>{" "}
+          <a data-tooltip-id="latin" data-tooltip-content="prize">
+            𐑐𐑮𐑲𐑟
+          </a>
+          ,{" "}
           <a data-tooltip-id="latin" data-tooltip-content="whilst">
             𐑢𐑲𐑤𐑕𐑑
           </a>{" "}
@@ -537,18 +551,21 @@ export default function Dagon() {
           <a data-tooltip-id="latin" data-tooltip-content="naval">
             𐑯𐑱𐑝𐑩𐑤
           </a>{" "}
-          <a data-tooltip-id="latin" data-tooltip-content="prisoners.">
-            𐑐𐑮𐑦𐑟𐑩𐑯𐑼𐑟.
-          </a>{" "}
+          <a data-tooltip-id="latin" data-tooltip-content="prisoners">
+            𐑐𐑮𐑦𐑟𐑩𐑯𐑼𐑟
+          </a>
+          .{" "}
           <a data-tooltip-id="latin" data-tooltip-content="So">
             𐑕𐑴
           </a>{" "}
-          <a data-tooltip-id="latin" data-tooltip-content="liberal,">
-            𐑤𐑦𐑚𐑼𐑩𐑤,
-          </a>{" "}
-          <a data-tooltip-id="latin" data-tooltip-content="indeed,">
-            𐑦𐑯𐑛𐑰𐑛,
-          </a>{" "}
+          <a data-tooltip-id="latin" data-tooltip-content="liberal">
+            𐑤𐑦𐑚𐑼𐑩𐑤
+          </a>
+          ,{" "}
+          <a data-tooltip-id="latin" data-tooltip-content="indeed">
+            𐑦𐑯𐑛𐑰𐑛
+          </a>
+          ,{" "}
           <a data-tooltip-id="latin" data-tooltip-content="was">
             𐑢𐑪𐑟
           </a>{" "}
@@ -564,9 +581,10 @@ export default function Dagon() {
           <a data-tooltip-id="latin" data-tooltip-content="our">
             𐑬𐑼
           </a>{" "}
-          <a data-tooltip-id="latin" data-tooltip-content="captors,">
-            𐑒𐑨𐑐𐑑𐑼𐑟,
-          </a>{" "}
+          <a data-tooltip-id="latin" data-tooltip-content="captors">
+            𐑒𐑨𐑐𐑑𐑼𐑟
+          </a>
+          ,{" "}
           <a data-tooltip-id="latin" data-tooltip-content="that">
             𐑞𐑨𐑑
           </a>{" "}
@@ -642,9 +660,10 @@ export default function Dagon() {
           <a data-tooltip-id="latin" data-tooltip-content="of">
             𐑝
           </a>{" "}
-          <a data-tooltip-id="latin" data-tooltip-content="time.">
-            𐑑𐑲𐑥.
+          <a data-tooltip-id="latin" data-tooltip-content="time">
+            𐑑𐑲𐑥
           </a>
+          .
         </span>
       </p>
     </article>
