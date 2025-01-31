@@ -1,11 +1,8 @@
-import StoryHeader from "@components/story-header";
-import styles from "@library/story.module.css";
-import { author, stories } from "./metadata";
+import styles from "@components/story.module.css";
 
 export default function Dagon() {
   return (
-    <article>
-      <StoryHeader author={author} story={stories.dagon} />
+    <>
       <p>
         <span className={styles.textCursor}>
           <a data-tooltip-id="latin" data-tooltip-content="I">
@@ -666,6 +663,6 @@ export default function Dagon() {
           .
         </span>
       </p>
-    </article>
+    </>
   );
 }

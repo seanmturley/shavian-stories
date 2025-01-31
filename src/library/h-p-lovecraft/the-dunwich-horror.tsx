@@ -1,12 +1,8 @@
-import StoryHeader from "@components/story-header";
-import styles from "@library/story.module.css";
-import { author, stories } from "./metadata";
+import styles from "@components/story.module.css";
 
 export default function TheDunwichHorror() {
   return (
-    <article>
-      <StoryHeader author={author} story={stories.theDunwichHorror} />
-
+    <>
       <section>
         <blockquote>
           <p>
@@ -1237,6 +1233,6 @@ export default function TheDunwichHorror() {
           </span>
         </p>
       </section>
-    </article>
+    </>
   );
 }

@@ -1,4 +1,4 @@
-import dynamic from "next/dynamic";
+import AuthorCatalogue from "@components/author-catalogue";
 
 export default async function AuthorCataloguePage({
   params
@@ -7,7 +7,5 @@ export default async function AuthorCataloguePage({
 }) {
   const { author } = await params;
 
-  const AuthorCatalogue = dynamic(() => import(`@library/${author}/catalogue`));
-
-  return <AuthorCatalogue />;
+  return <AuthorCatalogue author={author} />;
 }
