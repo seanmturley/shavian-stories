@@ -34,7 +34,16 @@ export default function RootLayout({
     >
       <body>
         <main>{children}</main>
-        <Tooltip id="latin" />
+        <Tooltip
+          id="latin"
+          className="tooltip"
+          style={{
+            fontSize: "2.8em",
+            color: "hsl(0, 0%, 10%)",
+            backgroundColor: "darkgoldenrod"
+          }}
+          opacity={1}
+        />
       </body>
     </html>
   );
