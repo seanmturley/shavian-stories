@@ -1,4 +1,9 @@
 import AuthorCatalogue from "@components/author-catalogue";
+import metadata from "@library/metadata";
+
+export function generateStaticParams() {
+  return Object.keys(metadata).map((author) => ({ author }));
+}
 
 export default async function AuthorCataloguePage({
   params
