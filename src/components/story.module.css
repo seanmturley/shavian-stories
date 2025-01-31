@@ -1,7 +1,68 @@
+.story {
+  width: min(70rem, calc(60% + 12rem));
+}
+
+.story section {
+  padding-top: 2em;
+  border: solid white;
+  border-width: 0.15em 0 0;
+}
+
+.story header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2em;
+  text-align: center;
+}
+
+.story h1 {
+  font-size: 9em;
+  font-weight: 500;
+  word-spacing: var(--word-spacing);
+}
+
+.story h2 {
+  font-size: 4.5em;
+  font-weight: 500;
+  word-spacing: var(--word-spacing);
+}
+
+.story header p {
+  font-size: 3.4em;
+  line-height: normal;
+}
+
+.story p {
+  font-size: 2.8em;
+  font-weight: 300;
+  line-height: var(--line-height);
+  word-spacing: var(--word-spacing);
+  margin: 0 0 2em;
+}
+
+.story em {
+  font-family: var(--doolittle-garamond-italic), serif;
+  font-size: 1.15em;
+  font-weight: 200;
+}
+
+.story blockquote {
+  margin-block: 0;
+}
+
+.story a {
+  text-decoration: none;
+}
+
 .right {
   text-align: right;
 }
 
-.textCursor {
+.link {
+  color: darkgoldenrod;
+}
+
+.story span {
   cursor: text;
 }

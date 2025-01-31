@@ -5,7 +5,7 @@ export default function AuthorCatalogue({ author }: { author: string }) {
   const authorMetadata = metadata[author];
 
   return (
-    <section>
+    <>
       <h1>{authorMetadata.name.latin} stories</h1>
       <ul>
         {Object.keys(authorMetadata.stories).map((story) => (
@@ -16,6 +16,6 @@ export default function AuthorCatalogue({ author }: { author: string }) {
           </li>
         ))}
       </ul>
-    </section>
+    </>
   );
 }

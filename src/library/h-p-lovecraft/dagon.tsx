@@ -1,10 +1,8 @@
-import styles from "@components/story.module.css";
-
 export default function Dagon() {
   return (
-    <>
+    <section>
       <p>
-        <span className={styles.textCursor}>
+        <span>
           <a data-tooltip-id="latin" data-tooltip-content="I">
             𐑲
           </a>{" "}
@@ -300,7 +298,7 @@ export default function Dagon() {
         </span>
       </p>
       <p>
-        <span className={styles.textCursor}>
+        <span>
           <a data-tooltip-id="latin" data-tooltip-content="It">
             𐑦𐑑
           </a>{" "}
@@ -663,6 +661,6 @@ export default function Dagon() {
           .
         </span>
       </p>
-    </>
+    </section>
   );
 }

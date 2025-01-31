@@ -32,6 +32,7 @@ export default function StoryHeader({ author, story }: StoryHeaderProps) {
             href={`${process.env.libraryUrl}/${author}`}
             data-tooltip-id="latin"
             data-tooltip-content={authorName.latin}
+            className={styles.link}
           >
             {authorName.shavian}
           </a>

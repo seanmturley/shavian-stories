@@ -6,7 +6,7 @@ export default function TheDunwichHorror() {
       <section>
         <blockquote>
           <p>
-            <span className={styles.textCursor}>
+            <span>
               «
               <a data-tooltip-id="latin" data-tooltip-content="Gorgons">
                 𐑜𐑹𐑜𐑩𐑯𐑟
@@ -527,7 +527,7 @@ export default function TheDunwichHorror() {
             </span>
           </p>
           <p className={styles.right}>
-            <span className={styles.textCursor}>
+            <span>
               —
               <em>
                 <a data-tooltip-id="latin" data-tooltip-content="Charles">
@@ -562,7 +562,7 @@ export default function TheDunwichHorror() {
           <h2>I</h2>
         </header>
         <p>
-          <span className={styles.textCursor}>
+          <span>
             <a data-tooltip-id="latin" data-tooltip-content="When">
               𐑢𐑧𐑯
             </a>{" "}
