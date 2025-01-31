@@ -74,19 +74,25 @@ export default function TheDunwichHorror() {
               </a>
               —
               <em>
-                <a data-tooltip-id="latin" data-tooltip-content="but">
+                <a data-tooltip-id="latin-emphasis" data-tooltip-content="but">
                   𐑳𐑑
                 </a>{" "}
-                <a data-tooltip-id="latin" data-tooltip-content="they">
+                <a data-tooltip-id="latin-emphasis" data-tooltip-content="they">
                   𐑞𐑱
                 </a>{" "}
-                <a data-tooltip-id="latin" data-tooltip-content="were">
+                <a data-tooltip-id="latin-emphasis" data-tooltip-content="were">
                   𐑢𐑻
                 </a>{" "}
-                <a data-tooltip-id="latin" data-tooltip-content="there">
+                <a
+                  data-tooltip-id="latin-emphasis"
+                  data-tooltip-content="there"
+                >
                   𐑞𐑺
                 </a>{" "}
-                <a data-tooltip-id="latin" data-tooltip-content="before">
+                <a
+                  data-tooltip-id="latin-emphasis"
+                  data-tooltip-content="before"
+                >
                   𐑚𐑦𐑓𐑹
                 </a>
               </em>
@@ -284,37 +290,52 @@ export default function TheDunwichHorror() {
               </a>
               !{" "}
               <em>
-                <a data-tooltip-id="latin" data-tooltip-content="These">
+                <a
+                  data-tooltip-id="latin-emphasis"
+                  data-tooltip-content="These"
+                >
                   𐑞𐑰𐑟
                 </a>{" "}
-                <a data-tooltip-id="latin" data-tooltip-content="terrors">
+                <a
+                  data-tooltip-id="latin-emphasis"
+                  data-tooltip-content="terrors"
+                >
                   𐑑𐑧𐑮𐑼𐑟
                 </a>{" "}
-                <a data-tooltip-id="latin" data-tooltip-content="are">
+                <a data-tooltip-id="latin-emphasis" data-tooltip-content="are">
                   𐑸
                 </a>{" "}
-                <a data-tooltip-id="latin" data-tooltip-content="of">
+                <a data-tooltip-id="latin-emphasis" data-tooltip-content="of">
                   𐑝
                 </a>{" "}
-                <a data-tooltip-id="latin" data-tooltip-content="older">
+                <a
+                  data-tooltip-id="latin-emphasis"
+                  data-tooltip-content="older"
+                >
                   𐑴𐑤𐑛𐑼
                 </a>{" "}
-                <a data-tooltip-id="latin" data-tooltip-content="standing">
+                <a
+                  data-tooltip-id="latin-emphasis"
+                  data-tooltip-content="standing"
+                >
                   𐑕𐑑𐑨𐑯𐑛𐑦𐑙
                 </a>
               </em>
               .{" "}
               <em>
-                <a data-tooltip-id="latin" data-tooltip-content="They">
+                <a data-tooltip-id="latin-emphasis" data-tooltip-content="They">
                   𐑱
                 </a>{" "}
-                <a data-tooltip-id="latin" data-tooltip-content="date">
+                <a data-tooltip-id="latin-emphasis" data-tooltip-content="date">
                   𐑛𐑱𐑑
                 </a>{" "}
-                <a data-tooltip-id="latin" data-tooltip-content="beyond">
+                <a
+                  data-tooltip-id="latin-emphasis"
+                  data-tooltip-content="beyond"
+                >
                   𐑚𐑦𐑘𐑪𐑯𐑛
                 </a>{" "}
-                <a data-tooltip-id="latin" data-tooltip-content="body">
+                <a data-tooltip-id="latin-emphasis" data-tooltip-content="body">
                   𐑚𐑪𐑛𐑦
                 </a>
               </em>
@@ -533,10 +554,13 @@ export default function TheDunwichHorror() {
             <span>
               —
               <em>
-                <a data-tooltip-id="latin" data-tooltip-content="Charles">
+                <a
+                  data-tooltip-id="latin-emphasis"
+                  data-tooltip-content="Charles"
+                >
                   ·𐑗𐑸𐑤𐑟
                 </a>{" "}
-                <a data-tooltip-id="latin" data-tooltip-content="Lamb">
+                <a data-tooltip-id="latin-emphasis" data-tooltip-content="Lamb">
                   ·𐑤𐑨𐑥
                 </a>
                 :

@@ -22,6 +22,12 @@ const doolittleGaramondItalic = localFont({
   variable: "--doolittle-garamond-italic"
 });
 
+const tooltipStyle = {
+  fontSize: "2.8em",
+  color: "hsl(0, 0%, 10%)",
+  backgroundColor: "darkgoldenrod"
+};
+
 export default function RootLayout({
   children
 }: Readonly<{
@@ -37,10 +43,15 @@ export default function RootLayout({
         <Tooltip
           id="latin"
           className="tooltip"
+          style={tooltipStyle}
+          opacity={1}
+        />
+        <Tooltip
+          id="latin-emphasis"
+          className="tooltip"
           style={{
-            fontSize: "2.8em",
-            color: "hsl(0, 0%, 10%)",
-            backgroundColor: "darkgoldenrod"
+            ...tooltipStyle,
+            fontStyle: "italic"
           }}
           opacity={1}
         />
