@@ -1,4 +1,3 @@
-import { storyUrl } from "@library/metadata";
 import styles from "@library/story.module.css";
 
 type StoryHeaderProps = {
@@ -23,7 +22,7 @@ export default function StoryHeader({ author, story }: StoryHeaderProps) {
           </a>{" "}
           <a
             rel="author"
-            href={`${storyUrl}/${author.url}`}
+            href={`${process.env.libraryUrl}/${author.url}`}
             data-tooltip-id="latin"
             data-tooltip-content={author.latin}
           >

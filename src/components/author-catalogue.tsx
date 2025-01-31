@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { storyUrl } from "@library/metadata";
 
 type AuthorProps = {
   author: Author;
@@ -14,7 +13,7 @@ export default function AuthorCatalogue({ author, stories }: AuthorProps) {
         {Object.keys(stories).map((story) => (
           <li key={story}>
             <Link
-              href={`${storyUrl}/${author.url}/${stories[story].title.url}`}
+              href={`${process.env.libraryUrl}/${author.url}/${stories[story].title.url}`}
             >
               {stories[story].title.latin}
             </Link>
