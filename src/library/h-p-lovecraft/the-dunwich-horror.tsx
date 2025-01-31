@@ -194,9 +194,10 @@ export default function TheDunwichHorror() {
               <a data-tooltip-id="latin" data-tooltip-content="at">
                 𐑨𐑑
               </a>{" "}
-              <a data-tooltip-id="latin" data-tooltip-content="all?">
-                𐑷𐑤?
-              </a>{" "}
+              <a data-tooltip-id="latin" data-tooltip-content="all">
+                𐑷𐑤
+              </a>
+              ?{" "}
               <a data-tooltip-id="latin" data-tooltip-content="Is">
                 𐑦𐑟
               </a>{" "}
@@ -264,9 +265,10 @@ export default function TheDunwichHorror() {
               <a data-tooltip-id="latin" data-tooltip-content="bodily">
                 𐑚𐑪𐑛𐑦𐑤𐑦
               </a>{" "}
-              <a data-tooltip-id="latin" data-tooltip-content="injury?">
-                𐑦𐑯𐑡𐑼𐑦?
-              </a>{" "}
+              <a data-tooltip-id="latin" data-tooltip-content="injury">
+                𐑦𐑯𐑡𐑼𐑦
+              </a>
+              ?{" "}
               <a data-tooltip-id="latin" data-tooltip-content="O">
                 𐑴
               </a>
@@ -277,9 +279,10 @@ export default function TheDunwichHorror() {
               <a data-tooltip-id="latin" data-tooltip-content="of">
                 𐑝
               </a>{" "}
-              <a data-tooltip-id="latin" data-tooltip-content="all!">
-                𐑷𐑤!
-              </a>{" "}
+              <a data-tooltip-id="latin" data-tooltip-content="all">
+                𐑷𐑤
+              </a>
+              !{" "}
               <em>
                 <a data-tooltip-id="latin" data-tooltip-content="These">
                   𐑞𐑰𐑟
