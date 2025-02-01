@@ -44,11 +44,11 @@ function replaceQuotesAndApostrophes(shavian: string) {
 }
 
 function getParagraphs(latin: string, shavian: string) {
-  function splitParagraphs(text: string) {
+  const splitParagraphs = (text: string) => {
     const paragraphRegex = /^(.+)$/gm;
 
     return Array.from(text.matchAll(paragraphRegex), (m) => m[1]);
-  }
+  };
 
   const latinParagraphs = splitParagraphs(latin);
   const shavianParagraphs = splitParagraphs(shavian);
@@ -63,9 +63,9 @@ function getParagraphs(latin: string, shavian: string) {
 }
 
 function getChunks(latin: string, shavian: string, index: number | null) {
-  function breakEmDashes(text: string) {
+  const breakEmDashes = (text: string) => {
     return text.replaceAll("—", "— ");
-  }
+  };
 
   // Here a "chunk" refers to a word and its adjacent punctuation
   const latinChunks = breakEmDashes(latin).split(/\s+/);
