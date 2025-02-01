@@ -84,7 +84,7 @@ function getMarkedUpWord(latinChunk: string, shavianChunk: string) {
   const outerPunctuation = /^\p{P}+|\p{P}+$/gu;
   const latinWord = latinChunk.replaceAll(outerPunctuation, "");
 
-  const wordAndPunctuation = /(\p{P}*)([\p{L}\d]+)(\p{P}*)/u;
+  const wordAndPunctuation = /(\p{P}*)([\p{L}\d-]+)(\p{P}*)/u;
   let [, leadingPunctuation, shavianWord, trailingPunctuation] =
     shavianChunk.match(wordAndPunctuation) as string[];
 
