@@ -89,7 +89,7 @@ function getChunks(latin: string, shavian: string, index: number | null) {
 
   if (latinChunks.length !== shavianChunks.length) {
     throw new Error(
-      `The number of Latin words and Shavian words are not equal ${index !== null && `in paragraph ${index + 1}`}.`
+      `The number of Latin chunks and Shavian chunks are not equal ${index !== null && `in paragraph ${index + 1}`}.`
     );
   }
 
