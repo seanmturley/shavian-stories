@@ -97,8 +97,8 @@ function getChunks(latin: string, shavian: string, index: number | null) {
 }
 
 function getMarkedUpWord(latinChunk: string, shavianChunk: string) {
-  const outerPunctuation = /^\p{P}+|\p{P}+$/gu;
-  const latinWord = latinChunk.replaceAll(outerPunctuation, "");
+  const nonApostropheOuterPunctuation = /^[^'\p{L}]+|[^'\p{L}]+$/gu;
+  const latinWord = latinChunk.replaceAll(nonApostropheOuterPunctuation, "");
 
   const wordAndPunctuation = /(\p{P}*)([\p{L}\d-]+)(\p{P}*)/u;
   let [, leadingPunctuation, shavianWord, trailingPunctuation] =
