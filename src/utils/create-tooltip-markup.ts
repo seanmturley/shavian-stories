@@ -15,12 +15,7 @@ export function sanitizeLatinText(latin: string) {
 }
 
 export function createStoryMarkup(latin: string, shavian: string) {
-  const shavianTidy = replaceQuotesAndApostrophes(shavian);
-
-  const [latinParagraphs, shavianParagraphs] = getParagraphs(
-    latin,
-    shavianTidy
-  );
+  const [latinParagraphs, shavianParagraphs] = getParagraphs(latin, shavian);
 
   let markup = "";
 
@@ -44,19 +39,6 @@ export function createStoryMarkup(latin: string, shavian: string) {
   });
 
   return markup;
-}
-
-function replaceQuotesAndApostrophes(shavian: string) {
-  return (
-    shavian
-      // Replace quotations marks (single or double) with guillemets
-      // There are some corner cases where this won't work e.g.
-      // Quotations inside a sentence like in "this" case.
-      .replaceAll(/(?<!\p{L})['"‘“](?=\p{L})/gu, "«")
-      .replaceAll(/(?<!\p{L})['"’”](?!\p{L})/gu, "»")
-      // Remove all apostrphe's from Shavian
-      .replaceAll(/\'/g, "")
-  );
 }
 
 function getParagraphs(latin: string, shavian: string) {
@@ -106,9 +88,11 @@ function getMarkedUpWord(latinChunk: string, shavianChunk: string) {
 }
 
 function getShavianWordAndPunctuation(shavianChunk: string) {
+  const shavianChunkNoApostrophes = shavianChunk.replaceAll("'", "");
+
   const wordAndPunctuation = /(\p{P}*)([\p{L}\d·-]+)(\p{P}*)/u;
   const [, leadingPunctuationRaw, word, trailingPunctuationRaw] =
-    shavianChunk.match(wordAndPunctuation) as string[];
+    shavianChunkNoApostrophes.match(wordAndPunctuation) as string[];
 
   const leadingPunctuation = leadingPunctuationRaw.replaceAll(
     /([«‹])/g,
