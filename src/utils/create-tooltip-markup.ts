@@ -23,6 +23,17 @@ export function createStoryMarkup(latin: string, shavian: string) {
   latinParagraphs.forEach((latinParagraph, index) => {
     let shavianParagraph = shavianParagraphs[index];
 
+    const sectionStart = /^\[{3}/;
+    const sectionEnd = /^\]{3}/;
+
+    if (shavianParagraph.match(sectionStart)) {
+      markup += "<section>";
+      return;
+    } else if (shavianParagraph.match(sectionEnd)) {
+      markup += "</section>";
+      return;
+    }
+
     const blockquoteRegex = /^>>>(.+)$/;
     const blockquote = shavianParagraph.match(blockquoteRegex);
 
