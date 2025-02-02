@@ -95,14 +95,14 @@ function getShavianWordAndPunctuation(shavianChunk: string) {
   const [, leadingPunctuationRaw, word, trailingPunctuationRaw] =
     shavianChunkNoApostrophes.match(wordAndPunctuation) as string[];
 
-  const leadingPunctuation = leadingPunctuationRaw.replaceAll(
-    /([«‹])/g,
-    "$1&#8239"
-  );
+  const leadingPunctuation = leadingPunctuationRaw
+    .replaceAll(/([«‹])/g, "$1&#8239")
+    .replaceAll("***", "<em>");
 
   const trailingPunctuation = trailingPunctuationRaw
     .replaceAll(/,([»›])/g, "$1,")
-    .replaceAll(/([»›!?])/g, "&#8239$1");
+    .replaceAll(/([»›!?])/g, "&#8239$1")
+    .replaceAll("***", "</em>");
 
   const trailingSpace = trailingPunctuation.slice(-1) === "—" ? "" : " ";
 
