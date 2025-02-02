@@ -100,8 +100,14 @@ function getMarkedUpWord(latinChunk: string, shavianChunk: string) {
   const nonApostropheOuterPunctuation = /^[^'\p{L}]+|[^'\p{L}]+$/gu;
   const latinWord = latinChunk.replaceAll(nonApostropheOuterPunctuation, "");
 
+  const shavian = getShavianWordAndPunctuation(shavianChunk);
+
+  return `${shavian.leadingPunctuation}<a data-tooltip-id="latin" data-tooltip-content="${latinWord}">${shavian.word}</a>${shavian.trailingPunctuation}${shavian.trailingSpace}`;
+}
+
+function getShavianWordAndPunctuation(shavianChunk: string) {
   const wordAndPunctuation = /(\p{P}*)([\p{L}\d·-]+)(\p{P}*)/u;
-  const [, leadingPunctuationRaw, shavianWord, trailingPunctuationRaw] =
+  const [, leadingPunctuationRaw, word, trailingPunctuationRaw] =
     shavianChunk.match(wordAndPunctuation) as string[];
 
   const leadingPunctuation = leadingPunctuationRaw.replaceAll(
@@ -115,5 +121,5 @@ function getMarkedUpWord(latinChunk: string, shavianChunk: string) {
 
   const trailingSpace = trailingPunctuation.slice(-1) === "—" ? "" : " ";
 
-  return `${leadingPunctuation}<a data-tooltip-id="latin" data-tooltip-content="${latinWord}">${shavianWord}</a>${trailingPunctuation}${trailingSpace}`;
+  return { leadingPunctuation, word, trailingPunctuation, trailingSpace };
 }
