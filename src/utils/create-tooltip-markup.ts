@@ -21,22 +21,36 @@ export function createStoryMarkup(latin: string, shavian: string) {
   let markup = "";
 
   latinParagraphs.forEach((latinParagraph, index) => {
-    // Here a "chunk" refers to a word and its adjacent punctuation
-    const [latinChunks, shavianChunks] = getChunks(
-      latinParagraph,
-      shavianParagraphs[index],
-      index
-    );
+    let shavianParagraph = shavianParagraphs[index];
+
+    const blockquoteRegex = /^>>>(.+)$/;
+    const blockquote = shavianParagraph.match(blockquoteRegex);
+
+    if (blockquote) {
+      markup += "<blockquote>";
+      shavianParagraph = blockquote[1];
+    }
 
     // The span is used to provide consistent cursor styling
     // even between the tooltip anchors
     markup += "<p><span>";
+
+    // Here a "chunk" refers to a word and its adjacent punctuation
+    const [latinChunks, shavianChunks] = getChunks(
+      latinParagraph,
+      shavianParagraph,
+      index
+    );
 
     latinChunks.forEach((latinChunk, index) => {
       markup += getMarkedUpWord(latinChunk, shavianChunks[index]);
     });
 
     markup += "</span></p>";
+
+    if (blockquote) {
+      markup += "</blockquote>";
+    }
   });
 
   return markup;
