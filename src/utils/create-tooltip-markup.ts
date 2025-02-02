@@ -6,11 +6,12 @@ export function sanitizeLatinText(latin: string) {
     .replace(startOfLineSpaces, "\n")
     .trim();
 
-  const speechMarks = /(?<=^|\p{L}\p{P}\s)['"‘“](.+?)(?<=\p{L}\p{P}+)['"’”]/gmu;
+  const speechMarks =
+    /(?<=^|\p{L}\p{P}\s|—)['"‘“](.+?)(?:(?:(?<=(?:[\p{L}\d]\p{P}+))['"’”])|['"’”](—))/gmu;
   const quotationMarks = /(?<!\p{L})(['"])([^'"]*)\1(?!\p{L})/gu;
 
   return latinTrimmed
-    .replaceAll(speechMarks, "«$1»")
+    .replaceAll(speechMarks, "«$1»$2")
     .replaceAll(quotationMarks, "‹$2›");
 }
 
