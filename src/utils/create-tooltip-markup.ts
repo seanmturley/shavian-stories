@@ -29,22 +29,9 @@ export function createStoryMarkup(latin: string, shavian: string) {
       return;
     }
 
-    const headerStart = /^###(.*)$/;
-    const latinHeader = latinLine.match(headerStart);
-    const shavianHeader = shavianLine.match(headerStart);
-
-    if (latinHeader && shavianHeader) {
-      markup += "<header>";
-
-      markup += getLineMarkup(
-        latinHeader[1],
-        shavianHeader[1],
-        "heading",
-        lineNumber
-      );
-
-      markup += "</header>";
-
+    const header = addHeader(latinLine, shavianLine, lineNumber);
+    if (header) {
+      markup += header;
       return;
     }
 
@@ -95,6 +82,31 @@ function addSection(shavianLine: string) {
 
   if (shavianLine.match(sectionEnd)) {
     return "</section>";
+  }
+}
+
+function addHeader(
+  latinLine: string,
+  shavianLine: string,
+  lineNumber: number | null
+) {
+  const headerStart = /^###(.*)$/;
+  const latinHeader = latinLine.match(headerStart);
+  const shavianHeader = shavianLine.match(headerStart);
+
+  if (latinHeader && shavianHeader) {
+    let headerMarkup = "<header>";
+
+    headerMarkup += getLineMarkup(
+      latinHeader[1],
+      shavianHeader[1],
+      "heading",
+      lineNumber
+    );
+
+    headerMarkup += "</header>";
+
+    return headerMarkup;
   }
 }
 
