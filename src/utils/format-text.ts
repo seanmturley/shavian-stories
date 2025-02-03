@@ -149,8 +149,31 @@ function getLineMarkup(
     lineNumber
   );
 
+  let emphasisFlag = false;
+
   latinChunks.forEach((latinChunk, lineNumber) => {
-    lineMarkup += getMarkedUpWord(latinChunk, shavianChunks[lineNumber]);
+    let shavianChunk = shavianChunks[lineNumber];
+
+    const emphasisStart = shavianChunk.match(/^\p{P}*\*{3}/u);
+    const emphasisEnd = shavianChunk.match(/\*{3}\p{P}*$/u);
+
+    if (emphasisStart || emphasisEnd) {
+      shavianChunk = shavianChunk.replaceAll("***", "");
+    }
+
+    if (emphasisStart) {
+      emphasisFlag = true;
+      lineMarkup += "<em>";
+    }
+
+    const markupStyle = emphasisFlag ? "emphasis" : "normal";
+
+    lineMarkup += getWordMarkUp(latinChunk, shavianChunk, markupStyle);
+
+    if (emphasisEnd) {
+      emphasisFlag = false;
+      lineMarkup += "</em>";
+    }
   });
 
   lineMarkup += "</span>";
@@ -183,13 +206,21 @@ function getChunks(
   return [latinChunks, shavianChunks];
 }
 
-function getMarkedUpWord(latinChunk: string, shavianChunk: string) {
+function getWordMarkUp(
+  latinChunk: string,
+  shavianChunk: string,
+  style: "emphasis" | "normal"
+) {
   const nonApostropheOuterPunctuation = /^[^'\p{L}]+|[^'\p{L}]+$/gu;
   const latinWord = latinChunk.replaceAll(nonApostropheOuterPunctuation, "");
 
   const shavian = getShavianWordAndPunctuation(shavianChunk);
 
-  return `${shavian.leadingPunctuation}<a data-tooltip-id="latin" data-tooltip-content="${latinWord}">${shavian.word}</a>${shavian.trailingPunctuation}${shavian.trailingSpace}`;
+  let tooltipId;
+  if (style === "emphasis") tooltipId = "latin-emphasis";
+  if (style === "normal") tooltipId = "latin";
+
+  return `${shavian.leadingPunctuation}<a data-tooltip-id="${tooltipId}" data-tooltip-content="${latinWord}">${shavian.word}</a>${shavian.trailingPunctuation}${shavian.trailingSpace}`;
 }
 
 function getShavianWordAndPunctuation(shavianChunk: string) {
@@ -199,14 +230,14 @@ function getShavianWordAndPunctuation(shavianChunk: string) {
   const [, leadingPunctuationRaw, word, trailingPunctuationRaw] =
     shavianChunkNoApostrophes.match(wordAndPunctuation) as string[];
 
-  const leadingPunctuation = leadingPunctuationRaw
-    .replaceAll(/([«‹])/g, "$1&#8239")
-    .replaceAll("***", "<em>");
+  const leadingPunctuation = leadingPunctuationRaw.replaceAll(
+    /([«‹])/g,
+    "$1&#8239"
+  );
 
   const trailingPunctuation = trailingPunctuationRaw
     .replaceAll(/,([»›])/g, "$1,")
-    .replaceAll(/([»›!?])/g, "&#8239$1")
-    .replaceAll("***", "</em>");
+    .replaceAll(/([»›!?])/g, "&#8239$1");
 
   const trailingSpace = trailingPunctuation.slice(-1) === "—" ? "" : " ";
 
