@@ -49,9 +49,8 @@ export function createStoryMarkup(latin: string, shavian: string) {
 
 function getLines(latin: string, shavian: string) {
   const splitLines = (text: string) => {
-    const lineRegex = /^(.+)$/gm;
-
-    return Array.from(text.matchAll(lineRegex), (m) => m[1]);
+    const lines = /^(.+)$/gm;
+    return Array.from(text.matchAll(lines), (m) => m[1]);
   };
 
   const latinLines = splitLines(latin);
@@ -109,8 +108,8 @@ function addBlockQuote(
   shavianLine: string,
   lineNumber: number | null
 ) {
-  const blockquoteRegex = /^>>>(.+)$/;
-  const blockquote = shavianLine.match(blockquoteRegex);
+  const blockquoteStart = /^>>>(.+)$/;
+  const blockquote = shavianLine.match(blockquoteStart);
 
   if (blockquote) {
     let blockquoteMarkup = "<blockquote>";
@@ -162,14 +161,18 @@ function getLineMarkup(
   return lineMarkup;
 }
 
-function getChunks(latin: string, shavian: string, lineNumber: number | null) {
+function getChunks(
+  latinLine: string,
+  shavianLine: string,
+  lineNumber: number | null
+) {
   const breakEmDashes = (text: string) => {
     return text.replaceAll("—", "— ");
   };
 
   // Here a "chunk" refers to a word and its adjacent punctuation
-  const latinChunks = breakEmDashes(latin).split(/\s+/);
-  const shavianChunks = breakEmDashes(shavian).split(/\s+/);
+  const latinChunks = breakEmDashes(latinLine).split(/\s+/);
+  const shavianChunks = breakEmDashes(shavianLine).split(/\s+/);
 
   if (latinChunks.length !== shavianChunks.length) {
     throw new Error(
