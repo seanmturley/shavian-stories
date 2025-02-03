@@ -23,14 +23,9 @@ export function createStoryMarkup(latin: string, shavian: string) {
   latinLines.forEach((latinLine, lineNumber) => {
     let shavianLine = shavianLines[lineNumber];
 
-    const sectionStart = /^\[{3}/;
-    const sectionEnd = /^\]{3}/;
-
-    if (shavianLine.match(sectionStart)) {
-      markup += "<section>";
-      return;
-    } else if (shavianLine.match(sectionEnd)) {
-      markup += "</section>";
+    const section = addSection(shavianLine);
+    if (section) {
+      markup += section;
       return;
     }
 
@@ -88,6 +83,19 @@ function getLines(latin: string, shavian: string) {
   }
 
   return [latinLines, shavianLines];
+}
+
+function addSection(shavianLine: string) {
+  const sectionStart = /^\[{3}/;
+  const sectionEnd = /^\]{3}/;
+
+  if (shavianLine.match(sectionStart)) {
+    return "<section>";
+  }
+
+  if (shavianLine.match(sectionEnd)) {
+    return "</section>";
+  }
 }
 
 function getLineMarkup(
