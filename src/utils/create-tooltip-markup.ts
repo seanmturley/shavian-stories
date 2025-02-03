@@ -16,37 +16,52 @@ export function sanitizeLatinText(latin: string) {
 }
 
 export function createStoryMarkup(latin: string, shavian: string) {
-  const [latinParagraphs, shavianParagraphs] = getParagraphs(latin, shavian);
+  const [latinLines, shavianLines] = getLines(latin, shavian);
 
   let markup = "";
 
-  latinParagraphs.forEach((latinParagraph, paragraphNumber) => {
-    let shavianParagraph = shavianParagraphs[paragraphNumber];
+  latinLines.forEach((latinLine, lineNumber) => {
+    let shavianLine = shavianLines[lineNumber];
 
     const sectionStart = /^\[{3}/;
     const sectionEnd = /^\]{3}/;
 
-    if (shavianParagraph.match(sectionStart)) {
+    if (shavianLine.match(sectionStart)) {
       markup += "<section>";
       return;
-    } else if (shavianParagraph.match(sectionEnd)) {
+    } else if (shavianLine.match(sectionEnd)) {
       markup += "</section>";
       return;
     }
 
+    const headerStart = /^###(.*)$/;
+    const latinHeader = latinLine.match(headerStart);
+    const shavianHeader = shavianLine.match(headerStart);
+
+    if (latinHeader && shavianHeader) {
+      markup += "<header>";
+
+      markup += getLineMarkup(
+        latinHeader[1],
+        shavianHeader[1],
+        "heading",
+        lineNumber
+      );
+
+      markup += "</header>";
+
+      return;
+    }
+
     const blockquoteRegex = /^>>>(.+)$/;
-    const blockquote = shavianParagraph.match(blockquoteRegex);
+    const blockquote = shavianLine.match(blockquoteRegex);
 
     if (blockquote) {
       markup += "<blockquote>";
-      shavianParagraph = blockquote[1];
+      shavianLine = blockquote[1];
     }
 
-    markup += getParagraphMarkup(
-      latinParagraph,
-      shavianParagraph,
-      paragraphNumber
-    );
+    markup += getLineMarkup(latinLine, shavianLine, "paragraph", lineNumber);
 
     if (blockquote) {
       markup += "</blockquote>";
@@ -56,60 +71,60 @@ export function createStoryMarkup(latin: string, shavian: string) {
   return markup;
 }
 
-function getParagraphs(latin: string, shavian: string) {
-  const splitParagraphs = (text: string) => {
-    const paragraphRegex = /^(.+)$/gm;
+function getLines(latin: string, shavian: string) {
+  const splitLines = (text: string) => {
+    const lineRegex = /^(.+)$/gm;
 
-    return Array.from(text.matchAll(paragraphRegex), (m) => m[1]);
+    return Array.from(text.matchAll(lineRegex), (m) => m[1]);
   };
 
-  const latinParagraphs = splitParagraphs(latin);
-  const shavianParagraphs = splitParagraphs(shavian);
+  const latinLines = splitLines(latin);
+  const shavianLines = splitLines(shavian);
 
-  if (latinParagraphs.length !== shavianParagraphs.length) {
+  if (latinLines.length !== shavianLines.length) {
     throw new Error(
-      `The Latin and Shavian texts do not have an equal number of paragraphs.`
+      `The Latin and Shavian texts do not have an equal number of lines.`
     );
   }
 
-  return [latinParagraphs, shavianParagraphs];
+  return [latinLines, shavianLines];
 }
 
-function getParagraphMarkup(
-  latinParagraph: string,
-  shavianParagraph: string,
-  paragraphNumber: number | null
+function getLineMarkup(
+  latinLine: string,
+  shavianLine: string,
+  type: "heading" | "paragraph",
+  lineNumber: number | null
 ) {
-  let paragraphMarkup = "";
+  let lineMarkup = "";
+
+  if (type === "heading") lineMarkup += "<h1>";
+  if (type === "paragraph") lineMarkup += "<p>";
 
   // The span is used to provide consistent cursor styling
   // even between the tooltip anchors
-  paragraphMarkup += "<p><span>";
+  lineMarkup += "<span>";
 
   // Here a "chunk" refers to a word and its adjacent punctuation
   const [latinChunks, shavianChunks] = getChunks(
-    latinParagraph,
-    shavianParagraph,
-    paragraphNumber
+    latinLine,
+    shavianLine,
+    lineNumber
   );
 
-  latinChunks.forEach((latinChunk, paragraphNumber) => {
-    paragraphMarkup += getMarkedUpWord(
-      latinChunk,
-      shavianChunks[paragraphNumber]
-    );
+  latinChunks.forEach((latinChunk, lineNumber) => {
+    lineMarkup += getMarkedUpWord(latinChunk, shavianChunks[lineNumber]);
   });
 
-  paragraphMarkup += "</span></p>";
+  lineMarkup += "</span>";
 
-  return paragraphMarkup;
+  if (type === "heading") lineMarkup += "</h1>";
+  if (type === "paragraph") lineMarkup += "</p>";
+
+  return lineMarkup;
 }
 
-function getChunks(
-  latin: string,
-  shavian: string,
-  paragraphNumber: number | null
-) {
+function getChunks(latin: string, shavian: string, lineNumber: number | null) {
   const breakEmDashes = (text: string) => {
     return text.replaceAll("—", "— ");
   };
@@ -120,7 +135,7 @@ function getChunks(
 
   if (latinChunks.length !== shavianChunks.length) {
     throw new Error(
-      `The number of Latin chunks and Shavian chunks are not equal ${paragraphNumber !== null && `in paragraph ${paragraphNumber + 1}`}.`
+      `The number of Latin chunks and Shavian chunks are not equal ${lineNumber !== null && `in line ${lineNumber + 1}`}.`
     );
   }
 
