@@ -21,7 +21,7 @@ export function createStoryMarkup(latin: string, shavian: string) {
   let markup = "";
 
   latinLines.forEach((latinLine, lineNumber) => {
-    let shavianLine = shavianLines[lineNumber];
+    const shavianLine = shavianLines[lineNumber];
 
     const section = addSection(shavianLine);
     if (section) {
@@ -35,19 +35,13 @@ export function createStoryMarkup(latin: string, shavian: string) {
       return;
     }
 
-    const blockquoteRegex = /^>>>(.+)$/;
-    const blockquote = shavianLine.match(blockquoteRegex);
-
+    const blockquote = addBlockQuote(latinLine, shavianLine, lineNumber);
     if (blockquote) {
-      markup += "<blockquote>";
-      shavianLine = blockquote[1];
+      markup += blockquote;
+      return;
     }
 
     markup += getLineMarkup(latinLine, shavianLine, "paragraph", lineNumber);
-
-    if (blockquote) {
-      markup += "</blockquote>";
-    }
   });
 
   return markup;
@@ -107,6 +101,30 @@ function addHeader(
     headerMarkup += "</header>";
 
     return headerMarkup;
+  }
+}
+
+function addBlockQuote(
+  latinLine: string,
+  shavianLine: string,
+  lineNumber: number | null
+) {
+  const blockquoteRegex = /^>>>(.+)$/;
+  const blockquote = shavianLine.match(blockquoteRegex);
+
+  if (blockquote) {
+    let blockquoteMarkup = "<blockquote>";
+
+    blockquoteMarkup += getLineMarkup(
+      latinLine,
+      blockquote[1],
+      "paragraph",
+      lineNumber
+    );
+
+    blockquoteMarkup += "</blockquote>";
+
+    return blockquoteMarkup;
   }
 }
 
