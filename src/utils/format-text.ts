@@ -84,14 +84,13 @@ function addHeader(
   lineNumber: number | null
 ) {
   const headerStart = /^###(.*)$/;
-  const latinHeader = latinLine.match(headerStart);
   const shavianHeader = shavianLine.match(headerStart);
 
-  if (latinHeader && shavianHeader) {
+  if (shavianHeader) {
     let headerMarkup = "<header>";
 
     headerMarkup += getLineMarkup(
-      latinHeader[1],
+      latinLine,
       shavianHeader[1],
       "heading",
       lineNumber
@@ -211,8 +210,11 @@ function getWordMarkUp(
   shavianChunk: string,
   style: "emphasis" | "normal"
 ) {
-  const nonApostropheOuterPunctuation = /^[^'\p{L}]+|[^'\p{L}]+$/gu;
-  const latinWord = latinChunk.replaceAll(nonApostropheOuterPunctuation, "");
+  const markupAndNonApostrophePunctuation = /^[^'\p{L}]+|[^'\p{L}]+$/gu;
+  const latinWord = latinChunk.replaceAll(
+    markupAndNonApostrophePunctuation,
+    ""
+  );
 
   const shavian = getShavianWordAndPunctuation(shavianChunk);
 
