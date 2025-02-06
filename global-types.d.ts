@@ -17,3 +17,8 @@ type Author = {
 };
 
 type Library = Record<string, Author>;
+
+type FormAction = (
+  prevState: FormState,
+  formData: FormData
+) => Promise<FormState> | Promise<never>;
