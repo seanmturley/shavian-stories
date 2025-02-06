@@ -26,36 +26,34 @@ export default function StoryHtmlForm({
   }, [storyHtmlState.storyHtml]);
 
   return (
-    <section>
-      <form>
-        <label htmlFor="shavian">Enter marked up Shavian</label>
-        <textarea
-          autoComplete="off"
-          autoCorrect="off"
-          cols={100}
-          defaultValue={storyHtmlState.shavian || ""}
-          disabled={!latinSanitized}
-          id="shavian"
-          name="shavian"
-          required
-          rows={30}
-          spellCheck={false}
-        />
+    <form>
+      <label htmlFor="shavian">Enter marked up Shavian:</label>
+      <textarea
+        autoComplete="off"
+        autoCorrect="off"
+        cols={100}
+        defaultValue={storyHtmlState.shavian || ""}
+        disabled={!latinSanitized}
+        id="shavian"
+        name="shavian"
+        required
+        rows={18}
+        spellCheck={false}
+      />
 
-        <input type="hidden" name="latinSanitized" value={latinSanitized} />
+      <input type="hidden" name="latinSanitized" value={latinSanitized} />
 
-        <SubmitButton
-          disabled={!latinSanitized}
-          formAction={storyHtmlAction}
-          pendingText="Formatting text..."
-        >
-          Get story HTML
-        </SubmitButton>
+      <SubmitButton
+        disabled={!latinSanitized}
+        formAction={storyHtmlAction}
+        pendingText="Generating HTML..."
+      >
+        Get story HTML
+      </SubmitButton>
 
-        <div aria-live="polite">
-          {storyHtmlState.message && <p>{storyHtmlState.message}</p>}
-        </div>
-      </form>
-    </section>
+      <div aria-live="polite">
+        {storyHtmlState.message && <p>{storyHtmlState.message}</p>}
+      </div>
+    </form>
   );
 }

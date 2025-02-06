@@ -1,0 +1,33 @@
+.formatText {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  font-size: 1.5em;
+}
+
+.heading {
+  margin: 0;
+}
+
+.formatText form {
+  display: flex;
+  flex-direction: column;
+}
+
+.formatText label,
+.formatText p {
+  margin: 0.5em 0;
+}
+
+.formatText div {
+  height: 3.25rem;
+}
+
+.transliteration {
+  color: inherit;
+}
+
+.reset {
+  width: 100%;
+}

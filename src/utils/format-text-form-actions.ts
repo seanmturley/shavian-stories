@@ -11,7 +11,7 @@ export const formatLatin: FormAction = async function (prevState, formData) {
     ...prevState,
     latin,
     latinSanitized,
-    message: "Formatted Latin text copied to clipboard."
+    message: "Linted Latin copied to clipboard."
   };
 };
 
