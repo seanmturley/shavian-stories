@@ -1,3 +1,21 @@
+/**
+ * Builds the story HTML from marked up Latin and Shavian inputs.
+ *
+ * @remarks
+ * The input strings should be marked up in the following manner:
+ *  - A wrapping `<section>` is marked with opening `[[[` and closing `]]]`
+ *  - A wrapping `<header><h1>` is marked with leading `###`
+ *  - A wrapping `<blockquote>` is marked with leading `>>>`
+ *  - A wrapping `<em>` is marked with opening `***` and closing `***`
+ *
+ * The Latin can be transliterated to Shavian using
+ * {@link https://www.dechifro.org/shavian/ | Dechifro's tool}.
+ *
+ * @param latin - A marked up string of Latin text, linted with {@link lintLatin}.
+ * @param shavian - The same as {@link latin}, but transliterated into Shavian.
+ *
+ * @returns A linted version of the provided Latin text.
+ */
 export default function generateStoryHtml(latin: string, shavian: string) {
   const [latinLines, shavianLines] = getLines(latin, shavian);
 
