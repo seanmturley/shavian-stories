@@ -1,3 +1,5 @@
+import generateStoryHtml from "@utils/format-story/generate-story-html";
+
 /**
  * Lints the provided Latin text, including replacing conventional speech marks
  * and quotes with guillemets.
@@ -17,6 +19,7 @@
  * @param latin - A string of Latin text, copied from the raw story source text,
  * with additional markup added as necessary. See {@link generateStoryHtml} for
  * markup details.
+ *
  * @returns A linted version of the provided Latin text.
  */
 export default function lintLatin(latin: string) {

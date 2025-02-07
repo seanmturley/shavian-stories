@@ -1,3 +1,5 @@
+import lintLatin from "@utils/format-story/lint-latin";
+
 /**
  * Builds the story HTML from marked up Latin and Shavian inputs.
  *
