@@ -1,24 +1,24 @@
 "use client";
 
 import { useState } from "react";
-import SanitizeLatinForm from "@components/sanitize-latin-form";
+import LintLatinForm from "@components/lint-latin-form";
 import StoryHtmlForm from "@components/story-html-form";
-import styles from "./format-text.module.css";
+import styles from "./format-story.module.css";
 
-export default function FormatText() {
+export default function FormatStory() {
   const [formKey, setFormKey] = useState(0);
-  const [latinSanitized, setLatinSanitized] = useState("");
+  const [latinLinted, setLatinLinted] = useState("");
 
   const handleClick = () => {
-    setLatinSanitized("");
+    setLatinLinted("");
     setFormKey((prev) => prev + 1);
   };
 
   return (
-    <section className={styles.formatText}>
+    <section className={styles.formatStory}>
       <h1 className={styles.heading}>Story HTML Builder</h1>
 
-      <SanitizeLatinForm key={formKey} setLatinSanitized={setLatinSanitized} />
+      <LintLatinForm key={formKey} setLatinLinted={setLatinLinted} />
 
       <p>
         <a
@@ -29,7 +29,7 @@ export default function FormatText() {
         </a>
       </p>
 
-      <StoryHtmlForm key={formKey + 1} latinSanitized={latinSanitized} />
+      <StoryHtmlForm key={formKey + 1} latinLinted={latinLinted} />
 
       <button className={styles.reset} onClick={handleClick} type="button">
         Reset

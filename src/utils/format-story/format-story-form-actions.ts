@@ -1,26 +1,27 @@
 "use server";
 
-import { createStoryMarkup, sanitizeLatinText } from "@utils/format-text";
+import generateStoryHtml from "@utils/format-story/generate-story-html";
+import lintLatin from "@utils/format-story/lint-latin";
 
-export const formatLatin: FormAction = async function (prevState, formData) {
+export const getLintedLatin: FormAction = async function (prevState, formData) {
   const latin = formData.get("latin") as string;
 
-  const latinSanitized = sanitizeLatinText(latin);
+  const latinLinted = lintLatin(latin);
 
   return {
     ...prevState,
     latin,
-    latinSanitized,
+    latinLinted,
     message: "Linted Latin copied to clipboard."
   };
 };
 
 export const getStoryHtml: FormAction = async function (prevState, formData) {
   const shavian = formData.get("shavian") as string;
-  const latinSanitized = formData.get("latinSanitized") as string;
+  const latinLinted = formData.get("latinLinted") as string;
 
   try {
-    const storyHtml = createStoryMarkup(latinSanitized, shavian);
+    const storyHtml = generateStoryHtml(latinLinted, shavian);
 
     return {
       ...prevState,

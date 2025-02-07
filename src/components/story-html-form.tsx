@@ -1,6 +1,6 @@
 import { useActionState, useEffect } from "react";
 import SubmitButton from "@components/submit-button";
-import { getStoryHtml } from "@utils/format-text-form-actions";
+import { getStoryHtml } from "@utils/format-story/format-story-form-actions";
 
 const initialStoryHtmlState = {
   shavian: "",
@@ -9,9 +9,9 @@ const initialStoryHtmlState = {
 };
 
 export default function StoryHtmlForm({
-  latinSanitized
+  latinLinted
 }: {
-  latinSanitized: string;
+  latinLinted: string;
 }) {
   const [storyHtmlState, storyHtmlAction] = useActionState(
     getStoryHtml,
@@ -33,7 +33,7 @@ export default function StoryHtmlForm({
         autoCorrect="off"
         cols={100}
         defaultValue={storyHtmlState.shavian || ""}
-        disabled={!latinSanitized}
+        disabled={!latinLinted}
         id="shavian"
         name="shavian"
         required
@@ -41,10 +41,10 @@ export default function StoryHtmlForm({
         spellCheck={false}
       />
 
-      <input type="hidden" name="latinSanitized" value={latinSanitized} />
+      <input type="hidden" name="latinLinted" value={latinLinted} />
 
       <SubmitButton
-        disabled={!latinSanitized}
+        disabled={!latinLinted}
         formAction={storyHtmlAction}
         pendingText="Generating HTML..."
       >

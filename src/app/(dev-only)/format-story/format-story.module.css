@@ -1,4 +1,4 @@
-.formatText {
+.formatStory {
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -10,17 +10,17 @@
   margin: 0;
 }
 
-.formatText form {
+.formatStory form {
   display: flex;
   flex-direction: column;
 }
 
-.formatText label,
-.formatText p {
+.formatStory label,
+.formatStory p {
   margin: 0.5em 0;
 }
 
-.formatText div {
+.formatStory div {
   height: 3.25rem;
 }
 

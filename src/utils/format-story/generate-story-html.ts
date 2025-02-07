@@ -1,50 +1,33 @@
-export function sanitizeLatinText(latin: string) {
-  const startOfLineSpaces = /^\s+/gm;
-  const consecutiveSpaces = /[^\S\r\n][^\S\r\n]+/g;
-  const latinTrimmed = latin
-    .replace(consecutiveSpaces, " ")
-    .replace(startOfLineSpaces, "\n")
-    .trim();
-
-  const speechMarks =
-    /(?<=^|\p{L}\p{P}\s|—)['"‘“](.+?)(?:(?:(?<=(?:[\p{L}\d]\p{P}+))['"’”])|['"’”](—))/gmu;
-  const quotationMarks = /(?<!\p{L})(['"])([^'"]*)\1(?!\p{L})/gu;
-
-  return latinTrimmed
-    .replaceAll(speechMarks, "«$1»$2")
-    .replaceAll(quotationMarks, "‹$2›");
-}
-
-export function createStoryMarkup(latin: string, shavian: string) {
+export default function generateStoryHtml(latin: string, shavian: string) {
   const [latinLines, shavianLines] = getLines(latin, shavian);
 
-  let markup = "";
+  let html = "";
 
   latinLines.forEach((latinLine, lineNumber) => {
     const shavianLine = shavianLines[lineNumber];
 
     const section = addSection(shavianLine);
     if (section) {
-      markup += section;
+      html += section;
       return;
     }
 
     const header = addHeader(latinLine, shavianLine, lineNumber);
     if (header) {
-      markup += header;
+      html += header;
       return;
     }
 
     const blockquote = addBlockQuote(latinLine, shavianLine, lineNumber);
     if (blockquote) {
-      markup += blockquote;
+      html += blockquote;
       return;
     }
 
-    markup += getLineMarkup(latinLine, shavianLine, "paragraph", lineNumber);
+    html += getLineHtml(latinLine, shavianLine, "paragraph", lineNumber);
   });
 
-  return markup;
+  return html;
 }
 
 function getLines(latin: string, shavian: string) {
@@ -87,18 +70,18 @@ function addHeader(
   const shavianHeader = shavianLine.match(headerStart);
 
   if (shavianHeader) {
-    let headerMarkup = "<header>";
+    let headerHtml = "<header>";
 
-    headerMarkup += getLineMarkup(
+    headerHtml += getLineHtml(
       latinLine,
       shavianHeader[1],
       "heading",
       lineNumber
     );
 
-    headerMarkup += "</header>";
+    headerHtml += "</header>";
 
-    return headerMarkup;
+    return headerHtml;
   }
 }
 
@@ -108,38 +91,38 @@ function addBlockQuote(
   lineNumber: number | null
 ) {
   const blockquoteStart = /^>>>(.+)$/;
-  const blockquote = shavianLine.match(blockquoteStart);
+  const shavianBlockquote = shavianLine.match(blockquoteStart);
 
-  if (blockquote) {
-    let blockquoteMarkup = "<blockquote>";
+  if (shavianBlockquote) {
+    let blockquoteHtml = "<blockquote>";
 
-    blockquoteMarkup += getLineMarkup(
+    blockquoteHtml += getLineHtml(
       latinLine,
-      blockquote[1],
+      shavianBlockquote[1],
       "paragraph",
       lineNumber
     );
 
-    blockquoteMarkup += "</blockquote>";
+    blockquoteHtml += "</blockquote>";
 
-    return blockquoteMarkup;
+    return blockquoteHtml;
   }
 }
 
-function getLineMarkup(
+function getLineHtml(
   latinLine: string,
   shavianLine: string,
   type: "heading" | "paragraph",
   lineNumber: number | null
 ) {
-  let lineMarkup = "";
+  let lineHtml = "";
 
-  if (type === "heading") lineMarkup += "<h1>";
-  if (type === "paragraph") lineMarkup += "<p>";
+  if (type === "heading") lineHtml += "<h1>";
+  if (type === "paragraph") lineHtml += "<p>";
 
   // The span is used to provide consistent cursor styling
   // even between the tooltip anchors
-  lineMarkup += "<span>";
+  lineHtml += "<span>";
 
   // Here a "chunk" refers to a word and its adjacent punctuation
   const [latinChunks, shavianChunks] = getChunks(
@@ -162,25 +145,25 @@ function getLineMarkup(
 
     if (emphasisStart) {
       emphasisFlag = true;
-      lineMarkup += "<em>";
+      lineHtml += "<em>";
     }
 
-    const markupStyle = emphasisFlag ? "emphasis" : "normal";
+    const style = emphasisFlag ? "emphasis" : "normal";
 
-    lineMarkup += getWordMarkUp(latinChunk, shavianChunk, markupStyle);
+    lineHtml += getWordHtml(latinChunk, shavianChunk, style);
 
     if (emphasisEnd) {
       emphasisFlag = false;
-      lineMarkup += "</em>";
+      lineHtml += "</em>";
     }
   });
 
-  lineMarkup += "</span>";
+  lineHtml += "</span>";
 
-  if (type === "heading") lineMarkup += "</h1>";
-  if (type === "paragraph") lineMarkup += "</p>";
+  if (type === "heading") lineHtml += "</h1>";
+  if (type === "paragraph") lineHtml += "</p>";
 
-  return lineMarkup;
+  return lineHtml;
 }
 
 function getChunks(
@@ -205,7 +188,7 @@ function getChunks(
   return [latinChunks, shavianChunks];
 }
 
-function getWordMarkUp(
+function getWordHtml(
   latinChunk: string,
   shavianChunk: string,
   style: "emphasis" | "normal"
