@@ -11,8 +11,8 @@
  *    with single guillemets.
  *
  * **NOTE:** All apostrophes will be left intact *except* in the rare situation
- * where there is a leading apostrophe followed by a trailing apostrophe e.g.:
- * "'tis the boys' favourite."
+ * where there is a leading non-fancy apostrophe followed by a trailing apostrophe
+ * e.g.: "'tis the boys' favourite."
  *
  * @param latin - A string of Latin text, copied from the raw story source text,
  * with additional markup added as necessary. See {@link generateStoryHtml} for
@@ -29,7 +29,7 @@ export default function lintLatin(latin: string) {
 
   const speechMarks =
     /(?<=^|\p{L}\p{P}\s|—)['"‘“](.+?)(?:(?:(?<=(?:[\p{L}\d]\p{P}+))['"’”])|['"’”](—))/gmu;
-  const quotationMarks = /(?<!\p{L})(['"])([^'"]*)\1(?!\p{L})/gu;
+  const quotationMarks = /(?<!\p{L})(['"‘“])([^'"‘“]*?)['"’”](?!\p{L})/gu;
 
   return latinTrimmed
     .replaceAll(speechMarks, "«$1»$2")
