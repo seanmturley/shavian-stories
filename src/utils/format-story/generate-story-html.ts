@@ -84,7 +84,7 @@ function addSection(shavianLine: string) {
 function addHeader(
   latinLine: string,
   shavianLine: string,
-  lineNumber: number | null
+  lineNumber?: number
 ) {
   const headerStart = /^###(.*)$/;
   const shavianHeader = shavianLine.match(headerStart);
@@ -108,7 +108,7 @@ function addHeader(
 function addBlockQuote(
   latinLine: string,
   shavianLine: string,
-  lineNumber: number | null
+  lineNumber?: number
 ) {
   const blockquoteStart = /^>>>(.+)$/;
   const shavianBlockquote = shavianLine.match(blockquoteStart);
@@ -129,11 +129,11 @@ function addBlockQuote(
   }
 }
 
-function getLineHtml(
+export function getLineHtml(
   latinLine: string,
   shavianLine: string,
   type: "heading" | "paragraph",
-  lineNumber: number | null
+  lineNumber?: number
 ) {
   let lineHtml = "";
 
@@ -153,8 +153,8 @@ function getLineHtml(
 
   let emphasisFlag = false;
 
-  latinChunks.forEach((latinChunk, lineNumber) => {
-    let shavianChunk = shavianChunks[lineNumber];
+  latinChunks.forEach((latinChunk, chunkNumber) => {
+    let shavianChunk = shavianChunks[chunkNumber];
 
     const emphasisStart = shavianChunk.match(/^\p{P}*\*{3}/u);
     const emphasisEnd = shavianChunk.match(/\*{3}\p{P}*$/u);
@@ -189,7 +189,7 @@ function getLineHtml(
 function getChunks(
   latinLine: string,
   shavianLine: string,
-  lineNumber: number | null
+  lineNumber?: number
 ) {
   const breakEmDashes = (text: string) => {
     return text.replaceAll("—", "— ");
@@ -201,7 +201,7 @@ function getChunks(
 
   if (latinChunks.length !== shavianChunks.length) {
     throw new Error(
-      `The number of Latin chunks and Shavian chunks are not equal ${lineNumber !== null && `in line ${lineNumber + 1}`}.`
+      `The number of Latin chunks and Shavian chunks are not equal ${lineNumber && `in line ${lineNumber + 1}`}.`
     );
   }
 
