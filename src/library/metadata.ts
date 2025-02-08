@@ -24,12 +24,12 @@ const metadata: Library = {
       shavian: "·𐑐. ·𐑜. ·𐑢𐑫𐑛𐑣𐑬𐑕"
     },
     stories: {
-      "leave-it-to-jeeves": {
+      "jeeves-takes-charge": {
         title: {
-          latin: "Leave It to Jeeves",
-          shavian: "𐑤𐑰𐑝 𐑦𐑑 𐑑 ·𐑡𐑰𐑝𐑟"
+          latin: "Jeeves Takes Charge",
+          shavian: "·𐑡𐑰𐑝𐑟 𐑑𐑱𐑒𐑕 𐑗𐑸𐑡"
         },
-        year: 1919
+        year: 1925
       }
     }
   }
