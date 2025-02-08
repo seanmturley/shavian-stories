@@ -8,13 +8,6 @@ const metadata: Library = {
       dagon: {
         title: { latin: "Dagon", shavian: "·𐑛𐑨𐑜𐑩𐑯" },
         year: 1919
-      },
-      "the-dunwich-horror": {
-        title: {
-          latin: "The Dunwich Horror",
-          shavian: "𐑞 ·𐑛𐑳𐑯𐑢𐑦𐑗 𐑣𐑪𐑮𐑼"
-        },
-        year: 1929
       }
     }
   },
