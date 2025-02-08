@@ -24,6 +24,7 @@ export default function FormatStory() {
         <a
           className={styles.transliteration}
           href="https://www.dechifro.org/shavian/"
+          target="_blank"
         >
           Get Shavian transileration
         </a>
