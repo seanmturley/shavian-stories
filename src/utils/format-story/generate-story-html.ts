@@ -192,12 +192,12 @@ function getChunks(
   lineNumber?: number
 ) {
   const breakEmDashes = (text: string) => {
-    return text.replaceAll("—", "— ");
+    return text.replaceAll(/—(»)?/g, "—$1 ");
   };
 
   // Here a "chunk" refers to a word and its adjacent punctuation
-  const latinChunks = breakEmDashes(latinLine).split(/\s+/);
-  const shavianChunks = breakEmDashes(shavianLine).split(/\s+/);
+  const latinChunks = breakEmDashes(latinLine).trimEnd().split(/\s+/);
+  const shavianChunks = breakEmDashes(shavianLine).trimEnd().split(/\s+/);
 
   if (latinChunks.length !== shavianChunks.length) {
     throw new Error(
