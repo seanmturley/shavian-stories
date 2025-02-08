@@ -1,0 +1,17 @@
+import parse from "html-react-parser";
+import generateStoryHtml from "@utils/format-story/generate-story-html";
+
+export default async function StoryText({
+  author,
+  story
+}: {
+  author: string;
+  story: string;
+}) {
+  const { latin } = await import(`@library/${author}/${story}/latin`);
+  const { shavian } = await import(`@library/${author}/${story}/shavian`);
+
+  const storyHtml = generateStoryHtml(latin, shavian);
+
+  return parse(storyHtml);
+}

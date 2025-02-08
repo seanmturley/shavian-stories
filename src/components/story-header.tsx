@@ -1,5 +1,4 @@
 import parse from "html-react-parser";
-import styles from "@components/story.module.css";
 import metadata from "@library/metadata";
 import { getLineHtml } from "@utils/format-story/generate-story-html";
 
@@ -22,7 +21,7 @@ export default function StoryHeader({ author, story }: StoryHeaderProps) {
     <header>
       {parse(headingHtml)}
       <p>
-        <span className={styles.textCursor}>
+        <span>
           <a data-tooltip-id="latin" data-tooltip-content="by">
             𐑚𐑲
           </a>{" "}
@@ -31,7 +30,7 @@ export default function StoryHeader({ author, story }: StoryHeaderProps) {
             href={`${process.env.libraryUrl}/${author}`}
             data-tooltip-id="latin"
             data-tooltip-content={authorName.latin}
-            className={styles.link}
+            className="link"
           >
             {authorName.shavian}
           </a>

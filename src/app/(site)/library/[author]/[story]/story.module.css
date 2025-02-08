@@ -2,12 +2,6 @@
   width: min(70rem, calc(60% + 12rem));
 }
 
-.story section {
-  padding-top: 2em;
-  border: solid white;
-  border-width: 0.15em 0 0;
-}
-
 .story header {
   display: flex;
   flex-direction: column;
@@ -22,15 +16,25 @@
   word-spacing: var(--word-spacing);
 }
 
-.story h2 {
+.story header p {
+  font-size: 3.4em;
+  line-height: normal;
+}
+
+.story section {
+  padding-top: 2em;
+  border: solid white;
+  border-width: 0.15em 0 0;
+}
+
+.story section h1 {
   font-size: 4.5em;
   font-weight: 500;
   word-spacing: var(--word-spacing);
 }
 
-.story header p {
-  font-size: 3.4em;
-  line-height: normal;
+.story blockquote {
+  margin-block: 0;
 }
 
 .story p {
@@ -47,22 +51,11 @@
   font-weight: 200;
 }
 
-.story blockquote {
-  margin-block: 0;
-}
-
-.story a {
-  text-decoration: none;
-}
-
-.right {
-  text-align: right;
-}
-
-.link {
-  color: darkgoldenrod;
-}
-
 .story span {
   cursor: text;
+}
+
+.story a[href] {
+  color: darkgoldenrod;
+  text-decoration: none;
 }

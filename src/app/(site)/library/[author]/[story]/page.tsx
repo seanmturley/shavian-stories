@@ -1,5 +1,7 @@
-import Story from "@components/story";
 import metadata from "@library/metadata";
+import StoryHeader from "@components/story-header";
+import StoryText from "@components/story-text";
+import styles from "./story.module.css";
 
 export function generateStaticParams() {
   const staticParams = [];
@@ -15,12 +17,17 @@ export function generateStaticParams() {
   return staticParams;
 }
 
-export default async function StoryPage({
+export default async function Story({
   params
 }: {
   params: Promise<{ author: string; story: string }>;
 }) {
-  const { author, story } = await params;
+  const parameters = await params;
 
-  return <Story author={author} story={story} />;
+  return (
+    <article className={styles.story}>
+      <StoryHeader {...parameters} />
+      <StoryText {...parameters} />
+    </article>
+  );
 }
