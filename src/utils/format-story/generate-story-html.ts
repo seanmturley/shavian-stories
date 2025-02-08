@@ -178,6 +178,8 @@ export function getLineHtml(
     }
   });
 
+  lineHtml = lineHtml.trimEnd();
+
   lineHtml += "</span>";
 
   if (type === "heading") lineHtml += "</h1>";
