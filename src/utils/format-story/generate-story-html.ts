@@ -233,7 +233,7 @@ function getWordHtml(
 function getShavianWordAndPunctuation(shavianChunk: string) {
   const shavianChunkNoApostrophes = shavianChunk.replaceAll("'", "");
 
-  const wordAndPunctuation = /(\p{P}*)([\p{L}\d·-]+)(\p{P}*)/u;
+  const wordAndPunctuation = /([^·\P{P}]*)([\p{L}\d·-]+)(\p{P}*)/u;
   const [, leadingPunctuationRaw, word, trailingPunctuationRaw] =
     shavianChunkNoApostrophes.match(wordAndPunctuation) as string[];
 
