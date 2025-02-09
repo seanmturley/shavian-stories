@@ -1,7 +1,7 @@
 :root {
   font-size: 0.625rem;
-  --line-height: 1.5;
-  --word-spacing: 0.3em;
+  --story-line-height: 4.2rem;
+  --story-word-spacing: 0.3em;
   font-family: var(--ormin-regular), sans-serif;
   font-variant-numeric: oldstyle-nums;
 }

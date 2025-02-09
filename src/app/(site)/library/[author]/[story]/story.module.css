@@ -6,43 +6,45 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 2em;
   text-align: center;
 }
 
-.story h1 {
-  font-size: 9em;
-  font-weight: 500;
-  word-spacing: var(--word-spacing);
-}
-
-.story header p {
-  font-size: 3.4em;
-  line-height: normal;
-}
-
 .story section {
-  padding-top: 2em;
   border: solid white;
   border-width: 0.15em 0 0;
-}
-
-.story section h1 {
-  font-size: 4.5em;
-  font-weight: 500;
-  word-spacing: var(--word-spacing);
 }
 
 .story blockquote {
   margin-block: 0;
 }
 
+.story h1 {
+  font-weight: 500;
+  word-spacing: var(--story-word-spacing);
+  line-height: 1.5em;
+  margin: calc(1.5 * var(--story-line-height)) 0;
+  font-size: calc(2.25 * var(--story-line-height));
+}
+
+.story section h1 {
+  margin: var(--story-line-height) 0;
+  font-size: calc(1.5 * var(--story-line-height));
+}
+
 .story p {
-  font-size: 2.8em;
   font-weight: 300;
-  line-height: var(--line-height);
-  word-spacing: var(--word-spacing);
-  margin: 0 0 2em;
+  word-spacing: var(--story-word-spacing);
+  line-height: var(--story-line-height);
+  margin: 0 0 var(--story-line-height);
+  font-size: calc((2 / 3) * var(--story-line-height));
+}
+
+.story section p:first-child {
+  margin-top: var(--story-line-height);
+}
+
+.story header p {
+  font-size: var(--story-line-height);
 }
 
 .story em {
@@ -51,11 +53,11 @@
   font-weight: 200;
 }
 
-.story span {
-  cursor: text;
-}
-
 .story a[href] {
   color: darkgoldenrod;
   text-decoration: none;
+}
+
+.story span {
+  cursor: text;
 }
