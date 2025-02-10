@@ -138,7 +138,7 @@ export function getLineHtml(
   let lineHtml = "";
 
   if (type === "heading") lineHtml += "<h1>";
-  if (type === "paragraph") lineHtml += "<p>";
+  if (type === "paragraph") lineHtml += `<p id="p${lineNumber}">`;
 
   // The span is used to provide consistent cursor styling
   // even between the tooltip anchors
