@@ -14,6 +14,7 @@
   position: relative;
   margin-bottom: var(--line-height);
   display: flex;
+  transition: left 0.15s ease-out;
 }
 
 .icon {
