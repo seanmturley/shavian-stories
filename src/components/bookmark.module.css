@@ -1,0 +1,33 @@
+.storyContainer {
+  --margin: 2vw;
+  --line-height: 2rem;
+  font-size: calc((2 / 3) * var(--line-height));
+  line-height: var(--line-height);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: calc(100vw - 2 * var(--margin));
+  overflow-x: hidden;
+}
+
+.line {
+  position: relative;
+  margin-bottom: var(--line-height);
+  display: flex;
+}
+
+.icon {
+  background-color: #b8860b;
+  width: calc(90px - var(--margin));
+  margin-right: var(--margin);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3em;
+}
+
+.paragraph {
+  touch-action: pan-x;
+  margin: 0;
+  width: calc(100vw - (2 * var(--margin)));
+}
