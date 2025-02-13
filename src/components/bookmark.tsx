@@ -4,8 +4,8 @@ import { useState } from "react";
 import styles from "./bookmark.module.css";
 import { useSwipeable } from "react-swipeable";
 
-const bookmarkWidth = 120;
-const addBookmarkThreshold = 0.75 * bookmarkWidth;
+const bookmarkWidth = 150;
+const addBookmarkThreshold = 0.8 * bookmarkWidth;
 const defaultBookmarkColour = "darkgoldenrod";
 
 const config = {
@@ -20,6 +20,7 @@ export default function Bookmark() {
     onSwiped: (eventData) => {
       if (eventData.deltaX >= addBookmarkThreshold) {
         console.log("Bookmark added!");
+        setBookmarkColour(defaultBookmarkColour);
       }
       setOffset(-bookmarkWidth);
     },

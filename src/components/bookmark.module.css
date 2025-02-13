@@ -14,16 +14,18 @@
   position: relative;
   margin-bottom: var(--line-height);
   display: flex;
-  transition: left 0.15s ease-out;
+  transition: left 0.2s ease-out;
 }
 
 .icon {
-  width: calc(120px - var(--margin));
+  width: calc(150px - var(--margin));
   margin-right: var(--margin);
+  padding-right: calc(4 * var(--margin));
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   font-size: 3em;
+  transition: background-color 0.2s ease-in-out;
 }
 
 .paragraph {
