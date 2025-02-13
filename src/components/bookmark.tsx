@@ -4,30 +4,34 @@ import { useState } from "react";
 import styles from "./bookmark.module.css";
 import { useSwipeable } from "react-swipeable";
 
-const bookmarkWidth = 150;
-const addBookmarkThreshold = 0.8 * bookmarkWidth;
+const margin = 25; // --margin
+const defaultOffset = 150 + margin; // .icon width + --margin
+const bookmark = 3;
 const defaultBookmarkColour = "darkgoldenrod";
+const addBookmarkThreshold = 0.8 * defaultOffset;
 
 const config = {
   preventScrollOnSwipe: true
 };
 
 export default function Bookmark() {
-  const [offset, setOffset] = useState(-bookmarkWidth);
+  const [offset, setOffset] = useState(-defaultOffset);
   const [bookmarkColour, setBookmarkColour] = useState(defaultBookmarkColour);
+  const [isBookmarked, setIsBookmarked] = useState(false);
 
   const handlers = useSwipeable({
     onSwiped: (eventData) => {
       if (eventData.deltaX >= addBookmarkThreshold) {
         console.log("Bookmark added!");
+        setIsBookmarked(true);
         setBookmarkColour(defaultBookmarkColour);
       }
-      setOffset(-bookmarkWidth);
+      setOffset(-defaultOffset);
     },
     onSwiping: (eventData) => {
       const newOffset = Math.max(
-        Math.min(0, eventData.deltaX - bookmarkWidth),
-        -bookmarkWidth
+        Math.min(0, eventData.deltaX - defaultOffset),
+        -defaultOffset
       );
       setOffset(newOffset);
 
@@ -43,10 +47,22 @@ export default function Bookmark() {
   return (
     <section className={styles.storyContainer}>
       <div className={styles.line} style={{ left: `${offset}px` }}>
-        <a className={styles.icon} style={{ backgroundColor: bookmarkColour }}>
+        <a
+          className={styles.icon}
+          style={{
+            backgroundColor: bookmarkColour
+          }}
+        >
           B
         </a>
-        <p className={styles.paragraph} {...handlers}>
+        <p
+          className={styles.paragraph}
+          {...handlers}
+          style={{
+            borderLeft: `${isBookmarked ? `${bookmark}px solid ${bookmarkColour}` : "none"}`,
+            paddingLeft: `${isBookmarked ? 0.5 * margin - bookmark : 0.5 * margin}px`
+          }}
+        >
           The change happened whilst I slept. Its details I shall never know;
           for my slumber, though troubled and dream-infested, was continuous.
           When at last I awaked, it was to discover myself half sucked into a

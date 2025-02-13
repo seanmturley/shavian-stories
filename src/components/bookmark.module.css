@@ -1,12 +1,13 @@
 .storyContainer {
-  --margin: 2vw;
+  --margin: 25px;
   --line-height: 2rem;
+  --paragraph-width: calc(100vw - var(--margin));
   font-size: calc((2 / 3) * var(--line-height));
   line-height: var(--line-height);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: calc(100vw - 2 * var(--margin));
+  width: var(--paragraph-width);
   overflow-x: hidden;
 }
 
@@ -18,9 +19,9 @@
 }
 
 .icon {
-  width: calc(150px - var(--margin));
-  margin-right: var(--margin);
-  padding-right: calc(4 * var(--margin));
+  width: 150px;
+  padding-right: var(--margin);
+  box-sizing: content-box;
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -31,5 +32,6 @@
 .paragraph {
   touch-action: pan-x;
   margin: 0;
-  width: calc(100vw - (2 * var(--margin)));
+  width: var(--paragraph-width);
+  transition: border 0.2s ease-in-out;
 }
