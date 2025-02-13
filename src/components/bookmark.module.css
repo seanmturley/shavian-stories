@@ -17,8 +17,7 @@
 }
 
 .icon {
-  background-color: #b8860b;
-  width: calc(90px - var(--margin));
+  width: calc(120px - var(--margin));
   margin-right: var(--margin);
   display: flex;
   align-items: center;

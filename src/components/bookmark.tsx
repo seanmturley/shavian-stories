@@ -4,7 +4,9 @@ import { useState } from "react";
 import styles from "./bookmark.module.css";
 import { useSwipeable } from "react-swipeable";
 
-const bookmarkWidth = 90;
+const bookmarkWidth = 120;
+const addBookmarkThreshold = 0.75 * bookmarkWidth;
+const defaultBookmarkColour = "darkgoldenrod";
 
 const config = {
   preventScrollOnSwipe: true
@@ -12,15 +14,27 @@ const config = {
 
 export default function Bookmark() {
   const [offset, setOffset] = useState(-bookmarkWidth);
+  const [bookmarkColour, setBookmarkColour] = useState(defaultBookmarkColour);
 
   const handlers = useSwipeable({
-    onSwiped: () => setOffset(-bookmarkWidth),
+    onSwiped: (eventData) => {
+      if (eventData.deltaX >= addBookmarkThreshold) {
+        console.log("Bookmark added!");
+      }
+      setOffset(-bookmarkWidth);
+    },
     onSwiping: (eventData) => {
       const newOffset = Math.max(
         Math.min(0, eventData.deltaX - bookmarkWidth),
         -bookmarkWidth
       );
       setOffset(newOffset);
+
+      if (eventData.deltaX >= addBookmarkThreshold) {
+        setBookmarkColour("darkgreen");
+      } else {
+        setBookmarkColour(defaultBookmarkColour);
+      }
     },
     ...config
   });
@@ -28,7 +42,9 @@ export default function Bookmark() {
   return (
     <section className={styles.storyContainer}>
       <div className={styles.line} style={{ left: `${offset}px` }}>
-        <a className={styles.icon}>B</a>
+        <a className={styles.icon} style={{ backgroundColor: bookmarkColour }}>
+          B
+        </a>
         <p className={styles.paragraph} {...handlers}>
           The change happened whilst I slept. Its details I shall never know;
           for my slumber, though troubled and dream-infested, was continuous.
