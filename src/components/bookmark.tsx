@@ -47,6 +47,7 @@ export default function Bookmark() {
   return (
     <section className={styles.storyContainer}>
       <div className={styles.line} style={{ left: `${offset}px` }}>
+        <div className={styles.slider} {...handlers}></div>
         <a
           className={styles.icon}
           style={{
@@ -57,7 +58,6 @@ export default function Bookmark() {
         </a>
         <p
           className={styles.paragraph}
-          {...handlers}
           style={{
             borderLeft: `${isBookmarked ? `${bookmark}px solid ${bookmarkColour}` : "none"}`,
             paddingLeft: `${isBookmarked ? 0.5 * margin - bookmark : 0.5 * margin}px`
