@@ -1,14 +1,16 @@
 .storyContainer {
   --margin: 25px;
   --line-height: 2rem;
-  --paragraph-width: calc(100vw - var(--margin));
-  font-size: calc((2 / 3) * var(--line-height));
-  line-height: var(--line-height);
+  --container-width: calc(100vw - 1.5 * var(--margin));
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: var(--paragraph-width);
+  width: var(--container-width);
+  margin-left: calc(0.5 * var(--margin));
+  margin-right: var(--margin);
   overflow-x: hidden;
+  line-height: var(--line-height);
+  font-size: calc((2 / 3) * var(--line-height));
 }
 
 .line {
@@ -32,6 +34,6 @@
 .paragraph {
   touch-action: pan-x;
   margin: 0;
-  width: var(--paragraph-width);
+  width: var(--container-width);
   transition: border 0.2s ease-in-out;
 }
