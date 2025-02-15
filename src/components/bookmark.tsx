@@ -22,8 +22,7 @@ export default function Bookmark() {
   const handlers = useSwipeable({
     onSwiped: (eventData) => {
       if (eventData.deltaX >= addBookmarkThreshold) {
-        console.log("Bookmark added!");
-        setIsBookmarked(true);
+        setIsBookmarked((prev) => !prev);
         setBookmarkColour(defaultBookmarkColour);
       }
       setOffset(-defaultOffset);
@@ -36,7 +35,7 @@ export default function Bookmark() {
       setOffset(newOffset);
 
       if (eventData.deltaX >= addBookmarkThreshold) {
-        setBookmarkColour("darkgreen");
+        setBookmarkColour(isBookmarked ? "darkred" : "darkgreen");
       } else {
         setBookmarkColour(defaultBookmarkColour);
       }
