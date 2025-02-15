@@ -1,6 +1,6 @@
 "use client";
 
-import { cloneElement, useState } from "react";
+import { useState } from "react";
 import styles from "./bookmark.module.css";
 import { useSwipeable } from "react-swipeable";
 
@@ -47,14 +47,6 @@ export default function Bookmark({
     ...config
   });
 
-  const childProps = {
-    className: styles.paragraph,
-    style: {
-      borderLeft: `${isBookmarked ? `${bookmark}px solid ${bookmarkColour}` : "none"}`,
-      paddingLeft: `${isBookmarked ? 0.5 * margin - bookmark : 0.5 * margin}px`
-    }
-  };
-
   return (
     <section className={styles.storyContainer}>
       <div className={styles.line} style={{ left: `${offset}px` }}>
@@ -62,14 +54,14 @@ export default function Bookmark({
         <a
           className={styles.icon}
           style={{
-            backgroundColor: bookmarkColour
+            backgroundColor: bookmarkColour,
+            marginRight: `${isBookmarked ? 0.5 * margin - bookmark : 0.5 * margin}px`,
+            borderRight: `${isBookmarked ? `${bookmark}px solid ${bookmarkColour}` : "none"}`
           }}
         >
           B
         </a>
-        {cloneElement(children as React.ReactElement<any>, {
-          ...childProps
-        })}
+        <div className={styles.text}>{children}</div>
       </div>
     </section>
   );

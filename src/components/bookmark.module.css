@@ -1,11 +1,10 @@
 .storyContainer {
   --margin: 25px;
   --line-height: 2rem;
-  --container-width: calc(100vw - 1.5 * var(--margin));
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: var(--container-width);
+  width: calc(100vw - 1.5 * var(--margin));
   margin-left: calc(0.5 * var(--margin));
   margin-right: var(--margin);
   overflow-x: hidden;
@@ -28,13 +27,13 @@
   align-items: center;
   justify-content: flex-end;
   font-size: 3em;
-  transition: background-color 0.2s ease-in-out;
+  transition-property: background-color, border;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
 }
 
-.paragraph {
-  margin: 0;
-  width: var(--container-width);
-  transition: border 0.2s ease-in-out;
+.text {
+  width: calc(100vw - 2 * var(--margin));
 }
 
 .slider {
