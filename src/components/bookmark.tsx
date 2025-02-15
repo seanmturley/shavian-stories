@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { cloneElement, useState } from "react";
 import styles from "./bookmark.module.css";
 import { useSwipeable } from "react-swipeable";
 
@@ -14,7 +14,11 @@ const config = {
   preventScrollOnSwipe: true
 };
 
-export default function Bookmark() {
+export default function Bookmark({
+  children
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   const [offset, setOffset] = useState(-defaultOffset);
   const [bookmarkColour, setBookmarkColour] = useState(defaultBookmarkColour);
   const [isBookmarked, setIsBookmarked] = useState(false);
@@ -43,6 +47,14 @@ export default function Bookmark() {
     ...config
   });
 
+  const childProps = {
+    className: styles.paragraph,
+    style: {
+      borderLeft: `${isBookmarked ? `${bookmark}px solid ${bookmarkColour}` : "none"}`,
+      paddingLeft: `${isBookmarked ? 0.5 * margin - bookmark : 0.5 * margin}px`
+    }
+  };
+
   return (
     <section className={styles.storyContainer}>
       <div className={styles.line} style={{ left: `${offset}px` }}>
@@ -55,20 +67,9 @@ export default function Bookmark() {
         >
           B
         </a>
-        <p
-          className={styles.paragraph}
-          style={{
-            borderLeft: `${isBookmarked ? `${bookmark}px solid ${bookmarkColour}` : "none"}`,
-            paddingLeft: `${isBookmarked ? 0.5 * margin - bookmark : 0.5 * margin}px`
-          }}
-        >
-          The change happened whilst I slept. Its details I shall never know;
-          for my slumber, though troubled and dream-infested, was continuous.
-          When at last I awaked, it was to discover myself half sucked into a
-          slimy expanse of hellish black mire which extended about me in
-          monotonous undulations as far as I could see, and in which my boat lay
-          grounded some distance away.
-        </p>
+        {cloneElement(children as React.ReactElement<any>, {
+          ...childProps
+        })}
       </div>
     </section>
   );
