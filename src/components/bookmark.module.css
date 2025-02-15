@@ -32,13 +32,13 @@
 }
 
 .paragraph {
-  touch-action: pan-x;
   margin: 0;
   width: var(--container-width);
   transition: border 0.2s ease-in-out;
 }
 
 .slider {
+  touch-action: pan-x;
   position: absolute;
   width: 100%;
   height: 100%;
