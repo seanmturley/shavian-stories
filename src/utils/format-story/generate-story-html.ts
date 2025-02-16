@@ -5,49 +5,59 @@ import lintLatin from "@utils/format-story/lint-latin";
  *
  * @remarks
  * The input strings should be marked up in the following manner:
- *  - A wrapping `<section>` is marked with opening `[[[` and closing `]]]`
- *  - A wrapping `<header><h1>` is marked with leading `###`
- *  - A wrapping `<blockquote>` is marked with leading `>>>`
- *  - A wrapping `<em>` is marked with opening `***` and closing `***`
+ *  - A section break is marked with a line containing `|||`
+ *  - A heading is marked with leading `###`
+ *  - A blockquoted paragraph is marked with leading `>>>`
+ *  - Wrapping `<em>` tags are marked with opening `***` and closing `***`
  *
  * The Latin can be transliterated to Shavian using
  * {@link https://www.dechifro.org/shavian/ | Dechifro's tool}.
  *
  * @param latin - A marked up string of Latin text, linted with {@link lintLatin}.
- * @param shavian - The same as {@link latin}, but transliterated into Shavian.
+ * @param shavian - The same {@link latin} text, transliterated into Shavian.
  *
- * @returns A linted version of the provided Latin text.
+ * @returns A 2-dimensional array:
+ *  - The first dimension represents different sections;
+ *  - The second dimension lists each line of HTML within that section, as a string.
  */
 export default function generateStoryHtml(latin: string, shavian: string) {
   const [latinLines, shavianLines] = getLines(latin, shavian);
 
-  let html = "";
+  let htmlArray = [];
+  let sectionArray = [];
 
-  latinLines.forEach((latinLine, lineNumber) => {
+  for (let lineNumber = 0; lineNumber < latinLines.length; lineNumber++) {
+    const latinLine = latinLines[lineNumber];
     const shavianLine = shavianLines[lineNumber];
 
-    const section = addSection(shavianLine);
-    if (section) {
-      html += section;
-      return;
+    const newSection = /^\|{3}/;
+
+    if (shavianLine.match(newSection)) {
+      htmlArray.push(sectionArray);
+      sectionArray = [];
+      continue;
     }
 
     const header = addHeader(latinLine, shavianLine, lineNumber);
     if (header) {
-      html += header;
-      return;
+      sectionArray.push(header);
+      continue;
     }
 
     const blockquote = addBlockQuote(latinLine, shavianLine, lineNumber);
     if (blockquote) {
-      html += blockquote;
-      return;
+      sectionArray.push(blockquote);
+      continue;
     }
 
-    html += getLineHtml(latinLine, shavianLine, "paragraph", lineNumber);
-  });
+    sectionArray.push(
+      getLineHtml(latinLine, shavianLine, "paragraph", lineNumber)
+    );
+  }
 
-  return html;
+  htmlArray.push(sectionArray);
+
+  return htmlArray;
 }
 
 function getLines(latin: string, shavian: string) {
@@ -68,18 +78,18 @@ function getLines(latin: string, shavian: string) {
   return [latinLines, shavianLines];
 }
 
-function addSection(shavianLine: string) {
-  const sectionStart = /^\[{3}/;
-  const sectionEnd = /^\]{3}/;
+// function addSection(shavianLine: string) {
+//   const sectionStart = /^\[{3}/;
+//   const sectionEnd = /^\]{3}/;
 
-  if (shavianLine.match(sectionStart)) {
-    return "<section>";
-  }
+//   if (shavianLine.match(sectionStart)) {
+//     return "<section>";
+//   }
 
-  if (shavianLine.match(sectionEnd)) {
-    return "</section>";
-  }
-}
+//   if (shavianLine.match(sectionEnd)) {
+//     return "</section>";
+//   }
+// }
 
 function addHeader(
   latinLine: string,
