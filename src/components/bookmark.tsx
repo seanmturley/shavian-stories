@@ -4,8 +4,8 @@ import { useState } from "react";
 import styles from "./bookmark.module.css";
 import { useSwipeable } from "react-swipeable";
 
-const margin = 25; // --margin
-const defaultOffset = 150 + margin; // .icon width + --margin
+const margin = 25; // --mobile-story-margin
+const defaultOffset = 150 + margin; // .bookmark width + --mobile-story-margin
 const bookmark = 3;
 const defaultBookmarkColour = "darkgoldenrod";
 const addBookmarkThreshold = 0.8 * defaultOffset;
@@ -48,21 +48,19 @@ export default function Bookmark({
   });
 
   return (
-    <section className={styles.storyContainer}>
-      <div className={styles.line} style={{ left: `${offset}px` }}>
-        <div className={styles.slider} {...handlers}></div>
-        <a
-          className={styles.icon}
-          style={{
-            backgroundColor: bookmarkColour,
-            marginRight: `${isBookmarked ? 0.5 * margin - bookmark : 0.5 * margin}px`,
-            borderRight: `${isBookmarked ? `${bookmark}px solid ${bookmarkColour}` : "none"}`
-          }}
-        >
-          B
-        </a>
-        <div className={styles.text}>{children}</div>
-      </div>
-    </section>
+    <div className={styles.line} style={{ left: `${offset}px` }}>
+      <div className={styles.slider} {...handlers}></div>
+      <a
+        className={styles.bookmark}
+        style={{
+          backgroundColor: bookmarkColour,
+          marginRight: `${isBookmarked ? 0.5 * margin - bookmark : 0.5 * margin}px`,
+          borderRight: `${isBookmarked ? `${bookmark}px solid ${bookmarkColour}` : "none"}`
+        }}
+      >
+        B
+      </a>
+      <div className={styles.text}>{children}</div>
+    </div>
   );
 }
