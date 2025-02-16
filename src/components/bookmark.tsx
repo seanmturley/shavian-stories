@@ -10,10 +10,6 @@ const bookmark = 3;
 const defaultBookmarkColour = "darkgoldenrod";
 const addBookmarkThreshold = 0.8 * defaultOffset;
 
-const config = {
-  preventScrollOnSwipe: true
-};
-
 export default function Bookmark({
   children
 }: Readonly<{
@@ -44,7 +40,8 @@ export default function Bookmark({
         setBookmarkColour(defaultBookmarkColour);
       }
     },
-    ...config
+    delta: { up: 99999, down: 99999 }, // Disable detection of up/down swipes
+    preventScrollOnSwipe: true
   });
 
   return (
