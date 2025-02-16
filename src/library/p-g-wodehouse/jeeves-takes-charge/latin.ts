@@ -1,5 +1,4 @@
-export const latin = `[[[
-Now, touching this business of old Jeeves—my man, you know—how do we stand? Lots of people think I'm much too dependent on him. My Aunt Agatha, in fact, has even gone so far as to call him my keeper. Well, what I say is: Why not? The man's a genius. From the collar upward he stands alone, I gave up trying to run my own affairs within a week of his coming to me. That was about half a dozen years ago, directly after the rather rummy business of Florence Craye, my Uncle Willoughby's book, and Edwin, the Boy Scout.
+export const latin = `Now, touching this business of old Jeeves—my man, you know—how do we stand? Lots of people think I'm much too dependent on him. My Aunt Agatha, in fact, has even gone so far as to call him my keeper. Well, what I say is: Why not? The man's a genius. From the collar upward he stands alone, I gave up trying to run my own affairs within a week of his coming to me. That was about half a dozen years ago, directly after the rather rummy business of Florence Craye, my Uncle Willoughby's book, and Edwin, the Boy Scout.
 The thing really began when I got back to Easeby, my uncle's place in Shropshire. I was spending a week or so there, as I generally did in the summer; and I had had to break my visit to come back to London to get a new valet. I had found Meadowes, the fellow I had taken to Easeby with me, sneaking my silk socks, a thing no bloke of spirit could stick at any price. It transpiring, moreover, that he had looted a lot of other things here and there about the place, I was reluctantly compelled to hand the misguided blighter the mitten and go to London to ask the registry office to dig up another specimen for my approval. They sent me Jeeves.
 I shall always remember the morning he came. It so happened that the night before I had been present at a rather cheery little supper, and I was feeling pretty rocky. On top of this I was trying to read a book Florence Craye had given me. She had been one of the house-party at Easeby, and two or three days before I left we had got engaged. I was due back at the end of the week, and I knew she would expect me to have finished the book by then. You see, she was particularly keen on boosting me up a bit nearer her own plane of intellect. She was a girl with a wonderful profile, but steeped to the gills in serious purpose. I can't give you a better idea of the way things stood than by telling you that the book she'd given me to read was called ***Types of Ethical Theory***, and that when I opened it at random I struck a page beginning:
 >>>The postulate or common understanding involved in speech is certainly co-extensive, in the obligation it carries, with the social organism of which language is the instrument, and the ends of which it is an effort to subserve.
@@ -52,8 +51,7 @@ I felt as if I had stepped on the place where the last stair ought to have been,
 «All right, then,» I said.
 «Yes, sir.»
 And then he went away to collect his kit, while I started in again on ***Types of Ethical Theory*** and took a stab at a chapter headed ‹Idiopsychological Ethics›.
-]]]
-[[[
+|||
 Most of the way down in the train that afternoon, I was wondering what could be up at the other end. I simply couldn't see what could have happened. Easeby wasn't one of those country houses you read about in the society novels, where young girls are lured on to play baccarat and then skinned to the bone of their jewellery, and so on. The house-party I had left had consisted entirely of law-abiding birds like myself.
 Besides, my uncle wouldn't have let anything of that kind go on in his house. He was a rather stiff, precise sort of old boy, who liked a quiet life. He was just finishing a history of the family or something, which he had been working on for the last year, and didn't stir much from the library. He was rather a good instance of what they say about its being a good scheme for a fellow to sow his wild oats. I'd been told that in his youth Uncle Willoughby had been a bit of a rounder. You would never have thought it to look at him now.
 When I got to the house, Oakshott, the butler, told me that Florence was in her room, watching her maid pack. Apparently there was a dance on at a house about twenty miles away that night, and she was motoring over with some of the Easeby lot and would be away some nights. Oakshott said she had told him to tell her the moment I arrived; so I trickled into the smoking-room and waited, and presently in she came. A glance showed me that she was perturbed, and even peeved. Her eyes had a goggly look, and altogether she appeared considerably pipped.
@@ -134,8 +132,7 @@ And then I tottered forth to think it over. I met Jeeves in the passage just out
 «Nothing, sir.»
 «Damn!»
 «Very good, sir.»
-]]]
-[[[
+|||
 I've often wondered since then how these murderer fellows manage to keep in shape while they're contemplating their next effort. I had a much simpler sort of job on hand, and the thought of it rattled me to such an extent in the night watches that I was a perfect wreck next day. Dark circles under the eyes—I give you my word! I had to call on Jeeves to rally round with one of those life-savers of his.
 From breakfast on I felt like a bag-snatcher at a railway station. I had to hang about waiting for the parcel to be put on the hall table, and it wasn't put. Uncle Willoughby was a fixture in the library, adding the finishing touches to the great work, I supposed, and the more I thought the thing over the less I liked it. The chances against my pulling it off seemed about three to two, and the thought of what would happen if I didn't gave me cold shivers down the spine. Uncle Willoughby was a pretty mild sort of old boy, as a rule, but I've known him to cut up rough, and, by Jove, he was scheduled to extend himself if he caught me trying to get away with his life work.
 It wasn't till nearly four that he toddled out of the library with the parcel under his arm, put it on the table, and toddled off again. I was hiding a bit to the south-east at the moment, behind a suit of armour. I bounded out and legged it for the table. Then I ripped upstairs to hide the swag. I charged in like a mustang and nearly stubbed my toe on young blighted Edwin, the Boy Scout. He was standing at the chest of drawers, confound him, messing about with my ties.
@@ -162,8 +159,7 @@ He seemed a bit doubtful; but he staggered. I shoved the parcel into a drawer, l
 «All right. I'll be getting on, then.»
 «I should.»
 And we parted.
-]]]
-[[[
+|||
 Fellows who know all about that sort of thing—detectives, and so on—will tell you that the most difficult thing in the world is to get rid of the body. I remember, as a kid, having to learn by heart a poem about a bird by the name of Eugene Aram, who had the deuce of a job in this respect. All I can recall of the actual poetry is the bit that goes:
 >>>Tum-tum, tum-tum, tum-tumty-tum,
 >>>I slew him, tum-tum tum!
@@ -256,8 +252,7 @@ I mused for a while.
 «It is very kind of you to say so, sir.»
 «Well, that's about all, then, I think.»
 «Very good, sir.»
-]]]
-[[[
+|||
 Florence came back on Monday. I didn't see her till we were all having tea in the hall. It wasn't till the crowd had cleared away a bit that we got a chance of having a word together.
 «Well, Bertie?» she said.
 «It's all right.»
@@ -295,8 +290,7 @@ He coughed gently.
 «I think you would also have found her educational methods a little trying, sir. I have glanced at the book her ladyship gave you—it has been lying on your table since our arrival—and it is, in my opinion, quite unsuitable. You would not have enjoyed it. And I have it from her ladyship's own maid, who happened to overhear a conversation between her ladyship and one of the gentlemen staying here—Mr Maxwell, who is employed in an editorial capacity by one of the reviews—that it was her intention to start you almost immediately upon Nietzsche. You would not enjoy Nietzsche, sir. He is fundamentally unsound.»
 «Get out!»
 «Very good, sir.»
-]]]
-[[[
+|||
 It's rummy how sleeping on a thing often makes you feel quite different about it. It's happened to me over and over again. Somehow or other, when I woke next morning the old heart didn't feel half so broken as it had done. It was a perfectly topping day, and there was something about the way the sun came in at the window and the row the birds were kicking up in the ivy that made me half wonder whether Jeeves wasn't right. After all, though she had a wonderful profile, was it such a catch being engaged to Florence Craye as the casual observer might imagine? Wasn't there something in what Jeeves had said about her character? I began to realize that my ideal wife was something quite different, something a lot more clinging and drooping and prattling, and what-not.
 I had got as far as this in thinking the thing out when that ***Types of Ethical Theory*** caught my eye. I opened it, and I give you my honest word this was what hit me:
 >>>Of the two antithetic terms in the Greek philosophy one only was real and self-subsisting; and that one was Ideal Thought as opposed to that which it has to penetrate and mould. The other, corresponding to our Nature, was in itself phenomenal, unreal, without any permanent footing, having no predicates that held true for two moments together; in short, redeemed from negation only by including indwelling realities appearing through.
@@ -315,5 +309,4 @@ I sucked down a cheerful mouthful. A great respect for this bloke's judgement be
 I hesitated a bit. I had a feeling that I was passing into this chappie's clutches, and that if I gave in now I should become just like poor old Aubrey Fothergill, unable to call my soul my own. On the other hand, this was obviously a cove of rare intelligence, and it would be a comfort in a lot of ways to have him doing the thinking for me. I made up my mind.
 «All right, Jeeves,» I said. «You know! Give the bally thing away to somebody!»
 He looked down at me like a father gazing tenderly at the wayward child.
-«Thank you, sir. I gave it to the under-gardener last night. A little more tea, sir?»
-]]]`;
+«Thank you, sir. I gave it to the under-gardener last night. A little more tea, sir?»`;
