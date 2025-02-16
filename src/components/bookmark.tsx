@@ -5,10 +5,10 @@ import styles from "./bookmark.module.css";
 import { useSwipeable } from "react-swipeable";
 
 const margin = 25; // --mobile-story-margin
-const defaultOffset = 150 + margin; // .bookmark width + --mobile-story-margin
+const maxOffset = 150 + margin; // .bookmark width + --mobile-story-margin
 const bookmark = 3;
 const defaultBookmarkColour = "darkgoldenrod";
-const addBookmarkThreshold = 0.8 * defaultOffset;
+const addBookmarkThreshold = 0.8 * maxOffset;
 
 export default function Bookmark({
   children,
@@ -19,7 +19,7 @@ export default function Bookmark({
   sectionNumber: number;
   lineNumber: number;
 }>) {
-  const [offset, setOffset] = useState(-defaultOffset);
+  const [offset, setOffset] = useState({});
   const [bookmarkColour, setBookmarkColour] = useState(defaultBookmarkColour);
   const [isBookmarked, setIsBookmarked] = useState(false);
 
@@ -29,14 +29,14 @@ export default function Bookmark({
         setIsBookmarked((prev) => !prev);
         setBookmarkColour(defaultBookmarkColour);
       }
-      setOffset(-defaultOffset);
+      setOffset({});
     },
     onSwiping: (eventData) => {
       const newOffset = Math.max(
-        Math.min(0, eventData.deltaX - defaultOffset),
-        -defaultOffset
+        Math.min(0, eventData.deltaX - maxOffset),
+        -maxOffset
       );
-      setOffset(newOffset);
+      setOffset({ left: `${newOffset}px` });
 
       if (eventData.deltaX >= addBookmarkThreshold) {
         setBookmarkColour(isBookmarked ? "darkred" : "darkgreen");
@@ -51,11 +51,7 @@ export default function Bookmark({
   const bookmarkId = `s${sectionNumber + 1}-l${lineNumber + 1}`;
 
   return (
-    <div
-      className={styles.line}
-      id={bookmarkId}
-      style={{ left: `${offset}px` }}
-    >
+    <div className={styles.line} id={bookmarkId} style={offset}>
       <div className={styles.slider} {...handlers}></div>
       <a
         className={styles.bookmark}
