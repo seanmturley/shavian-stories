@@ -16,11 +16,19 @@ export default async function StoryText({
 
   return (
     <>
-      {storyHtml.map((section, index) => {
+      {storyHtml.map((section, sectionNumber) => {
         return (
-          <section key={index}>
-            {section.map((line, index) => {
-              return <Bookmark key={index}>{parse(line)}</Bookmark>;
+          <section key={sectionNumber}>
+            {section.map((line, lineNumber) => {
+              return (
+                <Bookmark
+                  key={lineNumber}
+                  sectionNumber={sectionNumber}
+                  lineNumber={lineNumber}
+                >
+                  {parse(line)}
+                </Bookmark>
+              );
             })}
           </section>
         );

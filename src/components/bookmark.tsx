@@ -11,9 +11,13 @@ const defaultBookmarkColour = "darkgoldenrod";
 const addBookmarkThreshold = 0.8 * defaultOffset;
 
 export default function Bookmark({
-  children
+  children,
+  sectionNumber,
+  lineNumber
 }: Readonly<{
   children: React.ReactNode;
+  sectionNumber: number;
+  lineNumber: number;
 }>) {
   const [offset, setOffset] = useState(-defaultOffset);
   const [bookmarkColour, setBookmarkColour] = useState(defaultBookmarkColour);
@@ -44,11 +48,18 @@ export default function Bookmark({
     preventScrollOnSwipe: true
   });
 
+  const bookmarkId = `s${sectionNumber + 1}-l${lineNumber + 1}`;
+
   return (
-    <div className={styles.line} style={{ left: `${offset}px` }}>
+    <div
+      className={styles.line}
+      id={bookmarkId}
+      style={{ left: `${offset}px` }}
+    >
       <div className={styles.slider} {...handlers}></div>
       <a
         className={styles.bookmark}
+        href={`#${bookmarkId}`}
         style={{
           backgroundColor: bookmarkColour,
           marginRight: `${isBookmarked ? 0.5 * margin - bookmark : 0.5 * margin}px`,
