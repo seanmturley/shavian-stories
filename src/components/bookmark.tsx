@@ -51,8 +51,7 @@ export default function Bookmark({
   const bookmarkId = `s${sectionNumber + 1}-l${lineNumber + 1}`;
 
   return (
-    <div className={styles.line} id={bookmarkId} style={offset}>
-      <div className={styles.slider} {...handlers}></div>
+    <div className={styles.line} id={bookmarkId} style={offset} {...handlers}>
       <a
         className={styles.bookmark}
         href={`#${bookmarkId}`}
