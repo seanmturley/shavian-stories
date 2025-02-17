@@ -4,10 +4,7 @@ import { useState } from "react";
 import styles from "./bookmark.module.css";
 import { useSwipeable } from "react-swipeable";
 
-const margin = 25; // --mobile-story-margin
-const maxOffset = 150 + margin; // .bookmark width + --mobile-story-margin
-const bookmark = 3;
-const defaultBookmarkColour = "darkgoldenrod";
+const maxOffset = 150 + 25; // --bookmark-width + --mobile-story-margin
 const addBookmarkThreshold = 0.8 * maxOffset;
 
 export default function Bookmark({
@@ -20,14 +17,14 @@ export default function Bookmark({
   lineNumber: number;
 }>) {
   const [offset, setOffset] = useState({});
-  const [bookmarkColour, setBookmarkColour] = useState(defaultBookmarkColour);
+  const [action, setAction] = useState("");
   const [isBookmarked, setIsBookmarked] = useState(false);
 
   const handlers = useSwipeable({
     onSwiped: (eventData) => {
       if (eventData.deltaX >= addBookmarkThreshold) {
         setIsBookmarked((prev) => !prev);
-        setBookmarkColour(defaultBookmarkColour);
+        setAction("");
       }
       setOffset({});
     },
@@ -39,9 +36,9 @@ export default function Bookmark({
       setOffset({ left: `${newOffset}px` });
 
       if (eventData.deltaX >= addBookmarkThreshold) {
-        setBookmarkColour(isBookmarked ? "darkred" : "darkgreen");
+        setAction(isBookmarked ? "remove" : "add");
       } else {
-        setBookmarkColour(defaultBookmarkColour);
+        setAction("");
       }
     },
     delta: { up: 99999, down: 99999 }, // Disable detection of up/down swipes
@@ -53,13 +50,8 @@ export default function Bookmark({
   return (
     <div className={styles.line} id={bookmarkId} style={offset} {...handlers}>
       <a
-        className={styles.bookmark}
+        className={`${styles.bookmark} ${styles[action]} ${isBookmarked && styles.isBookmarked}`}
         href={`#${bookmarkId}`}
-        style={{
-          backgroundColor: bookmarkColour,
-          marginRight: `${isBookmarked ? 0.5 * margin - bookmark : 0.5 * margin}px`,
-          borderRight: `${isBookmarked ? `${bookmark}px solid ${bookmarkColour}` : "none"}`
-        }}
       >
         B
       </a>
