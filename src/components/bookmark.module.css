@@ -25,6 +25,12 @@
     height: 100%;
     position: absolute;
     left: calc(0px - var(--bookmark-width) - 1.5 * var(--mobile-story-margin));
+    opacity: 0;
+  }
+
+  .bookmark:hover,
+  .bookmark.isBookmarked {
+    opacity: 1;
   }
 
   .text {

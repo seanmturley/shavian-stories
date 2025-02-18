@@ -45,6 +45,10 @@ export default function Bookmark({
     preventScrollOnSwipe: true
   });
 
+  const handleBookmarkClick = () => {
+    setIsBookmarked((prev) => !prev);
+  };
+
   const bookmarkId = `s${sectionNumber + 1}-l${lineNumber + 1}`;
 
   return (
@@ -52,6 +56,7 @@ export default function Bookmark({
       <a
         className={`${styles.bookmark} ${styles[action]} ${isBookmarked && styles.isBookmarked}`}
         href={`#${bookmarkId}`}
+        onClick={handleBookmarkClick}
       >
         B
       </a>
