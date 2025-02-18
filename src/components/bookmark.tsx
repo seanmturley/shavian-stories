@@ -20,7 +20,7 @@ export default function Bookmark({
   const [action, setAction] = useState("");
   const [isBookmarked, setIsBookmarked] = useState(false);
 
-  const handlers = useSwipeable({
+  const handleBookmarkSwipe = useSwipeable({
     onSwiped: (eventData) => {
       if (eventData.deltaX >= addBookmarkThreshold) {
         setIsBookmarked((prev) => !prev);
@@ -52,7 +52,12 @@ export default function Bookmark({
   const bookmarkId = `s${sectionNumber + 1}-l${lineNumber + 1}`;
 
   return (
-    <div className={styles.line} id={bookmarkId} style={offset} {...handlers}>
+    <div
+      className={styles.line}
+      id={bookmarkId}
+      style={offset}
+      {...handleBookmarkSwipe}
+    >
       <a
         className={`${styles.bookmark} ${styles[action]} ${isBookmarked && styles.isBookmarked}`}
         href={`#${bookmarkId}`}
