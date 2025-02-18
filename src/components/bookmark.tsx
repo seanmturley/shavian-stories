@@ -49,7 +49,7 @@ export default function Bookmark({
     setIsBookmarked((prev) => !prev);
   };
 
-  const bookmarkId = `s${sectionNumber + 1}-l${lineNumber + 1}`;
+  const bookmarkId = `${sectionNumber + 1}-${lineNumber + 1}`;
 
   return (
     <div
