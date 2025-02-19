@@ -16,5 +16,8 @@ export default function ScrollToBookmark({
     }
   };
 
-  return <button onClick={handleScrollToBookmarkClick}>Go to bookmark</button>;
+  if (bookmark)
+    return (
+      <button onClick={handleScrollToBookmarkClick}>Go to bookmark</button>
+    );
 }
