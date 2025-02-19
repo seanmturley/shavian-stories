@@ -23,6 +23,8 @@ export default async function StoryText({
               return (
                 <Bookmark
                   key={lineNumber}
+                  author={author}
+                  story={story}
                   sectionNumber={sectionNumber}
                   lineNumber={lineNumber}
                 >

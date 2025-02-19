@@ -1,30 +1,42 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./bookmark.module.css";
 import { useSwipeable } from "react-swipeable";
+import useLocalStorage from "use-local-storage";
 
 const maxOffset = 150 + 25; // --bookmark-width + --mobile-story-margin
 const addBookmarkThreshold = 0.8 * maxOffset;
 
 export default function Bookmark({
   children,
+  author,
+  story,
   sectionNumber,
   lineNumber
 }: Readonly<{
   children: React.ReactNode;
+  author: string;
+  story: string;
   sectionNumber: number;
   lineNumber: number;
 }>) {
+  const [bookmark, setBookmark] = useLocalStorage(`${author}/${story}`, "");
+  const [isBookmarked, setIsBookmarked] = useState(false);
   const [offset, setOffset] = useState({});
   const [action, setAction] = useState("");
-  const [isBookmarked, setIsBookmarked] = useState(false);
+
+  const bookmarkId = `${sectionNumber + 1}-${lineNumber + 1}`;
+
+  useEffect(() => {
+    setIsBookmarked(bookmarkId === bookmark);
+  }, [bookmark, bookmarkId]);
 
   const handleBookmarkSwipe = useSwipeable({
     onSwiped: (eventData) => {
       if (eventData.deltaX >= addBookmarkThreshold) {
-        setIsBookmarked((prev) => !prev);
         setAction("");
+        setBookmark(isBookmarked ? undefined : bookmarkId);
       }
       setOffset({});
     },
@@ -46,10 +58,9 @@ export default function Bookmark({
   });
 
   const handleBookmarkClick = () => {
-    setIsBookmarked((prev) => !prev);
+    setAction(isBookmarked ? "remove" : "add");
+    setBookmark(isBookmarked ? undefined : bookmarkId);
   };
-
-  const bookmarkId = `${sectionNumber + 1}-${lineNumber + 1}`;
 
   return (
     <div
