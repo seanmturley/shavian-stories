@@ -5,6 +5,7 @@ import { useRef } from "react";
 import useLocalStorage from "use-local-storage";
 import Bookmark from "@components/bookmark";
 import generateStoryHtml from "@utils/format-story/generate-story-html";
+import ScrollToBookmark from "./scroll-to-bookmark";
 
 export default function StoryText({
   latin,
@@ -20,20 +21,11 @@ export default function StoryText({
   const [bookmark, setBookmark] = useLocalStorage(`${author}/${story}`, "");
   const bookmarkRef = useRef<BookmarkRef>({});
 
-  const handleScrollToClick = () => {
-    if (bookmarkRef.current?.[bookmark]) {
-      bookmarkRef.current[bookmark].scrollIntoView({
-        behavior: "smooth",
-        block: "center" // Doesn't work if the paragraph is taller than the screen
-      });
-    }
-  };
-
   const storyHtml = generateStoryHtml(latin, shavian);
 
   return (
     <>
-      <button onClick={handleScrollToClick}>Go to bookmark</button>
+      <ScrollToBookmark {...{ bookmark, bookmarkRef }} />
       {storyHtml.map((section, sectionNumber) => {
         return (
           <section key={sectionNumber}>
