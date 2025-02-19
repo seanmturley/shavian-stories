@@ -11,7 +11,7 @@ export default function ScrollToBookmark({
     if (bookmarkRef.current?.[bookmark]) {
       bookmarkRef.current[bookmark].scrollIntoView({
         behavior: "smooth",
-        block: "center" // Doesn't work if the paragraph is taller than the screen
+        block: "start"
       });
     }
   };
