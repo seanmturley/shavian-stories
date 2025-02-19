@@ -1,27 +1,28 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import styles from "./bookmark.module.css";
+import { RefObject, useEffect, useState } from "react";
 import { useSwipeable } from "react-swipeable";
-import useLocalStorage from "use-local-storage";
+import { Setter } from "use-local-storage/types";
+import styles from "./bookmark.module.css";
 
 const maxOffset = 150 + 25; // --bookmark-width + --mobile-story-margin
 const addBookmarkThreshold = 0.8 * maxOffset;
 
 export default function Bookmark({
   children,
-  author,
-  story,
+  bookmark,
+  setBookmark,
+  bookmarkRef,
   sectionNumber,
   lineNumber
 }: Readonly<{
-  children: React.ReactNode;
-  author: string;
-  story: string;
+  bookmark: string;
+  setBookmark: Setter<string>;
+  bookmarkRef: RefObject<BookmarkRef>;
   sectionNumber: number;
   lineNumber: number;
+  children: React.ReactNode;
 }>) {
-  const [bookmark, setBookmark] = useLocalStorage(`${author}/${story}`, "");
   const [isBookmarked, setIsBookmarked] = useState(false);
   const [offset, setOffset] = useState({});
   const [action, setAction] = useState("");
@@ -63,12 +64,7 @@ export default function Bookmark({
   };
 
   return (
-    <div
-      className={styles.line}
-      id={bookmarkId}
-      style={offset}
-      {...handleBookmarkSwipe}
-    >
+    <div className={styles.line} style={offset} {...handleBookmarkSwipe}>
       <a
         className={`${styles.bookmark} ${styles[action]} ${isBookmarked && styles.isBookmarked}`}
         href={`#${bookmarkId}`}
@@ -76,7 +72,15 @@ export default function Bookmark({
       >
         B
       </a>
-      <div className={styles.text}>{children}</div>
+      <div
+        className={styles.text}
+        id={bookmarkId}
+        ref={(el) => {
+          bookmarkRef.current[bookmarkId] = el;
+        }}
+      >
+        {children}
+      </div>
     </div>
   );
 }
