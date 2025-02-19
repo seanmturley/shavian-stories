@@ -2,16 +2,17 @@ import parse from "html-react-parser";
 import Bookmark from "@components/bookmark";
 import generateStoryHtml from "@utils/format-story/generate-story-html";
 
-export default async function StoryText({
+export default function StoryText({
+  latin,
+  shavian,
   author,
   story
 }: {
+  latin: string;
+  shavian: string;
   author: string;
   story: string;
 }) {
-  const { latin } = await import(`@library/${author}/${story}/latin`);
-  const { shavian } = await import(`@library/${author}/${story}/shavian`);
-
   const storyHtml = generateStoryHtml(latin, shavian);
 
   return (
