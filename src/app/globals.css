@@ -18,3 +18,18 @@ main {
   flex-direction: column;
   align-items: center;
 }
+
+/* Default styling overrides */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  all: unset;
+  box-sizing: border-box;
+}
+
+button:hover {
+  cursor: pointer;
+}
