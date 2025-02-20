@@ -1,0 +1,5 @@
+.scrollButton {
+  position: absolute;
+  top: var(--story-line-height);
+  right: calc(2 * var(--story-line-height));
+}

@@ -1,5 +1,6 @@
 import { RefObject } from "react";
 import ClientOnly from "@components/client-only";
+import styles from "./scroll-to-bookmark.module.css";
 
 export default function ScrollToBookmark({
   bookmark,
@@ -21,7 +22,12 @@ export default function ScrollToBookmark({
 
   return (
     <ClientOnly>
-      <button onClick={handleScrollToBookmarkClick}>Go to bookmark</button>
+      <button
+        className={styles.scrollButton}
+        onClick={handleScrollToBookmarkClick}
+      >
+        Go to bookmark
+      </button>
     </ClientOnly>
   );
 }
