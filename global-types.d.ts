@@ -24,7 +24,3 @@ type FormAction = (
   prevState: FormState,
   formData: FormData
 ) => Promise<FormState> | Promise<never>;
-
-declare module "use-local-storage/types" {
-  type Setter<T> = React.Dispatch<React.SetStateAction<T | undefined>>;
-}
