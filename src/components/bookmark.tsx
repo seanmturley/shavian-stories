@@ -2,6 +2,7 @@
 
 import { RefObject, useEffect, useState } from "react";
 import { useSwipeable } from "react-swipeable";
+import { Setter } from "use-local-storage/types";
 import styles from "./bookmark.module.css";
 
 const maxOffset = 150 + 25; // --bookmark-width + --mobile-story-margin
@@ -10,14 +11,14 @@ const addBookmarkThreshold = 0.8 * maxOffset;
 export default function Bookmark({
   children,
   bookmark,
+  setBookmark,
   bookmarkRef,
-  updateBookmark,
   sectionNumber,
   lineNumber
 }: Readonly<{
   bookmark: string;
+  setBookmark: Setter<string>;
   bookmarkRef: RefObject<BookmarkRef>;
-  updateBookmark: (isBookmarked: boolean, bookmarkId: string) => void;
   sectionNumber: number;
   lineNumber: number;
   children: React.ReactNode;
@@ -36,7 +37,7 @@ export default function Bookmark({
     onSwiped: (eventData) => {
       if (eventData.deltaX >= addBookmarkThreshold) {
         setAction("");
-        updateBookmark(isBookmarked, bookmarkId);
+        setBookmark(isBookmarked ? undefined : bookmarkId);
       }
       setOffset({});
     },
@@ -59,7 +60,7 @@ export default function Bookmark({
 
   const handleBookmarkClick = () => {
     setAction(isBookmarked ? "remove" : "add");
-    updateBookmark(isBookmarked, bookmarkId);
+    setBookmark(isBookmarked ? undefined : bookmarkId);
   };
 
   return (
