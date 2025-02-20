@@ -4,8 +4,8 @@ import parse from "html-react-parser";
 import { useRef } from "react";
 import useLocalStorage from "use-local-storage";
 import Bookmark from "@components/bookmark";
+import ScrollToBookmark from "@components/scroll-to-bookmark";
 import generateStoryHtml from "@utils/format-story/generate-story-html";
-import ScrollToBookmark from "./scroll-to-bookmark";
 
 export default function StoryText({
   latin,
