@@ -1,8 +1,8 @@
 "use client";
 
 import parse from "html-react-parser";
-import { usePathname, useRouter } from "next/navigation";
-import { useRef } from "react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useEffect, useRef } from "react";
 import useLocalStorage from "use-local-storage";
 import Bookmark from "@components/bookmark";
 import ScrollToBookmark from "@components/scroll-to-bookmark";
@@ -24,15 +24,20 @@ export default function StoryText({
 
   const router = useRouter();
   const pathname = usePathname();
+  const searchParams = useSearchParams();
 
   const updateBookmark = (isBookmarked: boolean, bookmarkId: string) => {
+    let newSearchParams = new URLSearchParams(searchParams);
+
     if (isBookmarked) {
       setBookmark(undefined);
-      router.replace(`${pathname}`, { scroll: false });
+      newSearchParams.delete("bookmark");
     } else {
       setBookmark(bookmarkId);
-      router.replace(`${pathname}?bookmark=${bookmarkId}`, { scroll: false });
+      newSearchParams.set("bookmark", bookmarkId);
     }
+
+    router.replace(`${pathname}?${newSearchParams}`, { scroll: false });
   };
 
   const storyHtml = generateStoryHtml(latin, shavian);
