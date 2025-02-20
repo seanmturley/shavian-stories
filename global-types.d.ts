@@ -18,7 +18,7 @@ type Author = {
 
 type Library = Record<string, Author>;
 
-type BookmarkRef = Record<string, HTMLDivElement | null>;
+type BookmarkRef = Record<string, HTMLButtonElement | null>;
 
 type FormAction = (
   prevState: FormState,

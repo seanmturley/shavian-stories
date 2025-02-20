@@ -7,7 +7,7 @@ import Bookmark from "@components/bookmark";
 import ScrollToBookmark from "@components/scroll-to-bookmark";
 import generateStoryHtml from "@utils/format-story/generate-story-html";
 
-export default function StoryText({
+export default function StoryBody({
   latin,
   shavian,
   author,

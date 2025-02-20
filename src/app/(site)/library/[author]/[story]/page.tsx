@@ -1,5 +1,5 @@
+import StoryBody from "@components/story-body";
 import StoryHeader from "@components/story-header";
-import StoryText from "@components/story-text";
 import metadata from "@library/metadata";
 import styles from "./story.module.css";
 
@@ -30,7 +30,7 @@ export default async function Story({
   return (
     <article className={styles.story}>
       <StoryHeader {...{ author, story }} />
-      <StoryText {...{ author, story, latin, shavian }} />
+      <StoryBody {...{ author, story, latin, shavian }} />
     </article>
   );
 }

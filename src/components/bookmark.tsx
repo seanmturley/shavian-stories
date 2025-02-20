@@ -64,22 +64,22 @@ export default function Bookmark({
   };
 
   return (
-    <div className={styles.line} style={offset} {...handleBookmarkSwipe}>
+    <div
+      className={styles.bookmarkSwipeWrapper}
+      style={offset}
+      {...handleBookmarkSwipe}
+    >
       <button
         className={`${styles.bookmark} ${styles[action]} ${isBookmarked && styles.isBookmarked}`}
-        onClick={handleBookmarkClick}
-      >
-        B
-      </button>
-      <div
-        className={styles.text}
         id={bookmarkId}
+        onClick={handleBookmarkClick}
         ref={(el) => {
           bookmarkRef.current[bookmarkId] = el;
         }}
       >
-        {children}
-      </div>
+        B
+      </button>
+      <div className={styles.text}>{children}</div>
     </div>
   );
 }
