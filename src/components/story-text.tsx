@@ -26,6 +26,12 @@ export default function StoryText({
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
+  useEffect(() => {
+    if (bookmark) {
+      updateBookmark(false, bookmark);
+    }
+  }, []);
+
   const updateBookmark = (isBookmarked: boolean, bookmarkId: string) => {
     let newSearchParams = new URLSearchParams(searchParams);
 
