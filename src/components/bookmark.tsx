@@ -65,13 +65,12 @@ export default function Bookmark({
 
   return (
     <div className={styles.line} style={offset} {...handleBookmarkSwipe}>
-      <a
+      <button
         className={`${styles.bookmark} ${styles[action]} ${isBookmarked && styles.isBookmarked}`}
-        href={`#${bookmarkId}`}
         onClick={handleBookmarkClick}
       >
         B
-      </a>
+      </button>
       <div
         className={styles.text}
         id={bookmarkId}
