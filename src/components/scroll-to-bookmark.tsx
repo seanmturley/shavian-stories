@@ -1,4 +1,5 @@
 import { RefObject } from "react";
+import ClientOnly from "@components/client-only";
 
 export default function ScrollToBookmark({
   bookmark,
@@ -7,6 +8,8 @@ export default function ScrollToBookmark({
   bookmark: string;
   bookmarkRef: RefObject<BookmarkRef>;
 }) {
+  if (!bookmark) return null;
+
   const handleScrollToBookmarkClick = () => {
     if (bookmarkRef.current?.[bookmark]) {
       bookmarkRef.current[bookmark].scrollIntoView({
@@ -16,8 +19,9 @@ export default function ScrollToBookmark({
     }
   };
 
-  if (bookmark)
-    return (
+  return (
+    <ClientOnly>
       <button onClick={handleScrollToBookmarkClick}>Go to bookmark</button>
-    );
+    </ClientOnly>
+  );
 }
