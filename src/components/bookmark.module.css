@@ -18,6 +18,30 @@
   font-size: 3em;
 }
 
+.iconContainer {
+  display: flex;
+  height: 100%;
+}
+
+.icon {
+  --number-of-lines-buffer: 4;
+  --max-height: calc(
+    (1 + 2 * var(--number-of-lines-buffer)) * var(--story-line-height)
+  );
+  position: sticky;
+  top: calc(50% - 0.5 * var(--max-height));
+  max-height: var(--max-height);
+  display: flex;
+  align-items: center;
+  line-height: var(--story-line-height);
+  font-size: calc((2 / 3) * var(--story-line-height));
+}
+
+.bookmark .iconContainer,
+.bookmark .icon {
+  cursor: inherit;
+}
+
 .text {
   scroll-margin-top: var(--story-line-height);
 }

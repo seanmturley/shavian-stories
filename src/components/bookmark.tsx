@@ -77,7 +77,9 @@ export default function Bookmark({
           bookmarkRef.current[bookmarkId] = el;
         }}
       >
-        B
+        <span className={styles.iconContainer}>
+          <span className={styles.icon}>B</span>
+        </span>
       </button>
       <div className={styles.text}>{children}</div>
     </div>
