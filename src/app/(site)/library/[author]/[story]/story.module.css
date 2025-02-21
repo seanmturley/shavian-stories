@@ -12,7 +12,7 @@
     width: calc(100vw - 1.5 * var(--mobile-story-margin));
     margin-left: calc(0.5 * var(--mobile-story-margin));
     margin-right: var(--mobile-story-margin);
-    overflow-x: hidden;
+    overflow-x: clip;
   }
 }
 
