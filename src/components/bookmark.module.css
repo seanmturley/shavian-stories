@@ -69,14 +69,14 @@
 @media (width <= 768px) {
   .bookmarkSwipeWrapper {
     --bookmark-width: 150px;
-    transition: left 0.2s ease-out;
+    transition: left 0.2s linear;
     left: calc(0px - var(--bookmark-width) - var(--mobile-story-margin));
   }
 
   .bookmark {
     transition-property: background-color;
     transition-duration: 0.2s;
-    transition-timing-function: ease-out;
+    transition-timing-function: linear;
     background-color: var(--accent);
     margin-right: calc(0.5 * var(--mobile-story-margin));
   }
