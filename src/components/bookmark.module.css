@@ -74,31 +74,27 @@
   }
 
   .bookmark {
-    background-color: darkgoldenrod;
-    border-right-color: darkgoldenrod;
-    transition-property: background-color, border;
+    transition-property: background-color;
     transition-duration: 0.2s;
-    transition-timing-function: ease-in-out;
+    transition-timing-function: ease-out;
+    background-color: var(--accent);
     margin-right: calc(0.5 * var(--mobile-story-margin));
-  }
-
-  .bookmark.add {
-    background-color: darkgreen;
-    border-right-color: darkgreen;
-  }
-
-  .bookmark.remove {
-    background-color: darkred;
-    border-right-color: darkred;
   }
 
   .bookmark.isBookmarked {
     --bookmark-indicator-width: 3px;
-    border-right-width: var(--bookmark-indicator-width);
-    border-right-style: solid;
+    width: calc(var(--bookmark-indicator-width) + var(--bookmark-width));
     margin-right: calc(
       0.5 * var(--mobile-story-margin) - var(--bookmark-indicator-width)
     );
+  }
+
+  .bookmark.add {
+    background-color: darkgreen;
+  }
+
+  .bookmark.remove {
+    background-color: darkred;
   }
 
   .text {

@@ -24,7 +24,7 @@
 }
 
 .story section {
-  border: solid white;
+  border: solid var(--front);
   border-width: 0.15em 0 0;
 }
 
@@ -68,7 +68,7 @@
 }
 
 .story a[href] {
-  color: darkgoldenrod;
+  color: var(--accent);
 }
 
 .story span {

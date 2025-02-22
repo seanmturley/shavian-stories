@@ -24,7 +24,7 @@ export default function Bookmark({
   children: React.ReactNode;
 }>) {
   const [isBookmarked, setIsBookmarked] = useState(false);
-  const [offset, setOffset] = useState({});
+  const [offset, setOffset] = useState(-maxOffset);
   const [action, setAction] = useState("");
 
   const bookmarkId = `${sectionNumber + 1}-${lineNumber + 1}`;
@@ -33,20 +33,25 @@ export default function Bookmark({
     setIsBookmarked(bookmarkId === bookmark);
   }, [bookmark, bookmarkId]);
 
+  useEffect(() => {
+    if (offset === -maxOffset) {
+      setAction("");
+    }
+  }, [offset]);
+
   const handleBookmarkSwipe = useSwipeable({
     onSwiped: (eventData) => {
       if (eventData.deltaX >= addBookmarkThreshold) {
-        setAction("");
         setBookmark(isBookmarked ? undefined : bookmarkId);
       }
-      setOffset({});
+      setOffset(-maxOffset);
     },
     onSwiping: (eventData) => {
       const newOffset = Math.max(
         Math.min(0, eventData.deltaX - maxOffset),
         -maxOffset
       );
-      setOffset({ left: `${newOffset}px` });
+      setOffset(newOffset);
 
       if (eventData.deltaX >= addBookmarkThreshold) {
         setAction(isBookmarked ? "remove" : "add");
@@ -66,7 +71,7 @@ export default function Bookmark({
   return (
     <div
       className={styles.bookmarkSwipeWrapper}
-      style={offset}
+      style={{ left: `${offset}px` }}
       {...handleBookmarkSwipe}
     >
       <button
