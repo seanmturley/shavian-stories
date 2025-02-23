@@ -1,6 +1,6 @@
 import type { Preview } from "@storybook/react";
 
-export default {
+const preview: Preview = {
   parameters: {
     controls: {
       matchers: {
@@ -10,4 +10,6 @@ export default {
     },
     layout: "centered"
   }
-} satisfies Preview;
+};
+
+export default preview;

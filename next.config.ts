@@ -1,7 +1,9 @@
 import type { NextConfig } from "next";
 
-export default {
+const nextConfig: NextConfig = {
   env: {
     libraryUrl: "/library"
   }
-} satisfies NextConfig;
+};
+
+export default nextConfig;

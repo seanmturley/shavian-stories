@@ -1,6 +1,6 @@
 import type { StorybookConfig } from "@storybook/nextjs";
 
-export default {
+const storybookConfig: StorybookConfig = {
   addons: [
     "@storybook/addon-onboarding",
     "@storybook/addon-essentials",
@@ -22,4 +22,6 @@ export default {
     "../src/components/**/*.mdx",
     "../src/components/**/*.stories.@(ts|tsx)"
   ]
-} satisfies StorybookConfig;
+};
+
+export default storybookConfig;
