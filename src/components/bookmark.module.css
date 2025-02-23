@@ -16,6 +16,7 @@
   align-items: center;
   justify-content: flex-end;
   font-size: 3em;
+  scroll-margin-top: var(--story-line-height);
 }
 
 .iconContainer {
@@ -40,10 +41,6 @@
 .bookmark .iconContainer,
 .bookmark .icon {
   cursor: inherit;
-}
-
-.text {
-  scroll-margin-top: var(--story-line-height);
 }
 
 @media (width > 768px) {
