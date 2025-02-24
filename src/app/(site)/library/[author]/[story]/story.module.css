@@ -16,7 +16,8 @@
   }
 }
 
-.story header {
+.story header,
+.story footer {
   display: flex;
   flex-direction: column;
   align-items: center;
