@@ -15,14 +15,14 @@ export default function Bookmark({
   bookmarkRef,
   sectionNumber,
   lineNumber
-}: Readonly<{
+}: {
   bookmark: string;
   setBookmark: Setter<string>;
   bookmarkRef: RefObject<BookmarkRef>;
   sectionNumber: number;
   lineNumber: number;
   children: React.ReactNode;
-}>) {
+}) {
   const [isBookmarked, setIsBookmarked] = useState(false);
   const [offset, setOffset] = useState({});
   const [action, setAction] = useState("");
