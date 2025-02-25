@@ -5,8 +5,8 @@ import { useSwipeable } from "react-swipeable";
 import { Setter } from "use-local-storage/types";
 import styles from "./bookmark.module.css";
 
-const maxOffset = 150 + 25; // --bookmark-width + --mobile-story-margin
-const addBookmarkThreshold = 0.8 * maxOffset;
+const maxOffset = 125 + 25; // --bookmark-width + --mobile-story-margin
+const addBookmarkThreshold = (2 / 3) * maxOffset;
 
 export default function Bookmark({
   children,
