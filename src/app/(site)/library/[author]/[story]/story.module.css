@@ -14,13 +14,17 @@
     margin-right: var(--mobile-story-margin);
     overflow-x: clip;
   }
+
+  .story header,
+  .story footer {
+    align-self: center;
+  }
 }
 
 .story header,
 .story footer {
   display: flex;
   flex-direction: column;
-  align-items: center;
   text-align: center;
 }
 
