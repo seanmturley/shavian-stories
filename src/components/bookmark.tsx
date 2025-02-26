@@ -1,5 +1,6 @@
 "use client";
 
+import classNames from "classnames";
 import { RefObject, useEffect, useState } from "react";
 import { useSwipeable } from "react-swipeable";
 import { Setter } from "use-local-storage/types";
@@ -25,7 +26,7 @@ export default function Bookmark({
 }) {
   const [isBookmarked, setIsBookmarked] = useState(false);
   const [offset, setOffset] = useState({});
-  const [action, setAction] = useState("");
+  const [swipeAction, setSwipeAction] = useState("");
 
   const bookmarkId = `${sectionNumber + 1}-${lineNumber + 1}`;
 
@@ -35,7 +36,7 @@ export default function Bookmark({
 
   useEffect(() => {
     if (Object.keys(offset).length === 0) {
-      setAction("");
+      setSwipeAction("");
     }
   }, [offset]);
 
@@ -56,9 +57,9 @@ export default function Bookmark({
       setOffset({ left: `${newOffset}px` });
 
       if (swipeEventData.deltaX >= addBookmarkThreshold) {
-        setAction(isBookmarked ? "remove" : "add");
+        setSwipeAction(isBookmarked ? "swipeRemove" : "swipeAdd");
       } else {
-        setAction("");
+        setSwipeAction("");
       }
     },
     delta: { up: 999999, down: 999999 }, // Reduce detection of up/down swipes
@@ -66,9 +67,13 @@ export default function Bookmark({
   });
 
   const handleBookmarkClick = () => {
-    setAction(isBookmarked ? "remove" : "add");
     setBookmark(isBookmarked ? undefined : bookmarkId);
   };
+
+  const buttonClassName = classNames(styles.bookmark, {
+    [styles.isBookmarked]: isBookmarked,
+    [styles[swipeAction]]: swipeAction
+  });
 
   return (
     <div
@@ -77,7 +82,7 @@ export default function Bookmark({
       {...handleBookmarkSwipe}
     >
       <button
-        className={`${styles.bookmark} ${styles[action]} ${isBookmarked && styles.isBookmarked}`}
+        className={buttonClassName}
         id={bookmarkId}
         onClick={handleBookmarkClick}
         ref={(el) => {

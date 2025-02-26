@@ -9,6 +9,8 @@
 }
 
 .bookmark {
+  --add-color: darkgreen;
+  --remove-color: darkred;
   width: var(--bookmark-width);
   padding-right: var(--mobile-story-margin);
   box-sizing: content-box;
@@ -58,6 +60,18 @@
     opacity: 1;
   }
 
+  .bookmark.isBookmarked {
+    background-color: var(--accent);
+  }
+
+  .bookmark:hover {
+    background-color: var(--add-color);
+  }
+
+  .bookmark:hover.isBookmarked {
+    background-color: var(--remove-color);
+  }
+
   .text {
     flex-grow: 1;
   }
@@ -86,12 +100,12 @@
     );
   }
 
-  .bookmark.add {
-    background-color: darkgreen;
+  .swipeAdd {
+    background-color: var(--add-color);
   }
 
-  .bookmark.remove {
-    background-color: darkred;
+  .swipeRemove {
+    background-color: var(--remove-color);
   }
 
   .text {
