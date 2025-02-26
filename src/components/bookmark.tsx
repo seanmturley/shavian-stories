@@ -40,26 +40,28 @@ export default function Bookmark({
   }, [offset]);
 
   const handleBookmarkSwipe = useSwipeable({
-    onSwiped: (eventData) => {
-      if (eventData.deltaX >= addBookmarkThreshold) {
-        setBookmark(isBookmarked ? undefined : bookmarkId);
-      }
+    onSwiped: () => {
       setOffset({});
     },
-    onSwiping: (eventData) => {
+    onSwipedRight: (swipeEventData) => {
+      if (swipeEventData.deltaX >= addBookmarkThreshold) {
+        setBookmark(isBookmarked ? undefined : bookmarkId);
+      }
+    },
+    onSwiping: (swipeEventData) => {
       const newOffset = Math.max(
-        Math.min(0, eventData.deltaX - maxOffset),
+        Math.min(0, swipeEventData.deltaX - maxOffset),
         -maxOffset
       );
       setOffset({ left: `${newOffset}px` });
 
-      if (eventData.deltaX >= addBookmarkThreshold) {
+      if (swipeEventData.deltaX >= addBookmarkThreshold) {
         setAction(isBookmarked ? "remove" : "add");
       } else {
         setAction("");
       }
     },
-    delta: { up: 99999, down: 99999 }, // Disable detection of up/down swipes
+    delta: { up: 999999, down: 999999 }, // Reduce detection of up/down swipes
     preventScrollOnSwipe: true
   });
 
