@@ -11,8 +11,7 @@
 .bookmark {
   --add-color: darkgreen;
   --remove-color: darkred;
-  width: var(--bookmark-width);
-  padding-right: var(--mobile-story-margin);
+  padding-right: calc(2 * var(--story-half-margin));
   box-sizing: content-box;
   display: flex;
   align-items: center;
@@ -45,13 +44,14 @@
   cursor: inherit;
 }
 
-@media (width > 768px) {
+@media (hover: hover) {
   .bookmark {
-    --bookmark-width: 4rem;
-    width: var(--bookmark-width);
+    width: var(--pointer-bookmark-width);
     height: 100%;
     position: absolute;
-    left: calc(0px - var(--bookmark-width) - 1.5 * var(--mobile-story-margin));
+    left: calc(
+      0px - var(--pointer-bookmark-width) - 3 * var(--story-half-margin)
+    );
     opacity: 0;
   }
 
@@ -77,26 +77,31 @@
   }
 }
 
-@media (width <= 768px) {
+@media (hover: none) {
   .bookmarkSwipeWrapper {
-    --bookmark-width: 125px;
+    --touch-bookmark-width: 125px;
     transition: left 0.2s linear;
-    left: calc(0px - var(--bookmark-width) - var(--mobile-story-margin));
+    left: calc(
+      var(--touch-bookmark-indicator-width) - var(--touch-bookmark-width) -
+        (3 * var(--story-half-margin))
+    );
   }
 
   .bookmark {
+    width: var(--touch-bookmark-width);
     transition-property: background-color;
     transition-duration: 0.2s;
     transition-timing-function: linear;
     background-color: var(--accent);
-    margin-right: calc(0.5 * var(--mobile-story-margin));
+    margin-right: var(--story-half-margin);
   }
 
   .bookmark.isBookmarked {
-    --bookmark-indicator-width: 3px;
-    width: calc(var(--bookmark-indicator-width) + var(--bookmark-width));
+    width: calc(
+      var(--touch-bookmark-indicator-width) + var(--touch-bookmark-width)
+    );
     margin-right: calc(
-      0.5 * var(--mobile-story-margin) - var(--bookmark-indicator-width)
+      var(--story-half-margin) - var(--touch-bookmark-indicator-width)
     );
   }
 
@@ -109,6 +114,7 @@
   }
 
   .text {
-    width: calc(100vw - 2 * var(--mobile-story-margin));
+    width: calc(100vw - 4 * var(--story-half-margin));
+    max-width: var(--story-max-width);
   }
 }

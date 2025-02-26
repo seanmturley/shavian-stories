@@ -1,23 +1,40 @@
-@media (width > 768px) {
-  .story {
-    width: min(70rem, calc(60% + 12rem));
+.story {
+  max-width: var(--story-max-width);
+}
+
+@media (hover: hover) {
+  @media (width <= 880px) {
+    /* i.e. where the bookmark and its margins hit the left edge of the viewport: 70rem + 2 * (--pointer-bookmark-width + 2 * --story-half-margin) */
+    .story {
+      align-self: flex-start;
+      margin-left: calc(
+        var(--pointer-bookmark-width) + 3 * var(--story-half-margin)
+      );
+      margin-right: var(--story-half-margin);
+    }
   }
 }
 
-@media (width <= 768px) {
+@media (hover: none) {
   .story {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    width: calc(100vw - 1.5 * var(--mobile-story-margin));
-    margin-left: calc(0.5 * var(--mobile-story-margin));
-    margin-right: var(--mobile-story-margin);
+    width: calc(100vw - 3 * var(--story-half-margin));
+    margin-left: calc(0.5 * var(--story-half-margin));
+    margin-right: var(--story-half-margin);
     overflow-x: clip;
   }
 
   .story header,
   .story footer {
     align-self: center;
+  }
+
+  .story section {
+    margin-left: calc(
+      var(--story-half-margin) - var(--touch-bookmark-indicator-width)
+    );
   }
 }
 
