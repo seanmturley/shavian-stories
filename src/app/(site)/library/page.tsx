@@ -1,6 +1,11 @@
 import metadata from "@library/metadata";
+import getLibraryTableData from "@utils/library-table/get-library-table-data";
+
+const libraryTableData = getLibraryTableData();
 
 export default function Library() {
+  console.log(libraryTableData);
+
   return (
     <section>
       <h1>Library</h1>

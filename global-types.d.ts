@@ -18,6 +18,12 @@ type Author = {
 
 type Library = Record<string, Author>;
 
+type LibraryTableRow = {
+  author: string;
+  title: string;
+  year: number;
+};
+
 type BookmarkRef = Record<string, HTMLButtonElement | null>;
 
 type FormAction = (
