@@ -78,19 +78,6 @@ function getLines(latin: string, shavian: string) {
   return [latinLines, shavianLines];
 }
 
-// function addSection(shavianLine: string) {
-//   const sectionStart = /^\[{3}/;
-//   const sectionEnd = /^\]{3}/;
-
-//   if (shavianLine.match(sectionStart)) {
-//     return "<section>";
-//   }
-
-//   if (shavianLine.match(sectionEnd)) {
-//     return "</section>";
-//   }
-// }
-
 function addHeader(
   latinLine: string,
   shavianLine: string,
@@ -154,7 +141,6 @@ export function getLineHtml(
   // even between the tooltip anchors
   lineHtml += "<span>";
 
-  // Here a "chunk" refers to a word and its adjacent punctuation
   const [latinChunks, shavianChunks] = getChunks(
     latinLine,
     shavianLine,
