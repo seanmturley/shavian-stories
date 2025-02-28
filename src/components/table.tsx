@@ -1,34 +1,39 @@
 "use client";
 
+import { useState } from "react";
 import {
-  createColumnHelper,
   flexRender,
   getCoreRowModel,
-  useReactTable
+  getSortedRowModel,
+  useReactTable,
+  type ColumnDef,
+  type SortingState
 } from "@tanstack/react-table";
+import { getSortIcon, getSortTitle } from "@utils/table/sort";
 
-const columnHelper = createColumnHelper<LibraryTableRow>();
+type TableProps = {
+  columns: ColumnDef<TableRow, any>[];
+  data: TableRow[];
+  defaultSortColumn: TableColumn;
+};
 
-const columns = [
-  columnHelper.accessor("author", {
-    header: "Author",
-    cell: (info) => info.getValue()
-  }),
-  columnHelper.accessor("title", {
-    header: "Title",
-    cell: (info) => info.getValue()
-  }),
-  columnHelper.accessor("year", {
-    header: "Year",
-    cell: (info) => info.getValue()
-  })
-];
+export default function Table({
+  columns,
+  data,
+  defaultSortColumn
+}: TableProps) {
+  const [sorting, setSorting] = useState<SortingState>([
+    { id: defaultSortColumn, desc: false }
+  ]);
 
-export default function Table({ data }: { data: LibraryTableRow[] }) {
   const table = useReactTable({
     columns,
     data,
-    getCoreRowModel: getCoreRowModel()
+    getCoreRowModel: getCoreRowModel(),
+    getSortedRowModel: getSortedRowModel(),
+    onSortingChange: setSorting,
+    enableSortingRemoval: false,
+    state: { sorting }
   });
 
   return (
@@ -38,10 +43,18 @@ export default function Table({ data }: { data: LibraryTableRow[] }) {
           <tr key={headerGroup.id}>
             {headerGroup.headers.map((header) => (
               <th key={header.id}>
-                {flexRender(
-                  header.column.columnDef.header,
-                  header.getContext()
-                )}
+                <button
+                  onClick={header.column.getToggleSortingHandler()}
+                  title={getSortTitle(header.column)}
+                >
+                  <span>
+                    {flexRender(
+                      header.column.columnDef.header,
+                      header.getContext()
+                    )}
+                  </span>
+                  <span>{getSortIcon(header.column)}</span>
+                </button>
               </th>
             ))}
           </tr>

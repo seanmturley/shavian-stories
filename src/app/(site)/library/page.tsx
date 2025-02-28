@@ -1,7 +1,9 @@
 import Table from "@components/table";
-import getLibraryTableData from "@utils/library-table/get-library-table-data";
-
-const libraryTableData = getLibraryTableData();
+import {
+  libraryTableColumns,
+  libraryTableData,
+  libraryDefaultSortColumn
+} from "@utils/table/library-table";
 
 export default function Library() {
   return (
@@ -9,7 +11,11 @@ export default function Library() {
       <header>
         <h1>Library</h1>
       </header>
-      <Table data={libraryTableData} />
+      <Table
+        columns={libraryTableColumns}
+        data={libraryTableData}
+        defaultSortColumn={libraryDefaultSortColumn}
+      />
     </section>
   );
 }

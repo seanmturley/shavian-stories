@@ -18,11 +18,13 @@ type Author = {
 
 type Library = Record<string, Author>;
 
-type LibraryTableRow = {
-  author: string;
+type TableRow = {
+  author?: string;
   title: string;
   year: number;
 };
+
+type TableColumn = keyof TableRow;
 
 type BookmarkRef = Record<string, HTMLButtonElement | null>;
 
