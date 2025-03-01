@@ -5,7 +5,7 @@ export function generateStaticParams() {
   return Object.keys(metadata).map((author) => ({ author }));
 }
 
-export default async function AuthorCataloguePage({
+export default async function Author({
   params
 }: {
   params: Promise<{ author: string }>;

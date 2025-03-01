@@ -10,7 +10,7 @@ import {
   type ColumnDef,
   type SortingState
 } from "@tanstack/react-table";
-import { getSortIcon, getSortTitle } from "@utils/table/sort";
+import { getSortIcon, getSortTitle } from "@utils/table/get-sort-ui";
 
 type TableProps = {
   columns: ColumnDef<TableRow, any>[];

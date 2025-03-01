@@ -1,6 +1,8 @@
+"use client";
+
 import { Column } from "@tanstack/react-table";
 
-export const getSortTitle = (column: Column<TableRow, unknown>) => {
+export function getSortTitle(column: Column<TableRow, unknown>) {
   if (column.getCanSort()) {
     return column.getNextSortingOrder() === "asc"
       ? "Sort ascending"
@@ -8,13 +10,13 @@ export const getSortTitle = (column: Column<TableRow, unknown>) => {
   }
 
   return undefined;
-};
+}
 
-export const getSortIcon = (column: Column<TableRow, unknown>) => {
+export function getSortIcon(column: Column<TableRow, unknown>) {
   const sorting = column.getIsSorted();
 
   if (!sorting) return;
 
   if (sorting === "asc") return " 🔼";
   if (sorting === "desc") return " 🔽";
-};
+}

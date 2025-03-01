@@ -1,11 +1,15 @@
+"use client";
+
 import Table from "@components/table";
-import { libraryTableData } from "@utils/table/library-table-data";
-import {
-  libraryDefaultSortColumn,
-  libraryTableColumns
-} from "@utils/table/library-table-columns";
+import metadata from "@library/metadata";
+import getTableData from "@utils/table/get-table-data";
+import getTableColumns from "@utils/table/get-table-columns";
 
 export default function Library() {
+  const [libraryDefaultSortColumn, libraryTableColumns] =
+    getTableColumns("library");
+  const libraryTableData = getTableData(metadata);
+
   return (
     <section>
       <header>

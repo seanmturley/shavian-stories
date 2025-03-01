@@ -19,8 +19,9 @@ type Author = {
 type Library = Record<string, Author>;
 
 type TableRow = {
-  author?: string;
-  path: string;
+  author: string;
+  authorPath: string;
+  storyPath: string;
   title: string;
   year: number;
 };

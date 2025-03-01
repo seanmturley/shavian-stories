@@ -1,21 +1,27 @@
-import Link from "next/link";
+"use client";
+
+import Table from "@components/table";
 import metadata from "@library/metadata";
+import getTableColumns from "@utils/table/get-table-columns";
+import getTableData from "@utils/table/get-table-data";
 
 export default function AuthorCatalogue({ author }: { author: string }) {
   const authorMetadata = metadata[author];
 
+  const [authorDefaultSortColumn, authorTableColumns] =
+    getTableColumns("author");
+  const authorTableData = getTableData({ [author]: authorMetadata });
+
   return (
-    <>
-      <h1>{authorMetadata.name.latin} stories</h1>
-      <ul>
-        {Object.keys(authorMetadata.stories).map((story) => (
-          <li key={story}>
-            <Link href={`${process.env.libraryUrl}/${author}/${story}`}>
-              {authorMetadata.stories[story].title.latin}
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </>
+    <section>
+      <header>
+        <h1>{authorMetadata.name.latin}</h1>
+      </header>
+      <Table
+        columns={authorTableColumns}
+        data={authorTableData}
+        defaultSortColumn={authorDefaultSortColumn}
+      />
+    </section>
   );
 }
