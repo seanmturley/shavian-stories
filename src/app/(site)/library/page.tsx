@@ -1,9 +1,9 @@
 import Table from "@components/table";
+import { libraryTableData } from "@utils/table/library-table-data";
 import {
-  libraryTableColumns,
-  libraryTableData,
-  libraryDefaultSortColumn
-} from "@utils/table/library-table";
+  libraryDefaultSortColumn,
+  libraryTableColumns
+} from "@utils/table/library-table-columns";
 
 export default function Library() {
   return (

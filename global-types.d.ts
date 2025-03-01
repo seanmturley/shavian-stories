@@ -20,6 +20,7 @@ type Library = Record<string, Author>;
 
 type TableRow = {
   author?: string;
+  path: string;
   title: string;
   year: number;
 };

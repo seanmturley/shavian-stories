@@ -1,19 +1,4 @@
 import metadata from "@library/metadata";
-import { createColumnHelper } from "@tanstack/react-table";
-
-const columnHelper = createColumnHelper<TableRow>();
-
-export const libraryTableColumns = [
-  columnHelper.accessor("author", {
-    header: "Author"
-  }),
-  columnHelper.accessor("title", {
-    header: "Title"
-  }),
-  columnHelper.accessor("year", {
-    header: "Year"
-  })
-];
 
 const getLibraryTableData = () => {
   let libraryTableData = [];
@@ -26,6 +11,7 @@ const getLibraryTableData = () => {
 
       const libraryTableRow: TableRow = {
         author: author.name.latin,
+        path: `/${authorKey}/${storyKey}`,
         title: story.title.latin,
         year: story.year
       };
@@ -38,5 +24,3 @@ const getLibraryTableData = () => {
 };
 
 export const libraryTableData = getLibraryTableData();
-
-export const libraryDefaultSortColumn: TableColumn = "author";
