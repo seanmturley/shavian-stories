@@ -6,10 +6,12 @@ const metadata: Catalogue = {
     },
     stories: {
       dagon: {
+        genre: "horror",
         title: { latin: "Dagon", shavian: "·𐑛𐑨𐑜𐑩𐑯" },
         year: 1919
       },
       "from-beyond": {
+        genre: "horror",
         title: { latin: "From Beyond", shavian: "𐑓𐑮𐑪𐑥 𐑚𐑦𐑘𐑪𐑯𐑛" },
         year: 1920
       }
@@ -22,6 +24,7 @@ const metadata: Catalogue = {
     },
     stories: {
       "jeeves-takes-charge": {
+        genre: "comedy",
         title: {
           latin: "Jeeves Takes Charge",
           shavian: "·𐑡𐑰𐑝𐑟 𐑑𐑱𐑒𐑕 𐑗𐑸𐑡"
@@ -29,6 +32,7 @@ const metadata: Catalogue = {
         year: 1925
       },
       "the-artistic-career-of-corky": {
+        genre: "comedy",
         title: {
           latin: "The Artistic Career of Corky",
           shavian: "𐑞 𐑸𐑑𐑦𐑕𐑑𐑦𐑒 𐑒𐑼𐑽 𐑝 ·𐑒𐑹𐑒𐑦"

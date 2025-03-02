@@ -1,4 +1,5 @@
 type Story = {
+  genre: "comedy" | "horror";
   title: {
     latin: string;
     shavian: string;
