@@ -4,6 +4,7 @@ import Table from "@components/table";
 import metadata from "@library/metadata";
 import getTableColumns from "@utils/table/get-table-columns";
 import getTableData from "@utils/table/get-table-data";
+import styles from "./catalogue.module.css";
 
 export default function Catalogue({ authorName }: { authorName?: string }) {
   let heading: string;
@@ -24,7 +25,7 @@ export default function Catalogue({ authorName }: { authorName?: string }) {
   const tableData = getTableData(tableMetadata);
 
   return (
-    <section>
+    <section className={styles.catalogue}>
       <header>
         <h1>{heading}</h1>
       </header>

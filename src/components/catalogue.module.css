@@ -1,0 +1,8 @@
+.catalogue {
+  max-width: var(--story-max-width);
+  width: calc(100vw - 3 * var(--story-half-margin));
+}
+
+.catalogue h1 {
+  font-size: calc(1.5 * var(--story-line-height));
+}

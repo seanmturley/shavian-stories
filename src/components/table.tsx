@@ -11,6 +11,7 @@ import {
   type SortingState
 } from "@tanstack/react-table";
 import { getSortIcon, getSortTitle } from "@utils/table/get-sort-ui";
+import styles from "./table.module.css";
 
 type TableProps = {
   columns: ColumnDef<TableRow, any>[];
@@ -42,18 +43,19 @@ export default function Table({
   });
 
   return (
-    <div>
+    <div className={styles.tableContainer}>
       <input
+        className={styles.search}
         onChange={(e) => setGlobalFilter(e.target.value)}
         placeholder="Search..."
         value={globalFilter}
       />
-      <table>
-        <thead>
+      <table className={styles.table}>
+        <thead className={styles.tableHeader}>
           {table.getHeaderGroups().map((headerGroup) => (
             <tr key={headerGroup.id}>
               {headerGroup.headers.map((header) => (
-                <th key={header.id}>
+                <th key={header.id} className={styles[header.column.id]}>
                   <button
                     onClick={header.column.getToggleSortingHandler()}
                     title={getSortTitle(header.column)}
@@ -71,11 +73,11 @@ export default function Table({
             </tr>
           ))}
         </thead>
-        <tbody>
+        <tbody className={styles.tableBody}>
           {table.getRowModel().rows.map((row) => (
-            <tr key={row.id}>
+            <tr key={row.id} className={styles.tableRow}>
               {row.getVisibleCells().map((cell) => (
-                <td key={cell.id}>
+                <td key={cell.id} className={styles[cell.column.id]}>
                   {flexRender(cell.column.columnDef.cell, cell.getContext())}
                 </td>
               ))}
