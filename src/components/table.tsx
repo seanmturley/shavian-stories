@@ -66,7 +66,9 @@ export default function Table({
                         header.getContext()
                       )}
                     </span>
-                    <span>{getSortIcon(header.column)}</span>
+                    <span className={styles.sortIcon}>
+                      {getSortIcon(header.column)}
+                    </span>
                   </button>
                 </th>
               ))}

@@ -17,6 +17,6 @@ export function getSortIcon(column: Column<TableRow, unknown>) {
 
   if (!sorting) return;
 
-  if (sorting === "asc") return " 🔼";
-  if (sorting === "desc") return " 🔽";
+  if (sorting === "asc") return "🔼";
+  if (sorting === "desc") return "🔽";
 }
