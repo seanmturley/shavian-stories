@@ -1,4 +1,4 @@
-const metadata: Library = {
+const metadata: Catalogue = {
   "h-p-lovecraft": {
     name: {
       latin: "H. P. Lovecraft",

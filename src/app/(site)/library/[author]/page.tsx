@@ -1,4 +1,4 @@
-import AuthorCatalogue from "@components/author-catalogue";
+import Catalogue from "@components/catalogue";
 import metadata from "@library/metadata";
 
 export function generateStaticParams() {
@@ -12,5 +12,5 @@ export default async function Author({
 }) {
   const { author } = await params;
 
-  return <AuthorCatalogue author={author} />;
+  return <Catalogue authorName={author} />;
 }

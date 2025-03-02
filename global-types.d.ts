@@ -16,7 +16,9 @@ type Author = {
   stories: Stories;
 };
 
-type Library = Record<string, Author>;
+type Catalogue = Record<string, Author>;
+
+type TableType = "author" | "library";
 
 type TableRow = {
   author: string;

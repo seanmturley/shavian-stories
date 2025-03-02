@@ -3,9 +3,12 @@
 import Link from "next/link";
 import { ColumnDef, createColumnHelper } from "@tanstack/react-table";
 
-export default function getTableColumns(
-  tableType: "library" | "author"
-): [TableColumn, ColumnDef<TableRow, any>[]] {
+type GetTableColumns = {
+  defaultSortColumn: TableColumn;
+  tableColumns: ColumnDef<TableRow, any>[];
+};
+
+export default function getTableColumns(tableType: TableType): GetTableColumns {
   const defaultSortColumn = tableType === "library" ? "author" : "title";
 
   const columnHelper = createColumnHelper<TableRow>();
@@ -36,5 +39,5 @@ export default function getTableColumns(
     })
   ];
 
-  return [defaultSortColumn, tableColumns];
+  return { defaultSortColumn, tableColumns };
 }

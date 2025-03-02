@@ -1,4 +1,4 @@
-export default function getTableData(metadata: Library) {
+export default function getTableData(metadata: Catalogue) {
   let tableData = [];
 
   for (const authorKey in metadata) {
