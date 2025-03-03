@@ -1,13 +1,12 @@
 "use client";
 
-import { type ReactElement } from "react";
 import { type Header } from "@tanstack/react-table";
 
 export default function ColumnHeaderSortable({
   columnHeading,
   header
 }: {
-  columnHeading: ReactElement;
+  columnHeading: React.ReactElement;
   header: Header<TableRow, unknown>;
 }) {
   const sortTitle =

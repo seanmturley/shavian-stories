@@ -1,13 +1,13 @@
 "use client";
 
-import { useMemo, type ReactElement } from "react";
+import { useMemo } from "react";
 import { type Header } from "@tanstack/react-table";
 
 export default function ColumnHeaderFacetted({
   columnHeading,
   header
 }: {
-  columnHeading: ReactElement;
+  columnHeading: React.ReactElement;
   header: Header<TableRow, unknown>;
 }) {
   const columnFilterValue = header.column.getFilterValue();
