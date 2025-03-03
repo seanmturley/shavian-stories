@@ -1,7 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { ColumnDef, createColumnHelper } from "@tanstack/react-table";
+import { ColumnDef, createColumnHelper, RowData } from "@tanstack/react-table";
+
+declare module "@tanstack/react-table" {
+  interface ColumnMeta<TData extends RowData, TValue> {
+    columnType?: "facetted" | "sortable";
+  }
+}
 
 type GetTableColumns = {
   defaultSortColumn: TableColumn;
@@ -22,7 +28,8 @@ export default function getTableColumns(tableType: TableType): GetTableColumns {
               <Link href={cellData.row.original.authorPath}>
                 {cellData.getValue()}
               </Link>
-            )
+            ),
+            meta: { columnType: "sortable" }
           })
         ]
       : []),
@@ -32,13 +39,16 @@ export default function getTableColumns(tableType: TableType): GetTableColumns {
         <Link href={cellData.row.original.storyPath}>
           {cellData.getValue()}
         </Link>
-      )
+      ),
+      meta: { columnType: "sortable" }
     }),
     columnHelper.accessor("genre", {
-      header: "Genre"
+      header: "Genre",
+      meta: { columnType: "facetted" }
     }),
     columnHelper.accessor("year", {
-      header: "Year"
+      header: "Year",
+      meta: { columnType: "sortable" }
     })
   ];
 

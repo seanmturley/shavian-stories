@@ -1,16 +1,19 @@
 "use client";
 
 import { useState } from "react";
+import ColumnHeader from "@components/column-header";
 import {
   flexRender,
   getCoreRowModel,
+  getFacetedRowModel,
+  getFacetedUniqueValues,
   getFilteredRowModel,
   getSortedRowModel,
   useReactTable,
   type ColumnDef,
+  type ColumnFiltersState,
   type SortingState
 } from "@tanstack/react-table";
-import { getSortIcon, getSortTitle } from "@utils/table/get-sort-ui";
 import styles from "./table.module.css";
 
 type TableProps = {
@@ -24,6 +27,7 @@ export default function Table({
   data,
   defaultSortColumn
 }: TableProps) {
+  const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
   const [globalFilter, setGlobalFilter] = useState("");
   const [sorting, setSorting] = useState<SortingState>([
     { id: defaultSortColumn, desc: false }
@@ -33,13 +37,16 @@ export default function Table({
     columns,
     data,
     getCoreRowModel: getCoreRowModel(),
+    onColumnFiltersChange: setColumnFilters,
+    getFacetedRowModel: getFacetedRowModel(),
+    getFacetedUniqueValues: getFacetedUniqueValues(),
     getSortedRowModel: getSortedRowModel(),
     onSortingChange: setSorting,
     enableSortingRemoval: false,
     getFilteredRowModel: getFilteredRowModel(),
     onGlobalFilterChange: setGlobalFilter,
     globalFilterFn: "includesString",
-    state: { globalFilter, sorting }
+    state: { columnFilters, globalFilter, sorting }
   });
 
   return (
@@ -56,20 +63,7 @@ export default function Table({
             <tr key={headerGroup.id}>
               {headerGroup.headers.map((header) => (
                 <th key={header.id} className={styles[header.column.id]}>
-                  <button
-                    onClick={header.column.getToggleSortingHandler()}
-                    title={getSortTitle(header.column)}
-                  >
-                    <span>
-                      {flexRender(
-                        header.column.columnDef.header,
-                        header.getContext()
-                      )}
-                    </span>
-                    <span className={styles.sortIcon}>
-                      {getSortIcon(header.column)}
-                    </span>
-                  </button>
+                  <ColumnHeader header={header} />
                 </th>
               ))}
             </tr>
