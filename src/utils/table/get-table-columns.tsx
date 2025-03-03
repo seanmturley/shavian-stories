@@ -44,6 +44,13 @@ export default function getTableColumns(tableType: TableType): GetTableColumns {
     }),
     columnHelper.accessor("genre", {
       header: "Genre",
+      cell: (cellData) => (
+        <button
+          onClick={() => cellData.column.setFilterValue(cellData.getValue())}
+        >
+          {cellData.getValue()}
+        </button>
+      ),
       meta: { columnType: "facetted" }
     }),
     columnHelper.accessor("year", {
