@@ -1,5 +1,7 @@
+type Genre = "comedy" | "horror";
+
 type Story = {
-  genre: "comedy" | "horror";
+  genre: Genre;
   title: {
     latin: string;
     shavian: string;
@@ -24,6 +26,7 @@ type TableType = "author" | "library";
 type TableRow = {
   author: string;
   authorPath: string;
+  genre: Genre;
   storyPath: string;
   title: string;
   year: number;

@@ -34,6 +34,9 @@ export default function getTableColumns(tableType: TableType): GetTableColumns {
         </Link>
       )
     }),
+    columnHelper.accessor("genre", {
+      header: "Genre"
+    }),
     columnHelper.accessor("year", {
       header: "Year"
     })

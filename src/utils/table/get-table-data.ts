@@ -13,6 +13,7 @@ export default function getTableData(metadata: Catalogue) {
       const tableRow: TableRow = {
         author: author.name.latin,
         authorPath,
+        genre: story.genre,
         storyPath,
         title: story.title.latin,
         year: story.year
