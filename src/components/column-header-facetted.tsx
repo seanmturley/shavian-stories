@@ -2,6 +2,7 @@
 
 import { useMemo } from "react";
 import { type Header } from "@tanstack/react-table";
+import styles from "./column-header-facetted.module.css";
 
 export default function ColumnHeaderFacetted({
   columnHeading,
@@ -21,6 +22,7 @@ export default function ColumnHeaderFacetted({
     <>
       {columnHeading}
       <select
+        className={styles.dropDown}
         onChange={(e) => header.column.setFilterValue(e.target.value)}
         value={columnFilterValue?.toString()}
       >

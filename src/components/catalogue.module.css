@@ -1,6 +1,6 @@
 .catalogue {
-  max-width: var(--story-max-width);
-  width: calc(100vw - 3 * var(--story-half-margin));
+  max-width: calc(1.5 * var(--story-max-width));
+  width: calc(100vw - 8 * var(--story-half-margin));
 }
 
 .catalogue h1 {

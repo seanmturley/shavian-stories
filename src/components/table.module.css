@@ -13,8 +13,11 @@
   width: 100%;
   border-collapse: collapse;
   font-size: 2rem;
-  line-height: 6rem;
   text-align: left;
+}
+
+.table tr {
+  height: 6rem;
 }
 
 .tableHeader {
@@ -38,20 +41,32 @@
 .table th,
 .table td {
   padding: 0 2rem;
+  text-align: center;
 }
 
-.table button,
+.tableHeader button,
 .table a {
   width: 100%;
   display: block;
 }
 
-.sortIcon {
-  margin-left: 1rem;
-}
-
 .author {
   width: 20rem;
+}
+
+.table .title {
+  text-align: left;
+}
+
+.genre {
+  width: 20rem;
+}
+
+.genre button {
+  padding: 0.3em 0.5em;
+  border-radius: 0.2em;
+  color: var(--back);
+  background-color: var(--accent);
 }
 
 .year {
