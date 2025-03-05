@@ -46,7 +46,15 @@ export default function getTableColumns(tableType: TableType): GetTableColumns {
       header: "Genre",
       cell: (cellData) => (
         <button
-          onClick={() => cellData.column.setFilterValue(cellData.getValue())}
+          onClick={() => {
+            const cellValue = cellData.getValue();
+
+            cellData.column.setFilterValue(
+              cellData.column.getFilterValue() === cellValue
+                ? undefined
+                : cellValue
+            );
+          }}
         >
           {cellData.getValue()}
         </button>
