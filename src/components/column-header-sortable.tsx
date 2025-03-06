@@ -1,7 +1,6 @@
 "use client";
 
 import { type Header } from "@tanstack/react-table";
-import styles from "./column-header-sortable.module.css";
 
 export default function ColumnHeaderSortable({
   columnHeading,
@@ -17,13 +16,19 @@ export default function ColumnHeaderSortable({
 
   let sortIcon: string | undefined;
   const sorting = header.column.getIsSorted();
-  if (sorting === "asc") sortIcon = "🔼";
-  if (sorting === "desc") sortIcon = "🔽";
+  if (sorting === "asc") {
+    sortIcon = "↑";
+  } else if (sorting === "desc") {
+    sortIcon = "↓";
+  } else {
+    // sortIcon = "↕";
+    sortIcon = "";
+  }
 
   return (
     <button onClick={header.column.getToggleSortingHandler()} title={sortTitle}>
       {columnHeading}
-      <span className={styles.sortIcon}>{sortIcon}</span>
+      <span>{sortIcon}</span>
     </button>
   );
 }

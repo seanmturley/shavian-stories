@@ -41,7 +41,6 @@
 .table th,
 .table td {
   padding: 0 2rem;
-  text-align: center;
 }
 
 .tableHeader button,
@@ -51,15 +50,11 @@
 }
 
 .author {
-  width: 20rem;
-}
-
-.table .title {
-  text-align: left;
+  width: 10em;
 }
 
 .genre {
-  width: 20rem;
+  width: 10em;
 }
 
 .genre button {
@@ -70,5 +65,5 @@
 }
 
 .year {
-  width: 12rem;
+  width: 6em;
 }
