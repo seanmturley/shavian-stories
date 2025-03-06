@@ -1,5 +1,6 @@
 .story {
   max-width: var(--story-max-width);
+  position: relative;
 }
 
 @media (hover: hover) {

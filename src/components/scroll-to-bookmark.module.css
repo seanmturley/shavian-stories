@@ -1,5 +1,8 @@
 .scrollButton {
   position: absolute;
-  top: var(--story-line-height);
-  right: calc(2 * var(--story-line-height));
+  top: var(--story-half-margin);
+  right: 0;
+  line-height: var(--story-line-height);
+  font-size: calc((2 / 3) * var(--story-line-height));
+  color: var(--accent);
 }

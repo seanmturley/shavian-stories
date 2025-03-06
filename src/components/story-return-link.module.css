@@ -1,6 +1,7 @@
 .storyReturnLink {
   position: absolute;
   top: var(--story-half-margin);
-  font-size: 4rem;
-  font-weight: 600;
+  line-height: var(--story-line-height);
+  font-size: 5rem;
+  color: var(--accent);
 }
