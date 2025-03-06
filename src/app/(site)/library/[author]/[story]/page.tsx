@@ -3,6 +3,7 @@ import StoryFooter from "@components/story-footer";
 import StoryHeader from "@components/story-header";
 import metadata from "@library/metadata";
 import styles from "./story.module.css";
+import StoryReturnLink from "@components/story-return-link";
 
 export function generateStaticParams() {
   const staticParams = [];
@@ -30,6 +31,7 @@ export default async function Story({
 
   return (
     <article className={styles.story}>
+      <StoryReturnLink />
       <StoryHeader {...{ author, story }} />
       <StoryBody {...{ author, story, latin, shavian }} />
       <StoryFooter />
