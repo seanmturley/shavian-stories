@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import StoryLink from "@components/story-link";
 import { ColumnDef, createColumnHelper, RowData } from "@tanstack/react-table";
 
 declare module "@tanstack/react-table" {
@@ -36,9 +37,9 @@ export default function getTableColumns(tableType: TableType): GetTableColumns {
     columnHelper.accessor("title", {
       header: "Title",
       cell: (cellData) => (
-        <Link href={cellData.row.original.storyPath}>
+        <StoryLink href={cellData.row.original.storyPath}>
           {cellData.getValue()}
-        </Link>
+        </StoryLink>
       ),
       meta: { columnType: "sortable" }
     }),
