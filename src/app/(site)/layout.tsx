@@ -7,6 +7,14 @@ export const metadata: Metadata = {
     "A collection of stories in the Shavian alphabet. | 𐑩 𐑒𐑩𐑤𐑧𐑒𐑖𐑩𐑯 𐑝 𐑕𐑑𐑹𐑦𐑟 𐑦𐑯 𐑞 ·𐑖𐑱𐑝𐑾𐑯 𐑨𐑤𐑓𐑩𐑚𐑧𐑑."
 };
 
+const tooltipProps = {
+  className: "tooltip",
+  closeEvents: { blur: true, click: true, mouseout: true },
+  globalCloseEvents: { scroll: true },
+  opacity: 1,
+  openEvents: { click: true, focus: true, mouseover: true }
+};
+
 const tooltipStyle = {
   fontSize: "2.8em",
   color: "hsl(0, 0%, 10%)",
@@ -21,20 +29,14 @@ export default function SiteLayout({
   return (
     <>
       <main>{children}</main>
-      <Tooltip
-        id="latin"
-        className="tooltip"
-        style={tooltipStyle}
-        opacity={1}
-      />
+      <Tooltip id="latin" {...tooltipProps} style={tooltipStyle} />
       <Tooltip
         id="latin-emphasis"
-        className="tooltip"
+        {...tooltipProps}
         style={{
           ...tooltipStyle,
           fontStyle: "italic"
         }}
-        opacity={1}
       />
     </>
   );
