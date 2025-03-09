@@ -1,6 +1,7 @@
 .story {
   max-width: var(--story-max-width);
   position: relative;
+  font-variant-numeric: oldstyle-nums;
 }
 
 @media (hover: hover) {
@@ -82,12 +83,6 @@
 .story header p {
   font-size: var(--story-line-height);
   margin: 0 0 var(--story-line-height);
-}
-
-.story em {
-  font-family: var(--doolittle-garamond-italic), serif;
-  font-size: 1.15em;
-  font-weight: 200;
 }
 
 .story a[href] {

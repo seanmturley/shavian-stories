@@ -1,14 +1,14 @@
 :root {
   font-size: 0.625rem;
-  --story-line-height: 4.2rem;
+  --story-line-height: 3.8rem;
   --story-word-spacing: 0.3em;
   --story-half-margin: 12.5px;
   --story-max-width: 70rem;
   --pointer-bookmark-width: 4rem;
   --touch-bookmark-indicator-width: 3px;
 
-  font-family: var(--ormin-regular), sans-serif;
-  font-variant-numeric: oldstyle-nums;
+  /* font-variant-numeric: oldstyle-nums; */
+
   scroll-behavior: smooth;
 
   /* Default dark theme

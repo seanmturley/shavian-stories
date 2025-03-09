@@ -2,16 +2,9 @@ import localFont from "next/font/local";
 import "node_modules/modern-normalize/modern-normalize.css";
 import "./globals.css";
 
-const orminRegular = localFont({
-  display: "swap",
-  src: "./ormin-regular.otf",
-  variable: "--ormin-regular"
-});
-
-const doolittleGaramondItalic = localFont({
-  display: "swap",
-  src: "./doolittle-garamond-italic.otf",
-  variable: "--doolittle-garamond-italic"
+const interAlia = localFont({
+  src: "./inter-alia-vf.otf",
+  fallback: ["system-ui"]
 });
 
 export default function RootLayout({
@@ -22,7 +15,8 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${orminRegular.variable} ${doolittleGaramondItalic.variable}`}
+      // className={`${orminRegular.className} ${doolittleGaramondItalic.variable}`}
+      className={interAlia.className}
     >
       <body>{children}</body>
     </html>
