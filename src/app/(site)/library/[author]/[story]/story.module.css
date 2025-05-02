@@ -85,7 +85,8 @@
   margin: 0 0 var(--story-line-height);
 }
 
-.story a[href] {
+.story a[href],
+.story a[data-tooltip-id="latin-link"] {
   color: var(--accent);
 }
 

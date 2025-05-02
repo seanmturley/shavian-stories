@@ -17,6 +17,14 @@ export default function StoryHeader({ author, story }: StoryHeaderProps) {
     "heading"
   );
 
+  const authorLink = `
+    <a
+      rel="author"
+      href="${process.env.libraryUrl}/${author}"
+    >
+      ${authorName.latin}
+    </a>`;
+
   return (
     <header>
       {parse(headingHtml)}
@@ -25,13 +33,7 @@ export default function StoryHeader({ author, story }: StoryHeaderProps) {
           <a data-tooltip-id="latin" data-tooltip-content="by">
             𐑚𐑲
           </a>{" "}
-          <a
-            rel="author"
-            href={`${process.env.libraryUrl}/${author}`}
-            data-tooltip-id="latin"
-            data-tooltip-content={authorName.latin}
-            className="link"
-          >
+          <a data-tooltip-id="latin-link" data-tooltip-html={authorLink}>
             {authorName.shavian}
           </a>
         </span>

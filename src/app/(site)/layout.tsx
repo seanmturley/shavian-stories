@@ -38,6 +38,12 @@ export default function SiteLayout({
           fontStyle: "italic"
         }}
       />
+      <Tooltip
+        id="latin-link"
+        clickable={true}
+        {...tooltipProps}
+        style={{ ...tooltipStyle, textDecoration: "underline" }}
+      />
     </>
   );
 }
