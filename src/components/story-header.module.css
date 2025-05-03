@@ -1,0 +1,11 @@
+@media (hover: hover) {
+  .authorTooltipTouch {
+    display: none;
+  }
+}
+
+@media (hover: none) {
+  .authorTooltipPointer {
+    display: none;
+  }
+}
