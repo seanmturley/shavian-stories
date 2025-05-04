@@ -1,6 +1,6 @@
-import { redirect } from "next/navigation";
 import Catalogue from "@components/catalogue";
 import metadata from "@library/metadata";
+import { checkExistsInLibrary } from "@utils/check-exists-in-library";
 
 export function generateStaticParams() {
   return Object.keys(metadata).map((author) => ({ author }));
@@ -13,9 +13,7 @@ export default async function Author({
 }) {
   const { author } = await params;
 
-  if (!Object.hasOwn(metadata, author)) {
-    redirect("/library");
-  }
+  checkExistsInLibrary(author);
 
   return <Catalogue authorName={author} />;
 }
