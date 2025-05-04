@@ -8,7 +8,7 @@ export function checkExistsInLibrary(author: string, story?: string) {
     );
   }
 
-  if (story && !Object.hasOwn(metadata[author], story)) {
+  if (story && !Object.hasOwn(metadata[author].stories, story)) {
     redirect(
       `/library/${author}?message=The story "${story}" by "${author}" could not be found. Try searching the following stories by the same author.`
     );
