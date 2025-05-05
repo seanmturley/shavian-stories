@@ -1,4 +1,5 @@
 import Catalogue from "@components/catalogue";
+import Message from "@components/message";
 import metadata from "@library/metadata";
 import { checkExistsInLibrary } from "@utils/check-exists-in-library";
 
@@ -15,5 +16,10 @@ export default async function Author({
 
   checkExistsInLibrary(author);
 
-  return <Catalogue authorName={author} />;
+  return (
+    <>
+      <Message />
+      <Catalogue authorName={author} />
+    </>
+  );
 }
