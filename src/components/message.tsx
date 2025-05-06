@@ -17,6 +17,8 @@ export default function Message() {
     if (dialogRef.current) dialogRef.current.close();
   };
 
+  if (!message) return null;
+
   return (
     <dialog ref={dialogRef}>
       <p>{message}</p>
