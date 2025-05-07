@@ -1,5 +1,6 @@
 "use client";
 
+import AuthorBio from "@components/author-bio";
 import Table from "@components/table";
 import metadata from "@library/metadata";
 import getTableColumns from "@utils/table/get-table-columns";
@@ -28,8 +29,8 @@ export default function Catalogue({ authorName }: { authorName?: string }) {
     <section className={styles.catalogue}>
       <header>
         <h1>{heading}</h1>
+        {authorName && <AuthorBio authorName={authorName} />}
       </header>
-      <p></p>
       <Table
         columns={tableColumns}
         data={tableData}
