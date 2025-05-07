@@ -12,6 +12,11 @@ type Story = {
 type Stories = Record<string, Story>;
 
 type Author = {
+  bio: {
+    dates: string;
+    about: string;
+    link: string;
+  };
   name: {
     latin: string;
     shavian: string;
