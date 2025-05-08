@@ -2,7 +2,26 @@
   max-width: calc(1.5 * var(--story-max-width));
   width: calc(100vw - 8 * var(--story-half-margin));
 }
-
+/* The sizes below are all 2/3 or the story sizes - the */
+/* extra large font appeared too large for Latin script */
 .catalogue h1 {
+  margin: var(--story-line-height) 0;
+  font-weight: 500;
+  line-height: 1em;
   font-size: calc(1.5 * var(--story-line-height));
+}
+
+.catalogue header p:nth-of-type(1) {
+  margin: 0 0 var(--story-line-height);
+  font-weight: 300;
+  font-size: calc((2 / 3) * var(--story-line-height));
+}
+.catalogue header p:nth-of-type(2) {
+  font-weight: 300;
+  line-height: calc((2 / 3) * var(--story-line-height));
+  font-size: calc((4 / 9) * var(--story-line-height));
+}
+
+.catalogue header a {
+  color: var(--accent);
 }
