@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import NavBar from "@components/nav-bar";
 import Tooltip from "@components/react-tooltip";
 
 export const metadata: Metadata = {
@@ -28,6 +29,7 @@ export default function SiteLayout({
 }) {
   return (
     <>
+      <NavBar />
       <main>{children}</main>
       <Tooltip id="latin" {...tooltipProps} style={tooltipStyle} />
       <Tooltip
