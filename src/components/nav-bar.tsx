@@ -1,7 +1,16 @@
+"use client";
+
 import Link from "next/link";
 import styles from "./nav-bar.module.css";
+import { usePathname } from "next/navigation";
 
 export default function NavBar() {
+  const pathname = usePathname();
+
+  if (pathname === "/library/p-g-wodehouse/jeeves-takes-charge") {
+    return <h1>This isn't a nav bar</h1>;
+  }
+
   return (
     <header>
       <h1>
