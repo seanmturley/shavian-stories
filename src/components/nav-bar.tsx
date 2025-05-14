@@ -1,14 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import styles from "./nav-bar.module.css";
 import { usePathname } from "next/navigation";
+import StoryReturnLink from "@components/story-return-link";
+import styles from "./nav-bar.module.css";
 
 export default function NavBar() {
   const pathname = usePathname();
 
   if (pathname === "/library/p-g-wodehouse/jeeves-takes-charge") {
-    return <h1>This isn't a nav bar</h1>;
+    return <StoryReturnLink />;
   }
 
   return (

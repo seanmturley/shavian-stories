@@ -1,7 +1,6 @@
 import StoryBody from "@components/story-body";
 import StoryFooter from "@components/story-footer";
 import StoryHeader from "@components/story-header";
-import StoryReturnLink from "@components/story-return-link";
 import metadata from "@library/metadata";
 import { checkExistsInLibrary } from "@utils/check-exists-in-library";
 import styles from "./story.module.css";
@@ -34,7 +33,6 @@ export default async function Story({
 
   return (
     <article className={styles.story}>
-      <StoryReturnLink />
       <StoryHeader {...{ author, story }} />
       <StoryBody {...{ author, story, latin, shavian }} />
       <StoryFooter />
