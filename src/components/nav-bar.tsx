@@ -8,8 +8,18 @@ import styles from "./nav-bar.module.css";
 export default function NavBar() {
   const pathname = usePathname();
 
-  if (pathname === "/library/p-g-wodehouse/jeeves-takes-charge") {
-    return <StoryReturnLink />;
+  const authorAndStory = /([^\/]+)\/([^\/]+)$/gm;
+  const match = authorAndStory.exec(pathname);
+
+  if (match) {
+    const [_, author, story] = match;
+
+    console.log(author);
+    console.log(story);
+
+    if (pathname === "/library/p-g-wodehouse/jeeves-takes-charge") {
+      return <StoryReturnLink />;
+    }
   }
 
   return (
