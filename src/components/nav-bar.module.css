@@ -1,7 +1,26 @@
+.navBar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.navBar nav {
+  width: 40%;
+}
+
+.navBar ul {
+  list-style: none;
+}
+
+.navList {
+  display: flex;
+  justify-content: space-evenly;
+}
+
 .dropdownContent {
   display: none;
 }
 
 .dropdown:hover .dropdownContent {
   display: block;
+  position: absolute;
 }

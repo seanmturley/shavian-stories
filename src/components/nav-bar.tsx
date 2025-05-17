@@ -24,13 +24,13 @@ export default function NavBar() {
   }
 
   return (
-    <header>
+    <header className={styles.navBar}>
       <h1>
         <Link href="/">Shavian Stories</Link>
       </h1>
 
       <nav>
-        <ul>
+        <ul className={styles.navList}>
           <li className={styles.dropdown}>
             <Link href="#">Learn</Link>
             <ul className={styles.dropdownContent}>
