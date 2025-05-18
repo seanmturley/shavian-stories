@@ -19,7 +19,13 @@ export default function NavBar() {
       Object.hasOwn(metadata, author) &&
       Object.hasOwn(metadata[author].stories, story)
     ) {
-      return <StoryReturnLink />;
+      return (
+        <header className={styles.navBar}>
+          <nav>
+            <StoryReturnLink />
+          </nav>
+        </header>
+      );
     }
   }
 
