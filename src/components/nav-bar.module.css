@@ -1,23 +1,50 @@
 .navBar {
   display: flex;
   justify-content: space-between;
+  display: flex;
+  height: calc(2 * var(--story-line-height));
+  border-bottom: 0.15em solid var(--front);
+}
+
+.navBar h1 {
+  font-size: var(--story-line-height);
+  font-weight: 500;
+  line-height: 1.5em;
+  margin: 0;
+  display: flex;
+  align-items: center;
 }
 
 .navBar nav {
-  width: 40%;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
 }
 
 .navBar ul {
   list-style: none;
+  margin: unset;
 }
 
 .navList {
+  padding: unset;
+  width: 100%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: end;
+  font-size: calc(0.5 * var(--story-line-height));
+  font-weight: 300;
+  line-height: var(--story-line-height);
+}
+
+.dropdown {
+  margin-right: 10em;
 }
 
 .dropdownContent {
   display: none;
+  background-color: var(--back);
+  border: 1px solid var(--front);
+  padding: calc(0.5 * var(--story-line-height));
 }
 
 .dropdown:hover .dropdownContent {
